@@ -1,0 +1,414 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-lab-950 text-slate-100 antialiased font-sans;
+  background-image:
+    radial-gradient(ellipse 100% 70% at 50% -30%, rgba(59, 130, 246, 0.09), transparent 55%),
+    radial-gradient(ellipse 50% 45% at 100% 0%, rgba(15, 23, 42, 0.85), transparent),
+    radial-gradient(ellipse 40% 35% at 0% 100%, rgba(30, 58, 138, 0.06), transparent);
+}
+
+::selection {
+  @apply bg-blue-500/35 text-white;
+}
+
+/* Subtle lift on keyboard focus for custom-styled controls */
+:focus-visible {
+  outline: 2px solid rgb(96 165 250 / 0.65);
+  outline-offset: 2px;
+}
+
+.interactive-bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
+}
+
+.interactive-bg-layer {
+  transform: translate3d(calc(var(--mx, 0) * 14px), calc(var(--my, 0) * 14px), 0);
+  transition: transform 180ms ease-out;
+}
+
+.interactive-network-svg {
+  overflow: visible;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+}
+
+.interactive-network-line {
+  stroke: url(#network-line);
+  stroke-width: 0.12;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  animation: network-pulse 5.5s ease-in-out infinite;
+}
+
+.interactive-atom {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, rgba(191, 219, 254, 0.9), rgba(59, 130, 246, 0.72));
+  box-shadow:
+    0 0 14px rgba(96, 165, 250, 0.56),
+    0 0 32px rgba(30, 64, 175, 0.28);
+  animation: atom-pulse 4.2s ease-in-out infinite;
+  filter: saturate(calc(1 + var(--ib, 0) * 0.35)) brightness(calc(1 + var(--ib, 0) * 0.28));
+}
+
+.interactive-molecule {
+  position: absolute;
+  width: 90px;
+  height: 60px;
+  opacity: 0.85;
+  animation: molecule-float 12s ease-in-out infinite;
+  filter: saturate(calc(1 + var(--ib, 0) * 0.28));
+}
+
+.interactive-molecule-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(147, 197, 253, 0.9);
+  box-shadow: 0 0 14px rgba(96, 165, 250, 0.6);
+}
+
+.interactive-molecule-node-a {
+  left: 6px;
+  top: 24px;
+}
+
+.interactive-molecule-node-b {
+  left: 38px;
+  top: 8px;
+}
+
+.interactive-molecule-node-c {
+  left: 70px;
+  top: 36px;
+}
+
+.interactive-molecule-bond {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, rgba(96, 165, 250, 0.15), rgba(96, 165, 250, 0.65), rgba(96, 165, 250, 0.2));
+  transform-origin: left center;
+}
+
+.interactive-molecule-bond-a {
+  left: 14px;
+  top: 28px;
+  width: 30px;
+  transform: rotate(-28deg);
+}
+
+.interactive-molecule-bond-b {
+  left: 46px;
+  top: 16px;
+  width: 30px;
+  transform: rotate(42deg);
+}
+
+.interactive-hex-ring {
+  position: absolute;
+  opacity: 0.6;
+  transform: rotate(var(--rot, 0deg));
+  animation: hex-float 14s ease-in-out infinite;
+  filter: brightness(calc(1 + var(--ib, 0) * 0.25));
+}
+
+.interactive-hex-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(25% 3%, 75% 3%, 98% 50%, 75% 97%, 25% 97%, 2% 50%);
+  border: 1px solid rgba(96, 165, 250, 0.55);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.2);
+}
+
+.interactive-hex-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22%;
+  height: 22%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 30% 30%, rgba(191, 219, 254, 0.9), rgba(59, 130, 246, 0.6));
+  box-shadow: 0 0 16px rgba(96, 165, 250, 0.42);
+}
+
+@keyframes atom-pulse {
+  0% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) scale(0.95);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) scale(0.95);
+    opacity: 0.5;
+  }
+}
+
+@keyframes molecule-float {
+  0% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(0px) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(-8px) rotate(var(--rot, 0deg));
+  }
+  100% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(0px) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes hex-float {
+  0% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(0px) rotate(var(--rot, 0deg));
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(-10px) rotate(calc(var(--rot, 0deg) + 3deg));
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(var(--ix, 0px), var(--iy, 0px), 0) translateY(0px) rotate(var(--rot, 0deg));
+    opacity: 0.45;
+  }
+}
+
+@keyframes network-pulse {
+  0%,
+  100% {
+    stroke-opacity: 0.35;
+  }
+  50% {
+    stroke-opacity: 0.75;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-atom,
+  .interactive-molecule,
+  .interactive-hex-ring {
+    animation: none;
+  }
+
+  .interactive-network-line {
+    animation: none;
+  }
+}
+
+.bio-scroll {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+
+.bio-scroll:hover {
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee #1e3a8a;
+}
+
+.bio-scroll::-webkit-scrollbar {
+  width: 0;
+}
+
+.bio-scroll:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bio-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.bio-scroll:hover::-webkit-scrollbar-track {
+  background: #1e3a8a;
+}
+
+.bio-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.bio-scroll:hover::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+}
+
+.hero-energy-flow {
+  position: relative;
+  margin-bottom: 1.1rem;
+  height: 52px;
+  width: min(620px, 84vw);
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.hero-energy-flow::before {
+  content: none;
+}
+
+.hero-energy-flow::after {
+  content: none;
+}
+
+.hero-flow-lane {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, 0.5) 16%, rgba(125, 211, 252, 0.5) 84%, transparent 100%);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+}
+
+.hero-particle {
+  position: absolute;
+  left: 58px;
+  top: 50%;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle at 35% 35%, rgba(191, 219, 254, 1), rgba(34, 211, 238, 0.68));
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  animation-name: hero-particle-flow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.hero-particle-1 { width: 5px; height: 5px; animation-duration: 4.2s; animation-delay: 0s; }
+.hero-particle-2 { width: 4px; height: 4px; animation-duration: 4.8s; animation-delay: 0.4s; }
+.hero-particle-3 { width: 6px; height: 6px; animation-duration: 5.1s; animation-delay: 0.9s; }
+.hero-particle-4 { width: 3px; height: 3px; animation-duration: 3.9s; animation-delay: 1.2s; }
+.hero-particle-5 { width: 5px; height: 5px; animation-duration: 4.5s; animation-delay: 1.7s; }
+.hero-particle-6 { width: 4px; height: 4px; animation-duration: 5.3s; animation-delay: 2.1s; }
+.hero-particle-7 { width: 6px; height: 6px; animation-duration: 4.7s; animation-delay: 2.5s; }
+.hero-particle-8 { width: 4px; height: 4px; animation-duration: 4.1s; animation-delay: 2.9s; }
+.hero-particle-9 { width: 3px; height: 3px; animation-duration: 5.6s; animation-delay: 3.2s; }
+.hero-particle-10 { width: 5px; height: 5px; animation-duration: 4.4s; animation-delay: 3.5s; }
+.hero-particle-11 { width: 4px; height: 4px; animation-duration: 5s; animation-delay: 3.8s; }
+.hero-particle-12 { width: 6px; height: 6px; animation-duration: 4.9s; animation-delay: 4.1s; }
+
+.hero-molecule {
+  position: absolute;
+  left: 56px;
+  top: 50%;
+  width: 18px;
+  height: 8px;
+  transform: translateY(-50%);
+  opacity: 0.88;
+  animation: hero-molecule-flow linear infinite;
+}
+
+.hero-molecule::before,
+.hero-molecule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle at 35% 35%, rgba(191, 219, 254, 0.95), rgba(56, 189, 248, 0.65));
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+}
+
+.hero-molecule::before { left: 0; }
+.hero-molecule::after { right: 0; }
+.hero-molecule-1 { animation-duration: 5.4s; animation-delay: 0.3s; }
+.hero-molecule-2 { animation-duration: 6s; animation-delay: 1.6s; }
+.hero-molecule-3 { animation-duration: 5.1s; animation-delay: 2.8s; }
+.hero-molecule-4 { animation-duration: 6.4s; animation-delay: 3.9s; }
+
+.hero-labware {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-labware-flask {
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  transform: translateY(-50%) rotate(-18deg);
+}
+
+.hero-labware-flask::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid rgba(147, 197, 253, 0.8);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.hero-labware-flask::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  width: 32px;
+  height: 24px;
+  border: 1.5px solid rgba(147, 197, 253, 0.8);
+  clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(to top, rgba(14, 165, 233, 0.36) 0 46%, transparent 46% 100%);
+  box-shadow: inset 0 -2px 0 rgba(34, 211, 238, 0.28), 0 0 8px rgba(56, 189, 248, 0.25);
+}
+
+.hero-labware-beaker {
+  right: 10px;
+  width: 30px;
+  height: 34px;
+}
+
+.hero-labware-beaker::before {
+  content: "";
+  position: absolute;
+  inset: 2px 1px 1px;
+  border: 1.5px solid rgba(147, 197, 253, 0.8);
+  border-top-width: 2px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(to top, rgba(14, 165, 233, 0.34) 0 58%, transparent 58% 100%);
+  box-shadow: inset 0 -2px 0 rgba(34, 211, 238, 0.26), 0 0 8px rgba(56, 189, 248, 0.24);
+}
+
+.hero-labware-beaker::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 0;
+  height: 2px;
+  background: rgba(147, 197, 253, 0.7);
+  border-radius: 2px;
+}
+
+@keyframes hero-particle-flow {
+  0% { transform: translate(0, -50%); opacity: 0; }
+  10% { opacity: 0.9; }
+  88% { opacity: 0.9; }
+  100% { transform: translate(calc(min(620px, 84vw) - 116px), -50%); opacity: 0; }
+}
+
+@keyframes hero-molecule-flow {
+  0% { transform: translate(0, -50%) scale(0.88); opacity: 0; }
+  14% { opacity: 0.9; }
+  90% { opacity: 0.9; }
+  100% { transform: translate(calc(min(620px, 84vw) - 116px), -50%) scale(1.02); opacity: 0; }
+}
