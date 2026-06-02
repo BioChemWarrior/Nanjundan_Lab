@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
-import { getTeamMemberById, teamMembers } from "@/lib/content";
+import { getTeamMemberById, getTeamSectionLabel, teamMembers } from "@/lib/content";
+import { memberInitials, teamSectionHref } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
 
 export const runtime = "nodejs";
@@ -20,55 +21,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: `${member.name} · Team` };
 }
 
-function memberInitials(name: string) {
-  const withoutTitle = name.replace(/^(Prof\.|Dr\.|Mr\.|Mrs\.|Ms\.)\s+/i, "");
-  const parts = withoutTitle.split(/\s+/).filter((p) => /^[A-Za-z]/.test(p));
-  if (parts.length === 0) return "?";
-  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
-  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-}
-
 export default async function TeamMemberDetailPage({ params }: Props) {
   const { id } = await params;
   const member = getTeamMemberById(id);
   if (!member) notFound();
 
   const src = member.photo ? toTeamPhotoSrc(member.photo) : "";
+  const isPi = member.group === "pi";
+  const sectionHref = teamSectionHref(member.group);
+  const sectionLabel = getTeamSectionLabel(member.group);
   const linkedinUrl =
     "linkedin" in member && typeof member.linkedin === "string" ? member.linkedin : undefined;
+  const scholarUrl =
+    "scholar" in member && typeof member.scholar === "string" ? member.scholar : undefined;
+  const orcidUrl = "orcid" in member && typeof member.orcid === "string" ? member.orcid : undefined;
   const hasLinks =
-    Boolean(member.email) ||
-    Boolean(linkedinUrl) ||
-    Boolean(member.scholar) ||
-    Boolean(member.orcid);
+    Boolean(member.email) || Boolean(linkedinUrl) || Boolean(scholarUrl) || Boolean(orcidUrl);
 
   return (
     <>
       <TeamHeroStrip title={member.name} subtitle={member.role} />
       <div className="bg-white text-slate-900">
         <article className="mx-auto max-w-3xl space-y-10 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700/90">
-            <Link href="/team" className="transition hover:text-blue-600">
-              Team
-            </Link>
-            <span className="text-slate-400"> / </span>
-            <span className="text-slate-500">{member.name}</span>
-          </p>
+          {!isPi ? (
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700/90">
+              <Link href={sectionHref} className="transition hover:text-blue-600">
+                {sectionLabel}
+              </Link>
+              <span className="text-slate-400"> / </span>
+              <span className="text-slate-500">{member.name}</span>
+            </p>
+          ) : null}
 
           <div className="flex flex-col gap-10 md:flex-row md:items-start">
             <div className="mx-auto w-full shrink-0 md:mx-0 md:w-[280px]">
               <div
                 className={`relative aspect-[4/5] w-full overflow-hidden rounded-2xl border bg-slate-100 ${
-                  member.id === "nanjundan"
+                  member.group === "pi"
                     ? "border-blue-400/55 shadow-[0_0_0_1px_rgba(96,165,250,0.35),0_22px_50px_-32px_rgba(59,130,246,0.55)]"
                     : "border-slate-200 shadow-sm"
                 }`}
               >
-                {member.id === "nanjundan" ? (
-                  <span className="absolute left-3 top-3 z-10 rounded-full border border-cyan-600/35 bg-cyan-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-800">
-                    Principal Investigator
-                  </span>
-                ) : null}
                 {src ? (
                   <img
                     src={src}
@@ -117,20 +110,20 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                         LinkedIn
                       </a>
                     ) : null}
-                    {member.scholar ? (
+                    {scholarUrl ? (
                       <a
                         className="text-blue-700 underline-offset-2 hover:underline"
-                        href={member.scholar}
+                        href={scholarUrl}
                         target="_blank"
                         rel="noreferrer"
                       >
                         Google Scholar
                       </a>
                     ) : null}
-                    {member.orcid ? (
+                    {orcidUrl ? (
                       <a
                         className="text-blue-700 underline-offset-2 hover:underline"
-                        href={member.orcid}
+                        href={orcidUrl}
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -143,11 +136,13 @@ export default async function TeamMemberDetailPage({ params }: Props) {
             </div>
           </div>
 
-          <p className="border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
-            <Link href="/team" className="text-blue-700 underline-offset-2 hover:underline">
-              ← Back to team
-            </Link>
-          </p>
+          {!isPi ? (
+            <p className="border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
+              <Link href={sectionHref} className="text-blue-700 underline-offset-2 hover:underline">
+                ← Back to {sectionLabel.toLowerCase()}
+              </Link>
+            </p>
+          ) : null}
         </article>
       </div>
     </>

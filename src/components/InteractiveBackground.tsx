@@ -28,12 +28,18 @@ function countForArea(w: number, h: number) {
   return clamp(Math.round((150 * area) / ref), 62, 200);
 }
 
-export function InteractiveBackground() {
+type Props = {
+  /** Subtle translate on pointer move (home hero). */
+  parallax?: boolean;
+};
+
+export function InteractiveBackground({ parallax = false }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const sizeRef = useRef({ w: 0, h: 0 });
   const mouseRef = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
+  const parallaxRef = useRef({ x: 0, y: 0 });
 
   const spawnParticles = useCallback((w: number, h: number) => {
     const n = countForArea(w, h);
@@ -110,6 +116,22 @@ export function InteractiveBackground() {
 
       if (!reduceMotion) {
         applyRepulse();
+
+        if (parallax && container) {
+          const mx = mouseRef.current.x;
+          const my = mouseRef.current.y;
+          let targetX = 0;
+          let targetY = 0;
+          if (mx != null && my != null && w > 0 && h > 0) {
+            targetX = ((mx / w - 0.5) * 2) * 22;
+            targetY = ((my / h - 0.5) * 2) * 16;
+          }
+          const p = parallaxRef.current;
+          p.x += (targetX - p.x) * 0.06;
+          p.y += (targetY - p.y) * 0.06;
+          container.style.transform = `translate3d(${p.x}px, ${p.y}px, 0) scale(1.06)`;
+        }
+
         for (const p of particles) {
           p.x += p.vx;
           p.y += p.vy;
@@ -223,7 +245,7 @@ export function InteractiveBackground() {
       window.removeEventListener("blur", clearMouse);
       container.removeEventListener("click", onClick);
     };
-  }, [spawnParticles]);
+  }, [spawnParticles, parallax]);
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 min-h-full w-full overflow-hidden">

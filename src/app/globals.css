@@ -56,114 +56,45 @@ body {
   background: #94a3b8;
 }
 
-.hero-energy-flow {
-  position: relative;
-  margin-bottom: 1.1rem;
-  height: 52px;
-  width: min(620px, 84vw);
-  overflow: hidden;
-  border-radius: 14px;
+.home-parallax-root,
+.hero-parallax-root {
+  transform-style: preserve-3d;
 }
 
-.hero-energy-flow::before {
-  content: none;
-}
-
-.hero-energy-flow::after {
-  content: none;
-}
-
-.hero-flow-lane {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  top: 50%;
-  height: 2px;
-  transform: translateY(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(148, 197, 255, 0.45) 16%,
-    rgba(148, 197, 255, 0.45) 84%,
-    transparent 100%
-  );
-  box-shadow: 0 0 10px rgba(147, 197, 253, 0.25);
-}
-
-.hero-particle {
-  position: absolute;
-  left: 26px;
-  top: 50%;
-  border-radius: 9999px;
-  transform: translateY(-50%);
-  background: radial-gradient(circle at 35% 35%, rgb(226 232 240), rgb(147 197 253));
-  box-shadow: 0 0 8px rgba(191, 219, 254, 0.45);
-  animation-name: hero-particle-flow;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.hero-particle-1 { width: 5px; height: 5px; animation-duration: 4.2s; animation-delay: 0s; }
-.hero-particle-2 { width: 4px; height: 4px; animation-duration: 4.8s; animation-delay: 0.4s; }
-.hero-particle-3 { width: 6px; height: 6px; animation-duration: 5.1s; animation-delay: 0.9s; }
-.hero-particle-4 { width: 3px; height: 3px; animation-duration: 3.9s; animation-delay: 1.2s; }
-.hero-particle-5 { width: 5px; height: 5px; animation-duration: 4.5s; animation-delay: 1.7s; }
-.hero-particle-6 { width: 4px; height: 4px; animation-duration: 5.3s; animation-delay: 2.1s; }
-.hero-particle-7 { width: 6px; height: 6px; animation-duration: 4.7s; animation-delay: 2.5s; }
-.hero-particle-8 { width: 4px; height: 4px; animation-duration: 4.1s; animation-delay: 2.9s; }
-.hero-particle-9 { width: 3px; height: 3px; animation-duration: 5.6s; animation-delay: 3.2s; }
-.hero-particle-10 { width: 5px; height: 5px; animation-duration: 4.4s; animation-delay: 3.5s; }
-.hero-particle-11 { width: 4px; height: 4px; animation-duration: 5s; animation-delay: 3.8s; }
-.hero-particle-12 { width: 6px; height: 6px; animation-duration: 4.9s; animation-delay: 4.1s; }
-
-.hero-molecule {
-  position: absolute;
-  left: 24px;
-  top: 50%;
-  width: 18px;
-  height: 8px;
-  transform: translateY(-50%);
-  opacity: 0.88;
-  animation: hero-molecule-flow linear infinite;
-}
-
-.hero-molecule::before,
-.hero-molecule::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 9999px;
-  transform: translateY(-50%);
-  background: radial-gradient(circle at 35% 35%, rgb(226 232 240), rgb(125 211 252));
-  box-shadow: 0 0 6px rgba(191, 219, 254, 0.4);
-}
-
-.hero-molecule::before { left: 0; }
-.hero-molecule::after { right: 0; }
-.hero-molecule-1 { animation-duration: 5.4s; animation-delay: 0.3s; }
-.hero-molecule-2 { animation-duration: 6s; animation-delay: 1.6s; }
-.hero-molecule-3 { animation-duration: 5.1s; animation-delay: 2.8s; }
-.hero-molecule-4 { animation-duration: 6.4s; animation-delay: 3.9s; }
-
-@keyframes hero-particle-flow {
-  0% { transform: translate(0, -50%); opacity: 0; }
-  10% { opacity: 0.9; }
-  88% { opacity: 0.9; }
-  100% { transform: translate(calc(min(620px, 84vw) - 52px), -50%); opacity: 0; }
-}
-
-@keyframes hero-molecule-flow {
-  0% { transform: translate(0, -50%) scale(0.88); opacity: 0; }
-  14% { opacity: 0.9; }
-  90% { opacity: 0.9; }
-  100% { transform: translate(calc(min(620px, 84vw) - 52px), -50%) scale(1.02); opacity: 0; }
+/* Ambient blooms sit above particles, below page copy */
+.home-light-blooms {
+  isolation: isolate;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-particle,
-  .hero-molecule {
+  .home-parallax-content [style*="transform"],
+  .hero-parallax-root [style*="transform"] {
+    transform: none !important;
+  }
+}
+
+/* Hero title subtle animated bloom (does not touch `transform`, so it won't fight parallax). */
+.home-hero-title {
+  animation: homeHeroTitleBreath 6s ease-in-out infinite;
+  will-change: filter, text-shadow;
+}
+
+@keyframes homeHeroTitleBreath {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  50% {
+    filter: brightness(1.04) saturate(1.15);
+    text-shadow:
+      0 0 18px rgba(34, 211, 238, 0.35),
+      0 0 42px rgba(59, 130, 246, 0.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-title {
     animation: none !important;
   }
 }

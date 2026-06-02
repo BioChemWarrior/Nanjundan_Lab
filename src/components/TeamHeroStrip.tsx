@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
-import { HeroEnergyFlowDecor } from "@/components/HeroEnergyFlowDecor";
 
-/** Full-width strip aligned with the home hero: particle backdrop + energy-flow decor + title. */
+/** Full-width strip aligned with the home hero: particle backdrop + title. */
 export function TeamHeroStrip({
   title,
   subtitle,
@@ -13,7 +12,6 @@ export function TeamHeroStrip({
 }) {
   return (
     <section className="relative flex min-h-[12rem] flex-col items-center justify-center overflow-hidden px-6 py-14 text-center sm:min-h-[14rem] sm:py-16">
-      <HeroEnergyFlowDecor />
       {eyebrow ? (
         <p className="relative z-10 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/85">{eyebrow}</p>
       ) : null}

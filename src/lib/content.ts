@@ -1,5 +1,6 @@
 /** Shown under the lab name on the home splash and in the header tagline area. */
-export const labTagline = "Graphene Nanomaterials • Next Generation Batteries • Circular Economy Energy Materials";
+export const labTagline =
+  "Graphene Nanomaterials • Next Generation Batteries • Circular Economy • Energy Materials";
 
 export const site = {
   name: "Nanjundan Lab",
@@ -12,7 +13,7 @@ export const site = {
   email: "ashok.nanjundan@unisq.edu.au",
   /** Extra inboxes that receive the same contact form email as `email` (Resend `to`). Omit or leave empty for PI only. */
   contactFormAdditionalRecipients: ["sohil.ganeshbabu@unisq.edu.au"],
-  phone: "+61 7 0000 0000",
+  phone: "+61 7 3470 4534",
 };
 
 export const labBrand = {
@@ -76,13 +77,23 @@ export const homeCopy = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/team", label: "Team" },
   { href: "/publications", label: "Publications" },
   { href: "/projects", label: "Projects" },
   { href: "/news", label: "News" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Sub-links under the Team nav dropdown. */
+export const principalInvestigatorId = "nanjundan" as const;
+
+export const teamNavDropdown = [
+  { href: `/team/${principalInvestigatorId}`, label: "Chief investigator" },
+  { href: "/team/current", label: "Current team" },
+  { href: "/team/alumni", label: "Alumni" },
+] as const;
+
+export type TeamGroup = "pi" | "current" | "alumni";
 
 export const highlights = [
   {
@@ -99,9 +110,10 @@ export const highlights = [
   },
 ];
 
-export const teamMembers = [
+const piMembers = [
   {
     id: "nanjundan",
+    group: "pi" as const,
     name: "Prof. Ashok Kumar Nanjundan",
     role: "Professor of Energy Storage",
     focus: "Nanomaterials (carbon) · energy storage · clean energy",
@@ -111,8 +123,12 @@ export const teamMembers = [
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
     orcid: "https://orcid.org/0000-0001-6502-0844",
   },
+] as const;
+
+const currentTeamMembers = [
   {
     id: "annamalai",
+    group: "current" as const,
     name: "Dr. Pratheep K. Annamalai",
     role: "Post doctoral fellow",
     focus: "Sustainable materials · circular polymers · translational research",
@@ -124,6 +140,7 @@ export const teamMembers = [
   },
   {
     id: "sohil-gb",
+    group: "current" as const,
     name: "Mr. Sohil Ganesh Babu",
     role: "PhD Scholar",
     focus: "Green solvents · critical mineral recovery · e-waste recycling",
@@ -133,6 +150,7 @@ export const teamMembers = [
   },
   {
     id: "rollins-suluia",
+    group: "current" as const,
     name: "Rollins Suluia",
     role: "PhD Scholar",
     focus: "Electrical engineering · hydrogen from seawater · solar PV integration",
@@ -142,14 +160,17 @@ export const teamMembers = [
   },
   {
     id: "sandeep-kumar",
+    group: "current" as const,
     name: "Sandeep Kumar",
     role: "PhD Scholar",
     focus: "Laboratory research",
-    bio: "PhD Scholar at Nanjundan Lab.",
+    bio: "Sandeep Kumar is an interdisciplinary researcher with a master’s degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep’s passion lies in developing innovative solutions for next-generation batteries. He will be pursuing a PhD focused on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
+    photo: "/team/sandeep-kumar.png",
     email: "sandeep.kumar@unisq.edu.au",
   },
   {
     id: "ancy-joseph",
+    group: "current" as const,
     name: "Ancy Joseph",
     role: "PhD Scholar",
     focus: "Biomedical engineering · polymer biomaterials · blood storage",
@@ -157,9 +178,38 @@ export const teamMembers = [
     photo: "/team/ancy-joseph.png",
     email: "ancy.joseph@unisq.edu.au",
   },
+] as const;
+
+/** Former lab members — add entries here as people graduate or move on. */
+export type AlumniTeamMember = {
+  id: string;
+  group: "alumni";
+  name: string;
+  role: string;
+  focus: string;
+  bio: string;
+  email: string;
+  photo?: string;
+  scholar?: string;
+  orcid?: string;
+};
+
+export const alumniMembers: readonly AlumniTeamMember[] = [];
+
+export type TeamMember =
+  | (typeof piMembers)[number]
+  | (typeof currentTeamMembers)[number]
+  | AlumniTeamMember;
+
+export const teamMembers: readonly TeamMember[] = [
+  ...piMembers,
+  ...currentTeamMembers,
+  ...alumniMembers,
 ];
 
-export type TeamMember = (typeof teamMembers)[number];
+export function getTeamMembersByGroup(group: TeamGroup) {
+  return teamMembers.filter((member) => member.group === group);
+}
 
 export const projects = [
   {
@@ -254,7 +304,13 @@ export const galleryItems = [
 ];
 
 export function getTeamMemberById(id: string) {
-  return teamMembers.find((m) => m.id === id);
+  return teamMembers.find((member) => member.id === id);
+}
+
+export function getTeamSectionLabel(group: TeamGroup) {
+  if (group === "pi") return "Principal Investigator";
+  if (group === "alumni") return "Alumni";
+  return "Current team";
 }
 
 export function getNewsBySlug(slug: string) {

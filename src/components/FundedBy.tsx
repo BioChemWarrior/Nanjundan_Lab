@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { ParallaxLayer } from "@/context/HomeParallaxContext";
 import { fundingPartners } from "@/lib/content";
 
 /** ARC & UniSQ — display caps scaled down another ~20%. */
@@ -16,26 +19,29 @@ function logoSizesAttr(src: string) {
 export function FundedBy() {
   return (
     <section className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8" aria-label="Funding and institutional support">
-      <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Funded by</p>
+      <ParallaxLayer depth={6} scrollFactor={-6}>
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Funded by</p>
+      </ParallaxLayer>
       <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-16 border-t border-white/[0.08] pt-10 sm:flex-row sm:gap-24 lg:gap-32">
-        {fundingPartners.map((partner) => (
-          <a
-            key={partner.name}
-            href={partner.href}
-            target="_blank"
-            rel="noreferrer"
-            className="relative block shrink-0 opacity-90 transition hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
-          >
-            <Image
-              src={partner.src}
-              alt={partner.name}
-              width={partner.width}
-              height={partner.height}
-              className={logoSizeClass(partner.src)}
-              sizes={logoSizesAttr(partner.src)}
-              unoptimized
-            />
-          </a>
+        {fundingPartners.map((partner, index) => (
+          <ParallaxLayer key={partner.name} depth={8 + index * 4} scrollFactor={-8 - index * 2} invert={index % 2 === 1}>
+            <a
+              href={partner.href}
+              target="_blank"
+              rel="noreferrer"
+              className="relative block shrink-0 opacity-90 transition hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
+            >
+              <Image
+                src={partner.src}
+                alt={partner.name}
+                width={partner.width}
+                height={partner.height}
+                className={logoSizeClass(partner.src)}
+                sizes={logoSizesAttr(partner.src)}
+                unoptimized
+              />
+            </a>
+          </ParallaxLayer>
         ))}
       </div>
     </section>

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const teamSize = teamMembers.length;
+  const teamSize = teamMembers.filter((member) => member.group !== "alumni").length;
   const phdScholars = teamMembers.filter((member) => member.role.toLowerCase().includes("phd")).length;
 
   return (
