@@ -39,11 +39,18 @@ export function ParallaxLayer({
   );
 }
 
-export function HomeParallaxPage({ children }: { children: ReactNode }) {
+export function HomeParallaxPage({
+  children,
+  beforeContent,
+}: {
+  children: ReactNode;
+  beforeContent?: ReactNode;
+}) {
   return (
     <HomeParallaxContext.Provider value={INITIAL}>
       <div className="home-parallax-root relative text-slate-100">
         <HomeLightBlooms />
+        {beforeContent}
         <div className="home-parallax-content relative z-[2]">{children}</div>
       </div>
     </HomeParallaxContext.Provider>

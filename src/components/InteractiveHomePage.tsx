@@ -1,19 +1,43 @@
 "use client";
 
 import { FundedBy } from "@/components/FundedBy";
-import { HomeParallaxPage, useHomeParallax } from "@/context/HomeParallaxContext";
+import { HomeParallaxPage } from "@/context/HomeParallaxContext";
 import { labBrand } from "@/lib/content";
-import { layerTransform } from "@/lib/parallax";
 
-function HomeHero() {
-  const motion = useHomeParallax();
-  const tiltX = motion.y * -2.25;
-  const tiltY = motion.x * 2.25;
-
+function HomeHeroHeadline() {
   return (
-    <section className="relative flex min-h-[min(88svh,52rem)] flex-col items-center justify-center overflow-hidden px-6 pb-10 pt-6 text-center sm:pb-12 sm:pt-8">
+    <>
+      <h1 className="home-hero-title text-balance text-center text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl font-[var(--font-space-grotesk)]">
+        {(() => {
+          const title = labBrand.title;
+          const lastSpace = title.lastIndexOf(" ");
+          if (lastSpace === -1) return title;
+          const before = title.slice(0, lastSpace);
+          const lastRaw = title.slice(lastSpace + 1);
+          const last = lastRaw.toLowerCase() === "lab" ? "Laboratory" : lastRaw;
+          return (
+            <>
+              {before}{" "}
+              <span className="text-emerald-400 drop-shadow-[0_0_16px_rgba(16,185,129,0.35)]">
+                {last}
+              </span>
+            </>
+          );
+        })()}
+      </h1>
+
+      <p className="mt-6 max-w-none whitespace-nowrap text-center text-xl font-bold tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl">
+        {labBrand.subtitle}
+      </p>
+    </>
+  );
+}
+
+function HomeHeroRegion() {
+  return (
+    <section className="relative isolate min-h-[min(88svh,52rem)] overflow-hidden px-6 pb-10 pt-6 text-center sm:pb-12 sm:pt-8">
       {/* Background hero video (must exist under `public/videos/hero.mp4`) */}
-      <div className="pointer-events-none absolute inset-0 z-[1]">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <video
           src="/videos/hero.mp4"
           className="h-full w-full object-cover opacity-40"
@@ -22,9 +46,7 @@ function HomeHero() {
           autoPlay
           loop
           preload="metadata"
-          aria-hidden
         />
-        {/* Extra-smooth fade so the hero video blends into the page background. */}
         <div
           className="absolute inset-0"
           style={{
@@ -34,41 +56,9 @@ function HomeHero() {
         />
       </div>
 
-      <div
-        className="relative z-[2] flex w-full max-w-5xl flex-col items-center will-change-transform"
-        style={{
-          transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translate3d(0, calc(${motion.scroll * -20}px - 44px), 0)`,
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <h1
-          className="home-hero-title text-balance text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl font-[var(--font-space-grotesk)]"
-          style={{ transform: layerTransform(motion, 10, 6, true) }}
-        >
-          {(() => {
-            const title = labBrand.title;
-            const lastSpace = title.lastIndexOf(" ");
-            if (lastSpace === -1) return title;
-            const before = title.slice(0, lastSpace);
-            const lastRaw = title.slice(lastSpace + 1);
-            const last = lastRaw.toLowerCase() === "lab" ? "Laboratory" : lastRaw;
-            return (
-              <>
-                {before}{" "}
-                <span className="text-emerald-400 drop-shadow-[0_0_16px_rgba(16,185,129,0.35)]">
-                  {last}
-                </span>
-              </>
-            );
-          })()}
-        </h1>
-
-        <p
-          className="mt-6 max-w-none whitespace-nowrap text-center text-xl font-bold tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl"
-          style={{ transform: layerTransform(motion, 6, 4, true) }}
-        >
-          {labBrand.subtitle}
-        </p>
+      <div className="relative z-[2] flex flex-col items-center">
+        <HomeHeroHeadline />
+        <HomeAbout />
       </div>
     </section>
   );
@@ -76,7 +66,7 @@ function HomeHero() {
 
 function HomeAbout() {
   return (
-    <section className="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-[1000px] px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
       <div className="rounded-3xl border border-white/[0.08] bg-white/[0.04] p-8 backdrop-blur-md">
         <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About Nanjundan Lab</h2>
         <p className="mt-2 text-sm text-blue-300/90">Advanced materials, clean energy, and energy storage innovation</p>
@@ -100,10 +90,9 @@ function HomeAbout() {
 export function InteractiveHomePage() {
   return (
     <HomeParallaxPage>
-      <HomeHero />
+      <HomeHeroRegion />
 
       <div className="space-y-16 pb-24 sm:space-y-20">
-        <HomeAbout />
         <FundedBy />
       </div>
     </HomeParallaxPage>
