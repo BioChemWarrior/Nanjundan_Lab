@@ -6,54 +6,34 @@ export type JournalCover = {
 
 const TOP_JOURNAL_COVERS: JournalCover[] = [
   {
-    journal: "Nature Protocols",
-    coverPageUrl: "https://www.nature.com/nprot/",
-    coverImageUrl: "/journal-covers/nature-protocols.png",
-  },
-  {
-    journal: "ACS Nano",
-    coverPageUrl: "https://pubs.acs.org/journal/ancac3",
-    coverImageUrl: "/journal-covers/acs-nano.png",
-  },
-  {
-    journal: "Small",
-    coverPageUrl: "https://onlinelibrary.wiley.com/journal/16136829",
-    coverImageUrl: "/journal-covers/small.png",
-  },
-  {
     journal: "Chemical Reviews",
     coverPageUrl: "https://pubs.acs.org/journal/chreay",
     coverImageUrl: "/journal-covers/chemical-reviews.png",
   },
   {
-    journal: "Advanced Energy Materials",
-    coverPageUrl: "https://onlinelibrary.wiley.com/journal/16146840",
-    coverImageUrl: "/journal-covers/advanced-energy-materials.png",
+    journal: "RSC Sustainability",
+    coverPageUrl: "https://www.rsc.org/journals-books-databases/about-journals/rsc-sustainability/",
+    coverImageUrl: "/journal-covers/rsc-sustainability.png",
   },
   {
-    journal: "Materials Today",
-    coverPageUrl: "https://www.sciencedirect.com/journal/materials-today",
-    coverImageUrl: "/journal-covers/materials-today.png",
+    journal: "Batteries & Supercaps",
+    coverPageUrl: "https://chemistry-europe.onlinelibrary.wiley.com/journal/25666223",
+    coverImageUrl: "/journal-covers/batteries-supercaps.png",
   },
   {
-    journal: "Nano Letters",
-    coverPageUrl: "https://pubs.acs.org/journal/nalefd",
-    coverImageUrl: "/journal-covers/nano-letters.png",
+    journal: "Chemical Communications",
+    coverPageUrl: "https://www.rsc.org/journals-books-databases/about-journals/chemcomm/",
+    coverImageUrl: "/journal-covers/chemcomm.png",
   },
   {
-    journal: "Advanced Functional Materials",
-    coverPageUrl: "https://onlinelibrary.wiley.com/journal/16163028",
-    coverImageUrl: "/journal-covers/advanced-functional-materials.png",
+    journal: "Journal of Materials Chemistry A",
+    coverPageUrl: "https://pubs.rsc.org/en/journals/journalissues/ta",
+    coverImageUrl: "/journal-covers/journal-materials-chemistry-a.png",
   },
   {
-    journal: "Nano Energy",
-    coverPageUrl: "https://www.sciencedirect.com/journal/nano-energy",
-    coverImageUrl: "/journal-covers/nano-energy-1.png",
-  },
-  {
-    journal: "Chemical Engineering Journal",
-    coverPageUrl: "https://www.sciencedirect.com/journal/chemical-engineering-journal",
-    coverImageUrl: "/journal-covers/chemical-engineering-journal.png",
+    journal: "Advanced Materials Technologies",
+    coverPageUrl: "https://onlinelibrary.wiley.com/journal/2365709x",
+    coverImageUrl: "/journal-covers/advanced-materials-technologies.png",
   },
 ];
 

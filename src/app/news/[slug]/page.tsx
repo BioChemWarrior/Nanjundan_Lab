@@ -23,9 +23,9 @@ export default async function NewsArticlePage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <>
+    <div className="flex flex-1 flex-col">
       <SectionHeading title={post.title} description={post.excerpt} />
-      <div className="bg-white text-slate-900">
+      <div className="flex flex-1 flex-col bg-white text-slate-900">
         <article className="mx-auto max-w-3xl space-y-8 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
             <Link href="/news" className="transition hover:text-blue-900">
@@ -47,6 +47,6 @@ export default async function NewsArticlePage({ params }: Props) {
           </div>
         </article>
       </div>
-    </>
+    </div>
   );
 }

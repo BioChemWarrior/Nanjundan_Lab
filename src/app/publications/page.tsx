@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { AltmetricPublicationList } from "@/components/AltmetricPublicationList";
+import { JournalCoverCarousel } from "@/components/JournalCoverCarousel";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
 import { principalInvestigator } from "@/lib/content";
 import { getAllJournalCovers } from "@/lib/journalCovers";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 const PUBLICATIONS_PER_PAGE = 15;
 
 type PublicationsPageProps = {
-  searchParams?: Promise<{ page?: string; year?: string; journal?: string; q?: string }>;
+  searchParams?: Promise<{ page?: string; year?: string; q?: string }>;
 };
 
 export default async function PublicationsPage({ searchParams }: PublicationsPageProps) {
@@ -21,14 +22,11 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
   const publications = await getPublications();
   const featuredJournalCovers = getAllJournalCovers();
   const yearFilter = (params.year ?? "").trim();
-  const journalFilter = (params.journal ?? "").trim();
   const queryFilter = (params.q ?? "").trim().toLowerCase();
   const years = [...new Set(publications.map((pub) => pub.year).filter((year) => year > 0))].sort((a, b) => b - a);
-  const journals = [...new Set(publications.map((pub) => pub.venue).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 
   const filteredPublications = publications.filter((pub) => {
     if (yearFilter && String(pub.year) !== yearFilter) return false;
-    if (journalFilter && pub.venue !== journalFilter) return false;
     if (queryFilter) {
       const haystack = `${pub.title} ${pub.venue} ${pub.doi ?? ""}`.toLowerCase();
       if (!haystack.includes(queryFilter)) return false;
@@ -45,12 +43,11 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
     const q = new URLSearchParams();
     q.set("page", String(page));
     if (yearFilter) q.set("year", yearFilter);
-    if (journalFilter) q.set("journal", journalFilter);
     if (queryFilter) q.set("q", queryFilter);
     return `/publications?${q.toString()}`;
   };
 
-  const altmetricRefreshKey = `${currentPage}|${yearFilter}|${journalFilter}|${queryFilter}`;
+  const altmetricRefreshKey = `${currentPage}|${yearFilter}|${queryFilter}`;
 
   return (
     <>
@@ -59,31 +56,13 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
         <div className="mx-auto max-w-5xl space-y-10">
       {featuredJournalCovers.length > 0 ? (
         <section>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {featuredJournalCovers.map((entry) => (
-              <a
-                key={`${entry.journal}-${entry.coverImageUrl}`}
-                href={entry.coverPageUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-300/60"
-                aria-label={`${entry.journal} cover page`}
-              >
-                <img
-                  src={entry.coverImageUrl}
-                  alt={`${entry.journal} cover page`}
-                  className="aspect-[3/4] w-full object-cover transition duration-200 group-hover:scale-[1.02]"
-                  loading="lazy"
-                />
-              </a>
-            ))}
-          </div>
+          <JournalCoverCarousel covers={featuredJournalCovers} />
         </section>
       ) : null}
       {publications.length > 0 ? (
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
           <form method="get" action="/publications" className="grid gap-2.5 md:grid-cols-12 md:items-end">
-            <label className="md:col-span-5">
+            <label className="md:col-span-7">
               <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Search</span>
               <input
                 type="text"
@@ -93,7 +72,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                 className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500"
               />
             </label>
-            <label className="md:col-span-3">
+            <label className="md:col-span-5">
               <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Year</span>
               <select
                 name="year"
@@ -104,21 +83,6 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                 {years.map((year) => (
                   <option key={year} value={year}>
                     {year}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="md:col-span-4">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Journal</span>
-              <select
-                name="journal"
-                defaultValue={journalFilter}
-                className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-blue-500"
-              >
-                <option value="">All journals</option>
-                {journals.map((journal) => (
-                  <option key={journal} value={journal}>
-                    {journal}
                   </option>
                 ))}
               </select>

@@ -45,10 +45,11 @@ export const principalInvestigator = {
   affiliations: [
     "University of Southern Queensland",
     "Honorary Professor, The University of Queensland",
+    "Honorary Professor, Queensland University of Technology",
   ],
-  bio: "Prof. Ashok Kumar Nanjundan is a nanomaterials and energy expert focused on advanced carbon materials, clean-energy materials, and electrochemical energy storage. His work bridges fundamental materials chemistry with translational technologies and industry-facing applications.",
+  bio: "An innovative materials scientist focused on carbon-based nanomaterials for advanced energy storage, with leadership experience spanning university research, international fellowships, and graphene industry translation.",
   bioExtended:
-    "He has held international fellowships (including Marie-Curie and JSPS), contributed to 100+ publications and multiple patents, and mentors emerging researchers across materials science and energy conversion.",
+    "He has secured more than AUD 5 million in research funding, authored over 100 publications in leading journals, accumulated more than 10,900 citations (h-index 56), and filed seven patents including a granted US patent.",
   links: {
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
     universityBio: "https://research.usq.edu.au/researcher/z1045/prof-ashok-nanjundan",
@@ -115,9 +116,13 @@ const piMembers = [
     id: "nanjundan",
     group: "pi" as const,
     name: "Prof. Ashok Kumar Nanjundan",
-    role: "Professor of Energy Storage",
-    focus: "Nanomaterials (carbon) · energy storage · clean energy",
-    bio: "Prof. Ashok Kumar Nanjundan is a nanomaterial (carbon) and energy expert and a former Chief Scientific Officer at a listed company in graphene production and applications. His research has been recognized through prestigious fellowships including Marie-Curie, JSPS-Japan, and UQ Fellowship, and has attracted several million AUD in funding. He has published over 100 papers and filed seven patents in nanomaterials and energy, with work appearing in journals such as Chemical Review, ACS Nano, Advanced Energy Materials, Energy & Environmental Science, Nature Protocols, and Chemical Communications.",
+    role: "Professor of Energy Storage · Associate Head (Outreach, Engagement & International)",
+    focus: "Carbon Nanomaterials · Advanced Energy Storage · Industry Translation",
+    bio: "An innovative materials scientist specialising in carbon-based nanomaterials for energy storage, with an academic and industry career spanning graphene commercialisation, international fellowships, and large-scale collaborative research.",
+    careerSummary:
+      "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 10,900 citations (h-index 56). He is also named on seven patent filings, including a granted US patent.",
+    professionalExperience:
+      "At the University of Southern Queensland he is Professor of Energy Storage and Associate Head (Outreach, Engagement & International). He has held a visiting appointment at the Energy Consortium, IIT Madras. As Chief Scientific Officer at Graphene Manufacturing Group he connected academic research with industry priorities, led R&D from concept to manufacturing, commercialised the graphene aluminium-ion battery, developed graphene-based automotive additives, and prepared regulatory and quality-system documentation for nanomaterials and energy technologies. His earlier roles include UQ Postdoctoral Research Fellow, sessional academic at Griffith University, JSPS Fellow at Kumamoto University, research and visiting fellowships at Trinity College Dublin and UNSW, Marie-Curie Fellow at CEA Grenoble, and postdoctoral research at UNIST.",
     photo: "/team/prof-ashok.png",
     email: "ashok.nanjundan@unisq.edu.au",
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",

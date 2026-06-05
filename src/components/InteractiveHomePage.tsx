@@ -35,7 +35,7 @@ function HomeHeroHeadline() {
 
 function HomeHeroRegion() {
   return (
-    <section className="relative isolate min-h-[min(88svh,52rem)] overflow-hidden px-6 pb-10 pt-6 text-center sm:pb-12 sm:pt-8">
+    <section className="relative isolate min-h-[min(88svh,52rem)] overflow-hidden px-6 pb-10 pt-14 text-center sm:pb-12 sm:pt-20 md:pt-24">
       {/* Background hero video (must exist under `public/videos/hero.mp4`) */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <video
@@ -66,7 +66,7 @@ function HomeHeroRegion() {
 
 function HomeAbout() {
   return (
-    <section className="mx-auto max-w-[1000px] px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
+    <section className="mx-auto max-w-[1000px] px-4 pt-16 sm:px-6 sm:pt-20 md:pt-24 lg:px-8">
       <div className="rounded-3xl border border-white/[0.08] bg-white/[0.04] p-8 backdrop-blur-md">
         <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About Nanjundan Lab</h2>
         <p className="mt-2 text-sm text-blue-300/90">Advanced materials, clean energy, and energy storage innovation</p>

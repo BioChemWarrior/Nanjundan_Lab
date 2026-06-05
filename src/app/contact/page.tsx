@@ -106,8 +106,7 @@ export default async function ContactPage({ searchParams }: Props) {
         </div>
       ) : null}
 
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_260px]">
-        <form action={submitContactForm} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      <form action={submitContactForm} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <div>
             <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-600">
               Full name
@@ -165,26 +164,7 @@ export default async function ContactPage({ searchParams }: Props) {
           >
             Send message
           </button>
-        </form>
-
-        <aside className="space-y-6 text-sm text-slate-600">
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">Direct</p>
-            <p className="mt-4 font-medium text-slate-900">{site.email}</p>
-            <p className="mt-2">{site.phone}</p>
-          </div>
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">Postal</p>
-            <p className="mt-4">
-              {site.address.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </p>
-          </div>
-        </aside>
-      </div>
+      </form>
         </div>
       </div>
     </>

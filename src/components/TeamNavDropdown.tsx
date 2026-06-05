@@ -6,7 +6,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { teamNavDropdown } from "@/lib/content";
 
 const triggerClass =
-  "relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm text-slate-300 transition duration-200 " +
+  "relative inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-lg text-slate-300 transition duration-200 sm:px-5 sm:py-3 sm:text-xl " +
   "hover:bg-white/10 hover:text-white active:scale-[0.98] " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400";
 
@@ -56,7 +56,7 @@ export function TeamNavDropdown() {
         Team
         <svg
           aria-hidden
-          className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`}
           viewBox="0 0 20 20"
           fill="currentColor"
         >
