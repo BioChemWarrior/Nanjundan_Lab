@@ -16,7 +16,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
   return (
     <ul className="grid list-none grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
       {members.map((member) => {
-        const src = member.photo ? toTeamPhotoSrc(member.photo) : "";
+        const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
         const isPi = member.group === "pi";
 
         return (

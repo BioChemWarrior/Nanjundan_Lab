@@ -45,7 +45,7 @@ export default function TeamPage() {
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {teamMembers.map((member) => {
-          const src = member.photo ? toPhotoSrc(member.photo) : "";
+          const src = "photo" in member && member.photo ? toPhotoSrc(member.photo) : "";
           const highlightedCardClassName =
             member.id === "nanjundan"
               ? "h-full border-blue-400/55 shadow-[0_0_0_1px_rgba(96,165,250,0.35),0_26px_60px_-36px_rgba(59,130,246,0.75)]"

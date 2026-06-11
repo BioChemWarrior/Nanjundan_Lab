@@ -91,7 +91,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
   const member = getTeamMemberById(id);
   if (!member) notFound();
 
-  const src = member.photo ? toTeamPhotoSrc(member.photo) : "";
+  const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
   const isPi = member.group === "pi";
   const isExpandedProfile = isPi || ("careerSummary" in member && Boolean(member.careerSummary));
   const sectionHref = teamSectionHref(member.group);

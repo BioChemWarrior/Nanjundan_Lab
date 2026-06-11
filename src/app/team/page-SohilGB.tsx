@@ -45,7 +45,7 @@ export default function TeamPage() {
         <div className="mx-auto max-w-6xl space-y-12">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {teamMembers.map((member) => {
-          const src = member.photo ? toPhotoSrc(member.photo) : "";
+          const src = "photo" in member && member.photo ? toPhotoSrc(member.photo) : "";
           return (
             <ContentCard key={member.id} title={member.name} subtitle={member.role}>
               {src ? (
