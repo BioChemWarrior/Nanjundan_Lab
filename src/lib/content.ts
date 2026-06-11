@@ -91,10 +91,11 @@ export const principalInvestigatorId = "nanjundan" as const;
 export const teamNavDropdown = [
   { href: `/team/${principalInvestigatorId}`, label: "Chief investigator" },
   { href: "/team/current", label: "Current team" },
+  { href: "/team/adjunct", label: "Adjunct Faculty" },
   { href: "/team/alumni", label: "Alumni" },
 ] as const;
 
-export type TeamGroup = "pi" | "current" | "alumni";
+export type TeamGroup = "pi" | "current" | "adjunct" | "alumni";
 
 export const highlights = [
   {
@@ -183,7 +184,78 @@ const currentTeamMembers = [
     photo: "/team/ancy-joseph.png",
     email: "ancy.joseph@unisq.edu.au",
   },
+  {
+    id: "bidita-salahuddin",
+    group: "current" as const,
+    name: "Bidita Salahuddin",
+    role: "PhD Scholar",
+    focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
+    bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
+    email: "",
+  },
 ] as const;
+
+/** Adjunct collaborators affiliated with the lab. */
+export type AdjunctTeamMember = {
+  id: string;
+  group: "adjunct";
+  name: string;
+  role: string;
+  focus: string;
+  bio: string;
+  careerSummary?: string;
+  professionalExperience?: string;
+  email: string;
+  photo?: string;
+  scholar?: string;
+  orcid?: string;
+  linkedin?: string;
+};
+
+export const adjunctMembers: readonly AdjunctTeamMember[] = [
+  {
+    id: "kothandaraman-ramanujam",
+    group: "adjunct",
+    name: "Dr. Kothandaraman Ramanujam",
+    role: "Adjunct Professor - USQ, Professor - IIT Madras",
+    focus: "Li/Na/Zn batteries · dye-sensitized solar cells · electrochemical sensors",
+    bio: "An electrochemist focused on India-centric energy storage, functional materials, and translatable battery, solar, and sensor technologies.",
+    careerSummary:
+      "Dr. Kothandaraman Ramanujam applies electrochemistry to India-centric energy storage and conversion, developing functional materials, redox-active organic molecules, and battery systems built on abundant resources such as sodium and zinc. His research spans lithium, sodium, and zinc-ion batteries, organic dyes for dye-sensitized solar cells, and electrochemical sensors—delivering translatable outcomes including sustainable sodium-ion anode materials, patented zinc-ion innovations, and high-efficiency solar dyes. He is incubating Electrobasics, a startup at IIT Madras focused on custom materials for electrochemical science and engineering.",
+    professionalExperience:
+      "He was elected Fellow of the Academy of Sciences, Chennai (2020) and Fellow of the Royal Society of Chemistry (FRSC, 2020). He serves on the board of studies at Vellore Institute of Technology (VIT) Bhopal Campus and Bannariamma Institute of Technology (BIT), Sathyamangalam; is adjunct faculty at the National Center for Catalysis Research, IIT Madras; and has been a Visiting Scientist at Washington University in St. Louis.",
+    photo: "/team/kothandaraman-ramanujam.png",
+    email: "",
+  },
+  {
+    id: "prashanth-w-menezes",
+    group: "adjunct",
+    name: "Dr. Prashanth W. Menezes",
+    role: "Adjunct Associate Professor - USQ, Head of Department - Helmholtz-Zentrum Berlin",
+    focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
+    bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
+    careerSummary:
+      "Dr. Prashanth W. Menezes heads the Department of Materials Chemistry for Catalysis at the Helmholtz-Zentrum Berlin (HZB), where his research advances intermetallic catalysis, electrocatalytic processes, and sustainable energy conversion systems. He is widely recognized for contributions to catalyst design and reaction mechanisms for renewable energy applications. In 2025 he was awarded the Vaishvik Bhartiya Vaigyanik (VAIBHAV) Fellowship by the Indian Ministry of Science and Technology—the sole recipient in Materials and Processing Technologies—recognizing his groundbreaking work in catalysis and materials chemistry.",
+    professionalExperience:
+      "As part of the VAIBHAV Fellowship, Dr. Menezes will collaborate with the Jawaharlal Nehru Centre for Advanced Scientific Research (JNCASR) in Bengaluru to develop intermetallic electrocatalysts for scaled green hydrogen production, combine hydrogen synthesis with value-added chemical products, and advance eco-friendly hydrogen technologies. He sees the fellowship as an opportunity to connect international expertise with India's growing research ecosystem and contribute to the global transition toward sustainable and clean energy.",
+    photo: "/team/prashanth-w-menezes.png",
+    email: "",
+  },
+  {
+    id: "rohit-ranganathan-gaddam",
+    group: "adjunct",
+    name: "Dr. Rohit Ranganathan Gaddam",
+    role: "Adjunct Professor - USQ, Assistant Professor - IISER Bhopal",
+    focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
+    bio: "A materials scientist specialising in advanced functional materials and electrochemical energy storage across lithium-ion, sodium-ion, and solid-state battery systems.",
+    careerSummary:
+      "Dr. Rohit Ranganathan Gaddam is an alumnus of Nanjundan Lab whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries.",
+    professionalExperience:
+      "Dr. Gaddam was a Postdoctoral Research Fellow in the School of Chemical Engineering at UQ (2018–2019), an Alexander von Humboldt Fellow at the Technical University of Munich (2020–2021), and a Visiting Scholar at Washington University in St. Louis (2018). He also completed master's dissertation and project work at CSIR-Indian Institute of Chemical Technology, Hyderabad (2013–2015). He is currently Assistant Professor of Chemical Engineering at IISER Bhopal.",
+    photo: "/team/rohit-ranganathan-gaddam.png",
+    email: "",
+  },
+];
 
 /** Former lab members — add entries here as people graduate or move on. */
 export type AlumniTeamMember = {
@@ -199,16 +271,29 @@ export type AlumniTeamMember = {
   orcid?: string;
 };
 
-export const alumniMembers: readonly AlumniTeamMember[] = [];
+export const alumniMembers: readonly AlumniTeamMember[] = [
+  {
+    id: "rohit-ranganathan-gaddam",
+    group: "alumni",
+    name: "Dr. Rohit Ranganathan Gaddam",
+    role: "Assistant Professor, IISER Bhopal",
+    focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
+    bio: "Dr. Rohit Ranganathan Gaddam is an alumnus of Nanjundan Lab whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries. Dr. Gaddam was a Postdoctoral Research Fellow in the School of Chemical Engineering at UQ (2018–2019), an Alexander von Humboldt Fellow at the Technical University of Munich (2020–2021), and a Visiting Scholar at Washington University in St. Louis (2018). He also completed master's dissertation and project work at CSIR-Indian Institute of Chemical Technology, Hyderabad (2013–2015). He is currently Assistant Professor of Chemical Engineering at IISER Bhopal.",
+    photo: "/team/rohit-ranganathan-gaddam.png",
+    email: "",
+  },
+];
 
 export type TeamMember =
   | (typeof piMembers)[number]
   | (typeof currentTeamMembers)[number]
+  | AdjunctTeamMember
   | AlumniTeamMember;
 
 export const teamMembers: readonly TeamMember[] = [
   ...piMembers,
   ...currentTeamMembers,
+  ...adjunctMembers,
   ...alumniMembers,
 ];
 
@@ -309,11 +394,17 @@ export const galleryItems = [
 ];
 
 export function getTeamMemberById(id: string) {
-  return teamMembers.find((member) => member.id === id);
+  return (
+    piMembers.find((member) => member.id === id) ??
+    currentTeamMembers.find((member) => member.id === id) ??
+    adjunctMembers.find((member) => member.id === id) ??
+    alumniMembers.find((member) => member.id === id)
+  );
 }
 
 export function getTeamSectionLabel(group: TeamGroup) {
   if (group === "pi") return "Principal Investigator";
+  if (group === "adjunct") return "Adjunct Faculty";
   if (group === "alumni") return "Alumni";
   return "Current team";
 }

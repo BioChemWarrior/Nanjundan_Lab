@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const PUBLICATIONS_PER_PAGE = 15;
 
 type PublicationsPageProps = {
-  searchParams?: Promise<{ page?: string; year?: string; q?: string }>;
+  searchParams?: Promise<{ page?: string; year?: string }>;
 };
 
 export default async function PublicationsPage({ searchParams }: PublicationsPageProps) {
@@ -22,15 +22,10 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
   const publications = await getPublications();
   const featuredJournalCovers = getAllJournalCovers();
   const yearFilter = (params.year ?? "").trim();
-  const queryFilter = (params.q ?? "").trim().toLowerCase();
   const years = [...new Set(publications.map((pub) => pub.year).filter((year) => year > 0))].sort((a, b) => b - a);
 
   const filteredPublications = publications.filter((pub) => {
     if (yearFilter && String(pub.year) !== yearFilter) return false;
-    if (queryFilter) {
-      const haystack = `${pub.title} ${pub.venue} ${pub.doi ?? ""}`.toLowerCase();
-      if (!haystack.includes(queryFilter)) return false;
-    }
     return true;
   });
 
@@ -43,11 +38,11 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
     const q = new URLSearchParams();
     q.set("page", String(page));
     if (yearFilter) q.set("year", yearFilter);
-    if (queryFilter) q.set("q", queryFilter);
     return `/publications?${q.toString()}`;
   };
+  const buildYearHref = (year: string) => (year ? `/publications?year=${year}` : "/publications");
 
-  const altmetricRefreshKey = `${currentPage}|${yearFilter}|${queryFilter}`;
+  const altmetricRefreshKey = `${currentPage}|${yearFilter}`;
 
   return (
     <>
@@ -61,47 +56,38 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
       ) : null}
       {publications.length > 0 ? (
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
-          <form method="get" action="/publications" className="grid gap-2.5 md:grid-cols-12 md:items-end">
-            <label className="md:col-span-7">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Search</span>
-              <input
-                type="text"
-                name="q"
-                defaultValue={queryFilter}
-                placeholder="Title, journal, DOI..."
-                className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500"
-              />
-            </label>
-            <label className="md:col-span-5">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Year</span>
-              <select
-                name="year"
-                defaultValue={yearFilter}
-                className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-blue-500"
-              >
-                <option value="">All years</option>
+          {years.length > 0 ? (
+            <div>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600">Year</span>
+              <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm" aria-label="Filter publications by year">
+                <Link
+                  href={buildYearHref("")}
+                  className={`font-medium transition hover:text-blue-800 ${
+                    !yearFilter ? "text-blue-700 underline underline-offset-4" : "text-slate-600"
+                  }`}
+                  aria-current={!yearFilter ? "page" : undefined}
+                >
+                  All
+                </Link>
                 {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
+                  <span key={year} className="inline-flex items-center gap-2">
+                    <span className="text-slate-300" aria-hidden>
+                      –
+                    </span>
+                    <Link
+                      href={buildYearHref(String(year))}
+                      className={`font-medium transition hover:text-blue-800 ${
+                        yearFilter === String(year) ? "text-blue-700 underline underline-offset-4" : "text-slate-600"
+                      }`}
+                      aria-current={yearFilter === String(year) ? "page" : undefined}
+                    >
+                      {year}
+                    </Link>
+                  </span>
                 ))}
-              </select>
-            </label>
-            <div className="md:col-span-12 mt-1 flex flex-wrap items-center gap-2">
-              <button
-                type="submit"
-                className="inline-flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-500"
-              >
-                Apply filters
-              </button>
-              <Link
-                href="/publications"
-                className="inline-flex h-10 items-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-800"
-              >
-                Reset
-              </Link>
+              </nav>
             </div>
-          </form>
+          ) : null}
         </section>
       ) : null}
       {publications.length === 0 ? (
@@ -113,7 +99,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
           .
         </p>
       ) : filteredPublications.length === 0 ? (
-        <p className="text-center text-slate-600">No publications match the current filters.</p>
+        <p className="text-center text-slate-600">No publications match the selected year.</p>
       ) : (
         <>
           <AltmetricPublicationList refreshKey={altmetricRefreshKey}>

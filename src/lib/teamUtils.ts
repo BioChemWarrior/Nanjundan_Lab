@@ -6,7 +6,8 @@ export function memberInitials(name: string) {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
-export function teamSectionHref(group: "pi" | "current" | "alumni") {
+export function teamSectionHref(group: "pi" | "current" | "adjunct" | "alumni") {
   if (group === "alumni") return "/team/alumni";
+  if (group === "adjunct") return "/team/adjunct";
   return "/team/current";
 }
