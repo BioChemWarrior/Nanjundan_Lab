@@ -116,7 +116,7 @@ const piMembers = [
   {
     id: "nanjundan",
     group: "pi" as const,
-    name: "Prof. Ashok Kumar Nanjundan",
+    name: "Prof. Ashok Kumar Nanjundan. FRSC",
     role: "Professor of Energy Storage · Associate Head (Outreach, Engagement & International)",
     focus: "Carbon Nanomaterials · Advanced Energy Storage · Industry Translation",
     bio: "An innovative materials scientist specialising in carbon-based nanomaterials for energy storage, with an academic and industry career spanning graphene commercialisation, international fellowships, and large-scale collaborative research.",
@@ -136,7 +136,7 @@ const currentTeamMembers = [
     id: "annamalai",
     group: "current" as const,
     name: "Dr. Pratheep K. Annamalai",
-    role: "Post doctoral fellow",
+    role: "Senior Research Fellow",
     focus: "Sustainable materials · circular polymers · translational research",
     bio: "Dr. Pratheep K. Annamalai is a polymer and nanomaterials scientist interested in engineering materials for sustainable living. He has extensive expertise in both translational and fundamental research. His interests include valorizing crops and food waste into nanomaterials, reactive building blocks, and carbon materials for engineering applications and advanced devices. He currently leads circular polymer products research at UniSQ.",
     photo: "/team/pratheep-kumar-annamalai.png",
@@ -188,7 +188,7 @@ const currentTeamMembers = [
     id: "bidita-salahuddin",
     group: "current" as const,
     name: "Bidita Salahuddin",
-    role: "PhD Scholar",
+    role: "",
     focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
     bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
     email: "",
@@ -216,8 +216,8 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
   {
     id: "kothandaraman-ramanujam",
     group: "adjunct",
-    name: "Dr. Kothandaraman Ramanujam",
-    role: "Adjunct Professor - USQ, Professor - IIT Madras",
+    name: "Prof. Kothandaraman Ramanujam. FRSC",
+    role: "Professor - IIT Madras, Adjunct Professor - USQ",
     focus: "Li/Na/Zn batteries · dye-sensitized solar cells · electrochemical sensors",
     bio: "An electrochemist focused on India-centric energy storage, functional materials, and translatable battery, solar, and sensor technologies.",
     careerSummary:
@@ -231,13 +231,11 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Adjunct Associate Professor - USQ, Head of Department - Helmholtz-Zentrum Berlin",
+    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz - Zentrum Berlin, Adjunct Associate Professor - USQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
-      "Dr. Prashanth W. Menezes heads the Department of Materials Chemistry for Catalysis at the Helmholtz-Zentrum Berlin (HZB), where his research advances intermetallic catalysis, electrocatalytic processes, and sustainable energy conversion systems. He is widely recognized for contributions to catalyst design and reaction mechanisms for renewable energy applications. In 2025 he was awarded the Vaishvik Bhartiya Vaigyanik (VAIBHAV) Fellowship by the Indian Ministry of Science and Technology—the sole recipient in Materials and Processing Technologies—recognizing his groundbreaking work in catalysis and materials chemistry.",
-    professionalExperience:
-      "As part of the VAIBHAV Fellowship, Dr. Menezes will collaborate with the Jawaharlal Nehru Centre for Advanced Scientific Research (JNCASR) in Bengaluru to develop intermetallic electrocatalysts for scaled green hydrogen production, combine hydrogen synthesis with value-added chemical products, and advance eco-friendly hydrogen technologies. He sees the fellowship as an opportunity to connect international expertise with India's growing research ecosystem and contribute to the global transition toward sustainable and clean energy.",
+      "Dr. Prashanth W. Menezes heads the Department of Materials Chemistry for Catalysis at the Helmholtz-Zentrum Berlin (HZB), where his research advances intermetallic catalysis, electrocatalytic processes, and sustainable energy conversion systems. He is widely recognized for contributions to catalyst design and reaction mechanisms for renewable energy applications.",
     photo: "/team/prashanth-w-menezes.png",
     email: "",
   },
@@ -245,7 +243,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "rohit-ranganathan-gaddam",
     group: "adjunct",
     name: "Dr. Rohit Ranganathan Gaddam",
-    role: "Adjunct Professor - USQ, Assistant Professor - IISER Bhopal",
+    role: "Assistant Professor - IISER Bhopal, Adjunct Senior Lecturer - USQ",
     focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
     bio: "A materials scientist specialising in advanced functional materials and electrochemical energy storage across lithium-ion, sodium-ion, and solid-state battery systems.",
     careerSummary:

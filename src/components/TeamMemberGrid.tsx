@@ -58,7 +58,9 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
               <p className="mt-4 text-balance px-1 text-sm font-semibold leading-snug text-slate-900 transition group-hover:text-blue-800 sm:text-base">
                 {member.name}
               </p>
-              <p className="mt-1 text-pretty px-1 text-xs text-slate-500 sm:text-sm">{member.role}</p>
+              {member.role ? (
+                <p className="mt-1 text-pretty px-1 text-xs text-slate-500 sm:text-sm">{member.role}</p>
+              ) : null}
             </Link>
           </li>
         );
