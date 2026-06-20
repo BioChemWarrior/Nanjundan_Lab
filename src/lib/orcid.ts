@@ -10,6 +10,8 @@ export type OrcidPublication = {
   title: string;
   venue: string;
   year: number;
+  month: number;
+  day: number;
   authors: string;
   doi: string | null;
   url: string | null;
@@ -66,6 +68,20 @@ function parseYear(summary: OrcidWorkSummary): number {
   return Number.isFinite(n) ? n : 0;
 }
 
+function parseMonth(summary: OrcidWorkSummary): number {
+  const m = summary["publication-date"]?.month?.value;
+  if (!m) return 0;
+  const n = parseInt(m, 10);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function parseDay(summary: OrcidWorkSummary): number {
+  const d = summary["publication-date"]?.day?.value;
+  if (!d) return 0;
+  const n = parseInt(d, 10);
+  return Number.isFinite(n) ? n : 0;
+}
+
 /** Prefer journal articles and real journal DOIs over SSRN/preprint duplicates in the same ORCID group. */
 function scoreSummary(summary: OrcidWorkSummary): number {
   const doi = extractDoi(summary) ?? "";
@@ -97,6 +113,16 @@ function venueLabel(summary: OrcidWorkSummary): string {
   return "Publication";
 }
 
+function publicationDateValue(pub: Pick<OrcidPublication, "year" | "month" | "day">): number {
+  return (pub.year || 0) * 10_000 + (pub.month || 0) * 100 + (pub.day || 0);
+}
+
+export function comparePublicationsByDate(a: OrcidPublication, b: OrcidPublication): number {
+  const dateDiff = publicationDateValue(b) - publicationDateValue(a);
+  if (dateDiff !== 0) return dateDiff;
+  return a.title.localeCompare(b.title);
+}
+
 function publicationUrl(summary: OrcidWorkSummary, doi: string | null): string | null {
   const direct = summary.url?.value?.trim();
   if (direct) return direct;
@@ -109,6 +135,8 @@ function toPublication(summary: OrcidWorkSummary): OrcidPublication | null {
   if (!title) return null;
   const doi = extractDoi(summary);
   const year = parseYear(summary);
+  const month = parseMonth(summary);
+  const day = parseDay(summary);
   const path = summary.path?.trim();
   const id = doi ? `doi:${doi}` : path ?? `orcid-work:${summary["put-code"] ?? title}`;
 
@@ -117,6 +145,8 @@ function toPublication(summary: OrcidWorkSummary): OrcidPublication | null {
     title,
     venue: venueLabel(summary),
     year,
+    month,
+    day,
     authors: "",
     doi,
     url: publicationUrl(summary, doi),
@@ -149,7 +179,7 @@ export async function fetchOrcidPublications(orcidId: string): Promise<OrcidPubl
     if (pub.doi) {
       const key = pub.doi;
       const existing = byDoi.get(key);
-      if (!existing || pub.year > existing.year) {
+      if (!existing || publicationDateValue(pub) > publicationDateValue(existing)) {
         byDoi.set(key, pub);
       }
     } else {
@@ -158,6 +188,6 @@ export async function fetchOrcidPublications(orcidId: string): Promise<OrcidPubl
   }
 
   const list = [...byDoi.values()];
-  list.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+  list.sort(comparePublicationsByDate);
   return list;
 }

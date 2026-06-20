@@ -38,6 +38,29 @@ function GoogleScholarIcon({ className = "h-6 w-6 sm:h-7 sm:w-7" }: { className?
   );
 }
 
+function CircularBrandLogo({ src, large = false }: { src: string; large?: boolean }) {
+  const sizeClass = large ? "h-10 w-10 sm:h-11 sm:w-11" : "h-7 w-7 sm:h-8 sm:w-8";
+
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-slate-200/80 shadow-sm antialiased ${sizeClass}`}
+    >
+      <Image
+        src={src}
+        alt=""
+        width={256}
+        height={256}
+        className="h-full w-full scale-[1.03] object-contain [mask-image:radial-gradient(circle,black_90%,transparent_100%)]"
+        unoptimized
+      />
+    </span>
+  );
+}
+
+function ResearchGateLogo({ large = false }: { large?: boolean }) {
+  return <CircularBrandLogo src="/logos/researchgate.png" large={large} />;
+}
+
 function UnisqEmblem({ large = false }: { large?: boolean }) {
   return (
     <Image
@@ -47,7 +70,7 @@ function UnisqEmblem({ large = false }: { large?: boolean }) {
       height={128}
       className={
         large
-          ? "h-10 w-auto object-contain sm:h-11"
+          ? "h-12 w-auto object-contain sm:h-14"
           : "h-7 w-auto translate-x-0.5 object-contain sm:h-8 sm:translate-x-1"
       }
       unoptimized
@@ -55,25 +78,15 @@ function UnisqEmblem({ large = false }: { large?: boolean }) {
   );
 }
 
-function OrcidIcon({ className = "h-7 w-7 sm:h-8 sm:w-8" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden>
-      <path
-        fill="#A6CE39"
-        d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0z"
-      />
-      <path
-        fill="#fff"
-        d="M7.6 7.53h1.8V17.2H7.6zm3.27 2.73c0-1.85 1-2.95 2.65-2.95 1.71 0 2.72 1.12 2.72 2.95 0 1.85-1 2.97-2.71 2.97-1.66 0-2.66-1.1-2.66-2.97zm1.55 0c0 1.08.43 1.73 1.12 1.73.7 0 1.12-.65 1.12-1.73 0-1.07-.42-1.72-1.12-1.72-.7 0-1.12.65-1.12 1.72z"
-      />
-    </svg>
-  );
+function OrcidLogo({ large = false }: { large?: boolean }) {
+  return <CircularBrandLogo src="/logos/orcid.png" large={large} />;
 }
 
 export type SocialProfileLinksProps = {
   email?: string;
   linkedin?: string;
   scholar?: string;
+  researchGate?: string;
   orcid?: string;
   universityBio?: string;
   size?: "default" | "large";
@@ -84,6 +97,7 @@ export function SocialProfileLinks({
   email,
   linkedin,
   scholar,
+  researchGate,
   orcid,
   universityBio,
   size = "default",
@@ -91,20 +105,22 @@ export function SocialProfileLinks({
 }: SocialProfileLinksProps) {
   const isLarge = size === "large";
   const linkClass = isLarge ? footerSocialLinkClass : socialIconClass;
-  const svgClass = isLarge ? "h-8 w-8 sm:h-9 sm:w-9" : "h-6 w-6 sm:h-7 sm:w-7";
-  const orcidClass = isLarge ? "h-8 w-8 sm:h-9 sm:w-9" : "h-7 w-7 sm:h-8 sm:w-8";
+  const svgClass = isLarge ? "h-10 w-10 sm:h-11 sm:w-11" : "h-6 w-6 sm:h-7 sm:w-7";
   const items = [
-    linkedin
-      ? { href: linkedin, label: "LinkedIn profile", external: true, icon: <LinkedInIcon className={svgClass} /> }
-      : null,
     universityBio
       ? { href: universityBio, label: "UniSQ researcher profile", external: true, icon: <UnisqEmblem large={isLarge} /> }
+      : null,
+    linkedin
+      ? { href: linkedin, label: "LinkedIn profile", external: true, icon: <LinkedInIcon className={svgClass} /> }
       : null,
     scholar
       ? { href: scholar, label: "Google Scholar profile", external: true, icon: <GoogleScholarIcon className={svgClass} /> }
       : null,
+    researchGate
+      ? { href: researchGate, label: "ResearchGate profile", external: true, icon: <ResearchGateLogo large={isLarge} /> }
+      : null,
     email ? { href: `mailto:${email}`, label: "Email", external: false, icon: <OutlookIcon className={svgClass} /> } : null,
-    orcid ? { href: orcid, label: "ORCID record", external: true, icon: <OrcidIcon className={orcidClass} /> } : null,
+    orcid ? { href: orcid, label: "ORCID record", external: true, icon: <OrcidLogo large={isLarge} /> } : null,
   ].filter(Boolean) as Array<{
     href: string;
     label: string;
@@ -116,7 +132,7 @@ export function SocialProfileLinks({
 
   return (
     <ul
-      className={`flex flex-wrap ${isLarge ? "gap-6 sm:gap-8" : "gap-3 sm:gap-4"} ${className}`.trim()}
+      className={`flex flex-wrap ${isLarge ? "gap-7 sm:gap-9" : "gap-3 sm:gap-4"} ${className}`.trim()}
     >
       {items.map((item) => (
         <li key={item.label}>

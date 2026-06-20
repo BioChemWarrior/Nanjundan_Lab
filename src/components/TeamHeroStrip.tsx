@@ -26,7 +26,7 @@ export function TeamHeroStrip({
         {title}
       </h1>
       {subtitle ? (
-        <div className="relative z-10 mt-3 max-w-2xl text-pretty text-lg font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-xl">
+        <div className="relative z-10 mt-3 max-w-2xl whitespace-pre-line text-pretty text-lg font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-xl">
           {subtitle}
         </div>
       ) : null}

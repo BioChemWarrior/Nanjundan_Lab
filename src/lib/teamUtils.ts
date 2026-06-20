@@ -11,3 +11,11 @@ export function teamSectionHref(group: "pi" | "current" | "adjunct" | "alumni") 
   if (group === "adjunct") return "/team/adjunct";
   return "/team/current";
 }
+
+/** Fine-tune circular crop per member (`object-position` CSS value). */
+export function teamPhotoPosition(id: string) {
+  const positions: Record<string, string> = {
+    "ancy-joseph": "center 58%",
+  };
+  return positions[id];
+}

@@ -31,6 +31,13 @@ export const fundingPartners = [
     height: 311,
   },
   {
+    name: "Department of Industry, Science and Resources",
+    src: "/funding/disr.png",
+    href: "https://www.industry.gov.au/",
+    width: 300,
+    height: 224,
+  },
+  {
     name: "University of Southern Queensland",
     src: "/funding/unisq.png",
     href: "https://www.unisq.edu.au/",
@@ -49,12 +56,13 @@ export const principalInvestigator = {
   ],
   bio: "An innovative materials scientist focused on carbon-based nanomaterials for advanced energy storage, with leadership experience spanning university research, international fellowships, and graphene industry translation.",
   bioExtended:
-    "He has secured more than AUD 5 million in research funding, authored over 100 publications in leading journals, accumulated more than 10,900 citations (h-index 56), and filed seven patents including a granted US patent.",
+    "He has secured more than AUD 5 million in research funding, authored over 100 publications in leading journals, accumulated more than 11,000 citations (h-index 57), and filed seven patents including a granted US patent.",
   links: {
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
     universityBio: "https://research.usq.edu.au/researcher/z1045/prof-ashok-nanjundan",
     orcid: "https://orcid.org/0000-0001-6502-0844",
     linkedin: "https://www.linkedin.com/in/ashok-kumar-nanjundan/",
+    researchGate: "https://www.researchgate.net/profile/Ashok-Kumar-Nanjundan",
   },
   keywords: [
     "Advanced carbon materials",
@@ -81,7 +89,7 @@ export const navItems = [
   { href: "/publications", label: "Publications" },
   { href: "/projects", label: "Projects" },
   { href: "/news", label: "News" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/join-us", label: "Join Us" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -116,12 +124,12 @@ const piMembers = [
   {
     id: "nanjundan",
     group: "pi" as const,
-    name: "Prof. Ashok Kumar Nanjundan. FRSC",
-    role: "Professor of Energy Storage · Associate Head (Outreach, Engagement & International)",
+    name: "Prof. Ashok Kumar Nanjundan FRSC",
+    role: "Professor of Energy Storage\nAssociate Head (Outreach, Engagement & International)\nResearch Integrity Advisor (UniSQ)",
     focus: "Carbon Nanomaterials · Advanced Energy Storage · Industry Translation",
     bio: "An innovative materials scientist specialising in carbon-based nanomaterials for energy storage, with an academic and industry career spanning graphene commercialisation, international fellowships, and large-scale collaborative research.",
     careerSummary:
-      "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 10,900 citations (h-index 56). He is also named on seven patent filings, including a granted US patent.",
+      "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 11,000 citations (h-index 57). He is also named on seven patent filings, including a granted US patent.",
     professionalExperience:
       "At the University of Southern Queensland he is Professor of Energy Storage and Associate Head (Outreach, Engagement & International). He has held a visiting appointment at the Energy Consortium, IIT Madras. As Chief Scientific Officer at Graphene Manufacturing Group he connected academic research with industry priorities, led R&D from concept to manufacturing, commercialised the graphene aluminium-ion battery, developed graphene-based automotive additives, and prepared regulatory and quality-system documentation for nanomaterials and energy technologies. His earlier roles include UQ Postdoctoral Research Fellow, sessional academic at Griffith University, JSPS Fellow at Kumamoto University, research and visiting fellowships at Trinity College Dublin and UNSW, Marie-Curie Fellow at CEA Grenoble, and postdoctoral research at UNIST.",
     photo: "/team/prof-ashok.png",
@@ -185,6 +193,26 @@ const currentTeamMembers = [
     email: "ancy.joseph@unisq.edu.au",
   },
   {
+    id: "vedang-sonar",
+    group: "current" as const,
+    name: "Vedang Avinash Sonar",
+    role: "PhD Scholar",
+    focus: "COFs · organic electrode materials · sodium-ion & potassium-ion batteries",
+    bio: "Vedang Sonar obtained his M.Sc. in General Chemistry from Vellore Institute of Technology (VIT), Tamil Nadu, India, following a B.Sc. in Chemistry from Sir Parashurambhau (S.P.) College, Pune, India. His research interests focus on Covalent Organic Frameworks (COFs) and other functional porous materials for electrochemical energy storage. During his academic training, he gained research experience in both India and Australia, including at the National Chemical Laboratory (NCL) and Queensland University of Technology (QUT). He is the first author of a peer-reviewed review article on COFs for multivalent-ion batteries. His interests include sodium-ion and potassium-ion batteries, organic electrode materials, and the development of sustainable materials for next-generation energy storage systems — spanning electrochemical applications of COFs, synthesis and characterization of advanced polymers and hybrid materials, porous functional materials for energy storage, and sustainable energy-storage technologies.",
+    photo: "/team/vedang-avinash-sonar.png",
+    email: "",
+  },
+  {
+    id: "jiahu-zhang",
+    group: "current" as const,
+    name: "Jiahu Zhang",
+    role: "PhD Scholar",
+    focus: "Heavy-metal removal · MOFs · COFs · environmental functional materials",
+    bio: "Jiahu Zhang began his PhD study in 2026 at the School of Science, Engineering and Digital Technologies, University of Southern Queensland. His current research focuses on the development of advanced materials for the removal and recovery of heavy-metal ions from contaminated water. His broader research interests include the design of environmental functional materials for heavy-metal pollution remediation, particularly through adsorption and electrocatalytic approaches. He has a background in materials science, materials characterization, and adsorption, and is currently working on a range of environmental functional materials, such as metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and magnetic polymer-based composites, for heavy-metal removal and mechanistic investigation.",
+    photo: "/team/jiahu-zhang.png",
+    email: "Jiahu.Zhang@unisq.edu.au",
+  },
+  {
     id: "bidita-salahuddin",
     group: "current" as const,
     name: "Bidita Salahuddin",
@@ -217,7 +245,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "kothandaraman-ramanujam",
     group: "adjunct",
     name: "Prof. Kothandaraman Ramanujam. FRSC",
-    role: "Professor - IIT Madras, Adjunct Professor - USQ",
+    role: "Professor - IIT Madras\nAdjunct Professor - UniSQ",
     focus: "Li/Na/Zn batteries · dye-sensitized solar cells · electrochemical sensors",
     bio: "An electrochemist focused on India-centric energy storage, functional materials, and translatable battery, solar, and sensor technologies.",
     careerSummary:
@@ -231,7 +259,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz - Zentrum Berlin, Adjunct Associate Professor - USQ",
+    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz - Zentrum Berlin, Adjunct Associate Professor - UniSQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
@@ -243,15 +271,30 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "rohit-ranganathan-gaddam",
     group: "adjunct",
     name: "Dr. Rohit Ranganathan Gaddam",
-    role: "Assistant Professor - IISER Bhopal, Adjunct Senior Lecturer - USQ",
+    role: "Assistant Professor - IISER Bhopal\nAdjunct Senior Lecturer - UniSQ",
     focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
     bio: "A materials scientist specialising in advanced functional materials and electrochemical energy storage across lithium-ion, sodium-ion, and solid-state battery systems.",
     careerSummary:
-      "Dr. Rohit Ranganathan Gaddam is an alumnus of Nanjundan Lab whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries.",
+      "Dr. Rohit Ranganathan Gaddam is a former PhD student of Prof. Ashok whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries.",
     professionalExperience:
       "Dr. Gaddam was a Postdoctoral Research Fellow in the School of Chemical Engineering at UQ (2018–2019), an Alexander von Humboldt Fellow at the Technical University of Munich (2020–2021), and a Visiting Scholar at Washington University in St. Louis (2018). He also completed master's dissertation and project work at CSIR-Indian Institute of Chemical Technology, Hyderabad (2013–2015). He is currently Assistant Professor of Chemical Engineering at IISER Bhopal.",
     photo: "/team/rohit-ranganathan-gaddam.png",
     email: "",
+  },
+  {
+    id: "venkata-chevali",
+    group: "adjunct",
+    name: "Dr. Venkata Chevali",
+    role: "Adjunct Associate Professor",
+    focus: "Advanced composites · polymer composites · flame-retardant materials · sustainable biocomposites",
+    bio: "A materials scientist specialising in advanced polymer and composite systems, from rapid thermoplastic processing to flame-retardant polymers and sustainable biocomposites.",
+    careerSummary:
+      "Venkata Chevali's research lies at the intersection of materials science, macromolecular chemistry and chemical engineering, with a sustained focus on the design, processing and performance of advanced polymer and composite systems. His work exploits emerging manufacturing paradigms spanning rapid processing of thermoplastic composites, flame-retardant polymers and sustainable biocomposites derived from renewable feedstocks. Central to this program is the nanoengineering of interfaces and architectures: synergistic flame-retardant networks, nanoreinforcements targeted to fibre–matrix interfaces, molecular-dynamics interrogation of atomistic behaviour, and the identification and characterisation of rare or anomalous phenomena in high-performance materials. Through long-term collaboration with industrial partners, he has progressed multiple concepts from lab scale to pilot and pre-commercial deployment.",
+    professionalExperience:
+      "Dr Chevali currently serves as Chief Investigator on ARC Discovery Project DP230103008, Linkage Infrastructure project LE230100179, and the SIMPLE Hub, collectively exceeding $4.8 million in competitive funding. His international collaborations include Prof. Uday K. Vaidya (University of Tennessee, Knoxville), Dr Sebastian Spierling (Leibniz University Hannover), and Prof. Srikanth Pilla (University of Delaware). He is affiliated with the Centre for Future Materials and the Institute for Space, Defence and Advanced Technologies at UniSQ.",
+    email: "",
+    orcid: "https://orcid.org/0000-0002-5648-0344",
+    linkedin: "https://www.linkedin.com/in/venkatachevali/",
   },
 ];
 
@@ -267,6 +310,11 @@ export type AlumniTeamMember = {
   photo?: string;
   scholar?: string;
   orcid?: string;
+  thesis?: {
+    title: string;
+    citation: string;
+    doi: string;
+  };
 };
 
 export const alumniMembers: readonly AlumniTeamMember[] = [
@@ -274,11 +322,98 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
     id: "rohit-ranganathan-gaddam",
     group: "alumni",
     name: "Dr. Rohit Ranganathan Gaddam",
-    role: "Assistant Professor, IISER Bhopal",
+    role: "Former PhD Student\nCurrently Assistant Professor at IISER Bhopal",
     focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
-    bio: "Dr. Rohit Ranganathan Gaddam is an alumnus of Nanjundan Lab whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries. Dr. Gaddam was a Postdoctoral Research Fellow in the School of Chemical Engineering at UQ (2018–2019), an Alexander von Humboldt Fellow at the Technical University of Munich (2020–2021), and a Visiting Scholar at Washington University in St. Louis (2018). He also completed master's dissertation and project work at CSIR-Indian Institute of Chemical Technology, Hyderabad (2013–2015). He is currently Assistant Professor of Chemical Engineering at IISER Bhopal.",
+    bio: "Dr. Rohit Ranganathan Gaddam is a former PhD student of Prof. Ashok whose work centres on the synthesis and characterisation of advanced functional materials for electrochemical energy storage. He holds a Ph.D. from The University of Queensland (2019) and an integrated M.Tech from Amity University, India (2014). His research addresses material design and electrochemical performance across lithium-ion and sodium-ion batteries, high-performance aqueous battery systems, and lithium and sodium-ion solid-state conductors for solid-state batteries. Dr. Gaddam was a Postdoctoral Research Fellow in the School of Chemical Engineering at UQ (2018–2019), an Alexander von Humboldt Fellow at the Technical University of Munich (2020–2021), and a Visiting Scholar at Washington University in St. Louis (2018). He also completed master's dissertation and project work at CSIR-Indian Institute of Chemical Technology, Hyderabad (2013–2015). He is currently Assistant Professor of Chemical Engineering at IISER Bhopal.",
     photo: "/team/rohit-ranganathan-gaddam.png",
     email: "",
+  },
+  {
+    id: "dongfang-yang",
+    group: "alumni",
+    name: "Dongfang Yang",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+    thesis: {
+      title: "Nickel cobaltite-based anode materials for sodium-ion capacitors",
+      citation:
+        "Yang, Dongfang (2019). Nickel cobaltite-based anode materials for sodium-ion capacitors. PhD Thesis, School of Chemical Engineering, The University of Queensland.",
+      doi: "https://doi.org/10.14264/uql.2019.164",
+    },
+  },
+  {
+    id: "yverick-rangom",
+    group: "alumni",
+    name: "Yverick Rangom",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+  },
+  {
+    id: "hao-liu",
+    group: "alumni",
+    name: "Hao Liu",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+  },
+  {
+    id: "yilan-wu",
+    group: "alumni",
+    name: "Yilan Wu",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+  },
+  {
+    id: "rana-afzal",
+    group: "alumni",
+    name: "Rana Afzal",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+    thesis: {
+      title: "A systematic investigation on the valorisation of carbon from sorghum biomass for energy storage materials",
+      citation:
+        "Afzal, Rana (2023). A systematic investigation on the valorisation of carbon from sorghum biomass for energy storage materials. PhD Thesis, School of Chemical Engineering, The University of Queensland.",
+      doi: "https://doi.org/10.14264/7e7186e",
+    },
+  },
+  {
+    id: "shumei-chen",
+    group: "alumni",
+    name: "Shumei Chen",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+    thesis: {
+      title: "Development of stable and high-capacity aqueous aluminum-ion batteries",
+      citation:
+        "Chen, Shuimei (2025). Development of stable and high-capacity aqueous aluminum-ion batteries. PhD Thesis, Australian Institute for Bioengineering and Nanotechnology, The University of Queensland.",
+      doi: "https://doi.org/10.14264/88b3f68",
+    },
+  },
+  {
+    id: "nashaat-gadelhak",
+    group: "alumni",
+    name: "Nashaat Gadelhak",
+    role: "Former PhD Student",
+    focus: "",
+    bio: "",
+    email: "",
+    thesis: {
+      title: "Functional Membrane Separators for Rechargeable Non-Aqueous Aluminium-Ion Batteries",
+      citation:
+        "Gadelhak, Nashaat (2026). Functional Membrane Separators for Rechargeable Non-Aqueous Aluminium-Ion Batteries. PhD Thesis, Australian Institute for Bioengineering and Nanotechnology, The University of Queensland.",
+      doi: "https://doi.org/10.14264/df3c807",
+    },
   },
 ];
 

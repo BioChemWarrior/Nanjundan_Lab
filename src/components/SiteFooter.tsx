@@ -12,6 +12,7 @@ export function SiteFooter() {
           linkedin={principalInvestigator.links.linkedin}
           universityBio={principalInvestigator.links.universityBio}
           scholar={principalInvestigator.links.scholar}
+          researchGate={principalInvestigator.links.researchGate}
           email={site.email}
           orcid={principalInvestigator.links.orcid}
         />

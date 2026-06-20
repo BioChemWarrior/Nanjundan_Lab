@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
-import { getTeamMemberById, getTeamSectionLabel, principalInvestigator, teamMembers } from "@/lib/content";
-import { memberInitials, teamSectionHref } from "@/lib/teamUtils";
+import { getTeamMemberById, getTeamSectionLabel, teamMembers } from "@/lib/content";
+import { memberInitials, teamPhotoPosition, teamSectionHref } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
 
 export const runtime = "nodejs";
@@ -92,6 +92,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
   if (!member) notFound();
 
   const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
+  const photoPosition = teamPhotoPosition(member.id);
   const isPi = member.group === "pi";
   const isExpandedProfile = isPi || ("careerSummary" in member && Boolean(member.careerSummary));
   const sectionHref = teamSectionHref(member.group);
@@ -138,7 +139,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
               }
             >
               <div
-                className={`relative aspect-[4/5] w-full overflow-hidden rounded-2xl border bg-slate-100 ${
+                className={`relative aspect-square w-full overflow-hidden rounded-full border bg-slate-100 ${
                   isExpandedProfile
                     ? "border-blue-400/55 shadow-[0_0_0_1px_rgba(96,165,250,0.35),0_22px_50px_-32px_rgba(59,130,246,0.55)]"
                     : "border-slate-200 shadow-sm"
@@ -149,8 +150,9 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                     src={src}
                     alt=""
                     width={560}
-                    height={700}
+                    height={560}
                     className="h-full w-full object-cover"
+                    style={photoPosition ? { objectPosition: photoPosition } : undefined}
                     loading="lazy"
                   />
                 ) : (
@@ -166,19 +168,13 @@ export default async function TeamMemberDetailPage({ params }: Props) {
 
             <div className={isExpandedProfile ? "min-w-0 space-y-8 lg:col-span-9" : "min-w-0 flex-1 space-y-6"}>
               <div className={isExpandedProfile ? "grid gap-6 md:grid-cols-2" : "space-y-6"}>
-                <div className={isExpandedProfile && !isPi && !hasLinks ? "md:col-span-2" : undefined}>
-                  <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">Research focus</h2>
-                  <p className="mt-2 text-base font-bold leading-relaxed text-slate-700">{member.focus}</p>
-                </div>
-                {isPi ? (
-                  <MemberLinks
-                    email={member.email}
-                    linkedin={principalInvestigator.links.linkedin}
-                    universityBio={principalInvestigator.links.universityBio}
-                    scholar={scholarUrl}
-                    orcid={orcidUrl}
-                  />
-                ) : isExpandedProfile && hasLinks ? (
+                {member.focus ? (
+                  <div className={isExpandedProfile && (isPi || !hasLinks) ? "md:col-span-2" : undefined}>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">Research focus</h2>
+                    <p className="mt-2 text-base font-bold leading-relaxed text-slate-700">{member.focus}</p>
+                  </div>
+                ) : null}
+                {!isPi && isExpandedProfile && hasLinks ? (
                   <MemberLinks
                     email={member.email}
                     linkedin={linkedinUrl}
@@ -193,12 +189,26 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                     <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">Career summary</h2>
                     <p className="mt-2 text-base leading-relaxed text-slate-600">{member.careerSummary}</p>
                   </div>
-                ) : (
+                ) : "thesis" in member && member.thesis ? (
+                  <div className={isExpandedProfile ? "md:col-span-2" : undefined}>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">PhD thesis</h2>
+                    <p className="mt-2 text-base font-bold leading-relaxed text-slate-800">{member.thesis.title}</p>
+                    <p className="mt-2 text-base leading-relaxed text-slate-600">{member.thesis.citation}</p>
+                    <a
+                      className="mt-3 inline-block text-base text-blue-700 underline-offset-2 hover:underline"
+                      href={member.thesis.doi}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {member.thesis.doi}
+                    </a>
+                  </div>
+                ) : member.bio ? (
                   <div className={isExpandedProfile ? "md:col-span-2" : undefined}>
                     <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">Bio</h2>
                     <p className="mt-2 text-base leading-relaxed text-slate-600">{member.bio}</p>
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           </div>

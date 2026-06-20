@@ -1,5 +1,5 @@
 import { principalInvestigator } from "@/lib/content";
-import { fetchOrcidPublications, type OrcidPublication } from "@/lib/orcid";
+import { fetchOrcidPublications, comparePublicationsByDate, type OrcidPublication } from "@/lib/orcid";
 
 export type Publication = OrcidPublication;
 
@@ -14,6 +14,10 @@ function publicationKey(pub: Publication): string {
 
 function getOrcidRecordIds(): string[] {
   return [normalizeOrcidId(principalInvestigator.links.orcid)];
+}
+
+function publicationDateValue(pub: Pick<Publication, "year" | "month" | "day">): number {
+  return (pub.year || 0) * 10_000 + (pub.month || 0) * 100 + (pub.day || 0);
 }
 
 /**
@@ -34,11 +38,13 @@ export async function getPublications(): Promise<Publication[]> {
     for (const pub of result.value) {
       const key = publicationKey(pub);
       const existing = merged.get(key);
-      if (!existing || pub.year > existing.year) {
+      if (!existing || publicationDateValue(pub) > publicationDateValue(existing)) {
         merged.set(key, pub);
       }
     }
   }
 
-  return [...merged.values()].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+  return [...merged.values()].sort(comparePublicationsByDate);
 }
+
+export { comparePublicationsByDate };

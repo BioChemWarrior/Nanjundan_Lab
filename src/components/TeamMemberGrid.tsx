@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { TeamMember } from "@/lib/content";
-import { memberInitials } from "@/lib/teamUtils";
+import { memberInitials, teamPhotoPosition } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
 
 type Props = {
@@ -18,6 +18,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
       {members.map((member) => {
         const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
         const isPi = member.group === "pi";
+        const photoPosition = teamPhotoPosition(member.id);
 
         return (
           <li key={member.id} className="text-center">
@@ -26,7 +27,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
               className="group block rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
             >
               <div
-                className={`relative mx-auto aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-2xl border bg-slate-100 shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:border-blue-300/60 group-hover:shadow-md ${
+                className={`relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full border bg-slate-100 shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:border-blue-300/60 group-hover:shadow-md ${
                   isPi
                     ? "border-blue-400/55 shadow-[0_0_0_1px_rgba(96,165,250,0.35),0_22px_50px_-32px_rgba(59,130,246,0.55)]"
                     : "border-slate-200"
@@ -42,8 +43,9 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
                     src={src}
                     alt=""
                     width={440}
-                    height={550}
+                    height={440}
                     className="h-full w-full object-cover"
+                    style={photoPosition ? { objectPosition: photoPosition } : undefined}
                     loading="lazy"
                   />
                 ) : (
@@ -59,7 +61,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
                 {member.name}
               </p>
               {member.role ? (
-                <p className="mt-1 text-pretty px-1 text-xs text-slate-500 sm:text-sm">{member.role}</p>
+                <p className="mt-1 whitespace-pre-line text-pretty px-1 text-xs text-slate-500 sm:text-sm">{member.role}</p>
               ) : null}
             </Link>
           </li>

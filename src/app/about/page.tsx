@@ -45,7 +45,7 @@ export default function AboutPage() {
         <div>
           <h3 className="text-xl font-semibold text-slate-900">Team</h3>
           <p className="mt-4">
-            The lab currently includes {teamSize} members, led by Prof. Ashok Kumar Nanjundan and supported by postdoctoral fellow Dr.
+            The lab currently includes {teamSize} members, led by Prof. Ashok Kumar Nanjundan and supported by senior research fellow Dr.
             Pratheep K. Annamalai. Our research cohort includes {phdScholars} PhD scholars working across sustainable materials,
             electrochemical systems, and translational clean-energy applications.
           </p>
