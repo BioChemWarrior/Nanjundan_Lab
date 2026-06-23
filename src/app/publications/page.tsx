@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AltmetricPublicationList } from "@/components/AltmetricPublicationList";
 import { JournalCoverCarousel } from "@/components/JournalCoverCarousel";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { principalInvestigator } from "@/lib/content";
 import { getAllJournalCovers } from "@/lib/journalCovers";
 import { getPublications } from "@/lib/publications";
@@ -46,9 +47,12 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
 
   return (
     <>
-      <TeamHeroStrip title="Publications" subtitle="We have published in various journals like" />
-      <div className="bg-white px-4 py-12 text-slate-900 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-5xl space-y-10">
+      <TeamHeroStrip
+        title="Publications"
+        subtitle="Peer-reviewed work in leading journals including Nature Protocols, ACS Nano, and Chemical Reviews."
+      />
+      <PageBody>
+        <PageBodyInner className="space-y-10">
       {featuredJournalCovers.length > 0 ? (
         <section>
           <JournalCoverCarousel covers={featuredJournalCovers} />
@@ -112,7 +116,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                   >
                     <span className="font-mono text-sm text-blue-700">{String(startIndex + index + 1).padStart(2, "0")}</span>
                     <div className="mt-2 min-w-0 flex-1 sm:mt-0">
-                      <h2 className="text-lg font-semibold text-slate-900">
+                      <h2 className="text-base font-semibold text-slate-900">
                         {pub.url ? (
                           <a href={pub.url} target="_blank" rel="noreferrer" className="transition hover:text-blue-700">
                             {pub.title}
@@ -204,8 +208,8 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
           ) : null}
         </>
       )}
-        </div>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }

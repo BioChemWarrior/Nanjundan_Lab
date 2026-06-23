@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ContentCard";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
+import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Join Us",
@@ -9,8 +11,8 @@ export default function JoinUsPage() {
   return (
     <>
       <SectionHeading title="What is important for a successful PhD?" />
-      <div className="bg-white px-4 py-12 text-slate-900 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-3xl space-y-8 text-base leading-relaxed text-slate-600">
+      <PageBody>
+        <PageBodyInner className="space-y-8 text-base leading-relaxed text-slate-600">
           <p>
             Over the last 20 years, I have learned that hard work is the engine of a successful PhD, but it needs a
             steering wheel. For highly driven students entering our rigorous, experimental research environment, the key
@@ -21,7 +23,7 @@ export default function JoinUsPage() {
           </p>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">1. Direct Energy Toward Strategic Goals</h2>
+            <h2 className="text-lg font-semibold text-slate-900">1. Direct Energy Toward Strategic Goals</h2>
             <p>
               Working 12-hour days is counterproductive if your effort doesn&apos;t align with the lab&apos;s milestones.
               I advise you to understand the broader objectives of the grants funding our work. Your hard work is most
@@ -31,7 +33,7 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">2. Treat Failed Experiments as Crucial Data</h2>
+            <h2 className="text-lg font-semibold text-slate-900">2. Treat Failed Experiments as Crucial Data</h2>
             <p>
               In our experimental fields—whether synthesizing new materials, running complex chemical processes, or
               testing device fabrication—things will fail. Hardworking students often take this as a personal defeat. I
@@ -41,7 +43,7 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">3. Master Meticulous Documentation</h2>
+            <h2 className="text-lg font-semibold text-slate-900">3. Master Meticulous Documentation</h2>
             <p>
               Your raw effort is wasted if the methodology cannot be reproduced. You must build the habit of exhaustive
               data management from day one. Capturing the exact parameters of a structural analysis or chemical
@@ -51,7 +53,7 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">4. Read Deeply Before Executing</h2>
+            <h2 className="text-lg font-semibold text-slate-900">4. Read Deeply Before Executing</h2>
             <p>
               Eager, hardworking students often want to rush straight to bench work. I encourage you to channel that drive
               into mastering the literature first. Understanding the foundational theory and knowing exactly what has
@@ -60,7 +62,7 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">5. Transition from Student to Colleague</h2>
+            <h2 className="text-lg font-semibold text-slate-900">5. Transition from Student to Colleague</h2>
             <p>
               The ultimate goal of your PhD is intellectual independence. As a driven candidate, you should gradually
               shift from asking me, &ldquo;What experiment should I run next?&rdquo; to proposing, &ldquo;Here is what I
@@ -70,7 +72,7 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Join Nanjundan Group</h2>
+            <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Join The Nanjundan Lab</h2>
             <p>
               We are always looking for passionate and driven individuals to join our research team at the University of
               Southern Queensland.
@@ -89,7 +91,7 @@ export default function JoinUsPage() {
           </p>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">Who We Are Looking For</h2>
+            <h2 className="text-lg font-semibold text-slate-900">Who We Are Looking For</h2>
             <p>
               We welcome inquiries from highly motivated prospective PhD students, Master&apos;s students, and
               Postdoctoral researchers with a strong background in materials science, chemistry, or chemical engineering.
@@ -99,8 +101,14 @@ export default function JoinUsPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-900">How to Apply</h2>
-            <p>If you are interested in joining the lab, please send an email with the following:</p>
+            <h2 className="text-lg font-semibold text-slate-900">How to Apply</h2>
+            <p>
+              If you are interested in joining the lab, please email{" "}
+              <a className="font-semibold text-blue-700 underline-offset-2 hover:underline" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>{" "}
+              with the following:
+            </p>
             <p>
               A brief cover letter outlining your research interests and why you would like to join our group.
               <br />
@@ -114,8 +122,8 @@ export default function JoinUsPage() {
             </p>
             <p>We look forward to building the future of sustainable energy storage together.</p>
           </div>
-        </div>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }

@@ -19,14 +19,14 @@ export function TeamHeroStrip({
         <p className="relative z-10 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/85">{eyebrow}</p>
       ) : null}
       <h1
-        className={`relative z-10 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl${
+        className={`relative z-10 max-w-6xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl${
           eyebrow ? " mt-3" : ""
         }`}
       >
         {title}
       </h1>
       {subtitle ? (
-        <div className="relative z-10 mt-3 max-w-2xl whitespace-pre-line text-pretty text-lg font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-xl">
+        <div className="relative z-10 mt-3 max-w-6xl whitespace-pre-line text-pretty text-base font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-lg">
           {subtitle}
         </div>
       ) : null}

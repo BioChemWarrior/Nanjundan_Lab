@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { TeamMemberGrid } from "@/components/TeamMemberGrid";
 import { getTeamMembersByGroup } from "@/lib/content";
 
@@ -15,14 +16,14 @@ export default function AlumniPage() {
   return (
     <>
       <TeamHeroStrip title="Alumni" subtitle="Former researchers and students of Nanjundan Lab." />
-      <div className="bg-white px-4 py-12 text-slate-900 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <PageBody>
+        <PageBodyInner>
           <TeamMemberGrid
             members={members}
             emptyMessage="Alumni profiles will be listed here as members graduate or move on from the lab."
           />
-        </div>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }

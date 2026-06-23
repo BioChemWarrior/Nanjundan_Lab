@@ -86,9 +86,9 @@ export const homeCopy = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/projects", label: "Research" },
   { href: "/publications", label: "Publications" },
-  { href: "/projects", label: "Projects" },
-  { href: "/news", label: "News" },
+  // { href: "/news", label: "News" }, // hidden for now
   { href: "/join-us", label: "Join Us" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -97,7 +97,7 @@ export const navItems = [
 export const principalInvestigatorId = "nanjundan" as const;
 
 export const teamNavDropdown = [
-  { href: `/team/${principalInvestigatorId}`, label: "Chief investigator" },
+  { href: `/team/${principalInvestigatorId}`, label: "Principal Investigator" },
   { href: "/team/current", label: "Current team" },
   { href: "/team/adjunct", label: "Adjunct Faculty" },
   { href: "/team/alumni", label: "Alumni" },
@@ -136,6 +136,7 @@ const piMembers = [
     email: "ashok.nanjundan@unisq.edu.au",
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
     orcid: "https://orcid.org/0000-0001-6502-0844",
+    linkedin: "https://www.linkedin.com/in/ashok-kumar-nanjundan/",
   },
 ] as const;
 
@@ -178,7 +179,7 @@ const currentTeamMembers = [
     name: "Sandeep Kumar",
     role: "PhD Scholar",
     focus: "Laboratory research",
-    bio: "Sandeep Kumar is an interdisciplinary researcher with a master’s degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep’s passion lies in developing innovative solutions for next-generation batteries. He will be pursuing a PhD focused on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
+    bio: "Sandeep Kumar is an interdisciplinary researcher with a master's degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep's passion lies in developing innovative solutions for next-generation batteries. His PhD research focuses on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
     photo: "/team/sandeep-kumar.png",
     email: "sandeep.kumar@unisq.edu.au",
   },
@@ -216,7 +217,7 @@ const currentTeamMembers = [
     id: "bidita-salahuddin",
     group: "current" as const,
     name: "Bidita Salahuddin",
-    role: "",
+    role: "PhD Scholar",
     focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
     bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
     email: "",
@@ -244,7 +245,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
   {
     id: "kothandaraman-ramanujam",
     group: "adjunct",
-    name: "Prof. Kothandaraman Ramanujam. FRSC",
+    name: "Prof. Kothandaraman Ramanujam, FRSC",
     role: "Professor - IIT Madras\nAdjunct Professor - UniSQ",
     focus: "Li/Na/Zn batteries · dye-sensitized solar cells · electrochemical sensors",
     bio: "An electrochemist focused on India-centric energy storage, functional materials, and translatable battery, solar, and sensor technologies.",
@@ -259,7 +260,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz - Zentrum Berlin, Adjunct Associate Professor - UniSQ",
+    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz-Zentrum Berlin, Adjunct Associate Professor - UniSQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
@@ -285,13 +286,14 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "venkata-chevali",
     group: "adjunct",
     name: "Dr. Venkata Chevali",
-    role: "Adjunct Associate Professor",
+    role: "Adjunct Associate Professor - UniSQ",
     focus: "Advanced composites · polymer composites · flame-retardant materials · sustainable biocomposites",
     bio: "A materials scientist specialising in advanced polymer and composite systems, from rapid thermoplastic processing to flame-retardant polymers and sustainable biocomposites.",
     careerSummary:
       "Venkata Chevali's research lies at the intersection of materials science, macromolecular chemistry and chemical engineering, with a sustained focus on the design, processing and performance of advanced polymer and composite systems. His work exploits emerging manufacturing paradigms spanning rapid processing of thermoplastic composites, flame-retardant polymers and sustainable biocomposites derived from renewable feedstocks. Central to this program is the nanoengineering of interfaces and architectures: synergistic flame-retardant networks, nanoreinforcements targeted to fibre–matrix interfaces, molecular-dynamics interrogation of atomistic behaviour, and the identification and characterisation of rare or anomalous phenomena in high-performance materials. Through long-term collaboration with industrial partners, he has progressed multiple concepts from lab scale to pilot and pre-commercial deployment.",
     professionalExperience:
       "Dr Chevali currently serves as Chief Investigator on ARC Discovery Project DP230103008, Linkage Infrastructure project LE230100179, and the SIMPLE Hub, collectively exceeding $4.8 million in competitive funding. His international collaborations include Prof. Uday K. Vaidya (University of Tennessee, Knoxville), Dr Sebastian Spierling (Leibniz University Hannover), and Prof. Srikanth Pilla (University of Delaware). He is affiliated with the Centre for Future Materials and the Institute for Space, Defence and Advanced Technologies at UniSQ.",
+    photo: "/team/venkata-chevali.png",
     email: "",
     orcid: "https://orcid.org/0000-0002-5648-0344",
     linkedin: "https://www.linkedin.com/in/venkatachevali/",

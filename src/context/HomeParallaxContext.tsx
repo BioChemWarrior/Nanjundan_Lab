@@ -48,7 +48,7 @@ export function HomeParallaxPage({
 }) {
   return (
     <HomeParallaxContext.Provider value={INITIAL}>
-      <div className="home-parallax-root relative text-slate-100">
+      <div className="home-parallax-root relative flex flex-1 flex-col text-slate-100">
         <HomeLightBlooms />
         {beforeContent}
         <div className="home-parallax-content relative z-[2]">{children}</div>

@@ -26,8 +26,13 @@ function HomeHeroHeadline() {
         })()}
       </h1>
 
-      <p className="mt-6 max-w-none whitespace-nowrap text-center text-xl font-bold tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl">
-        {labBrand.subtitle}
+      <p className="mt-6 max-w-6xl text-balance text-center font-[var(--font-space-grotesk)] text-xl font-light tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl">
+        {labBrand.subtitle.split(" • ").map((part, index) => (
+          <span key={part}>
+            {index > 0 ? (part === "Circular Economy" ? " " : " • ") : null}
+            <span className={part === "Next Generation Batteries" ? "whitespace-nowrap" : undefined}>{part}</span>
+          </span>
+        ))}
       </p>
     </>
   );
@@ -66,15 +71,15 @@ function HomeHeroRegion() {
 
 function HomeAbout() {
   return (
-    <section className="mx-auto max-w-[1000px] px-4 pt-16 sm:px-6 sm:pt-20 md:pt-24 lg:px-8">
+    <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20 md:pt-24 lg:px-8">
       <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About The Nanjundan Lab</h2>
-      <p className="mt-2 text-sm text-white">Advanced materials, clean energy, and energy storage innovation</p>
-      <p className="mt-4 text-sm leading-relaxed text-white">
+      <p className="mt-2 text-base text-white sm:text-lg">Advanced materials, clean energy, and energy storage innovation</p>
+      <p className="mt-4 text-base leading-relaxed text-white sm:text-lg">
         Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource
         systems. Our published work and ongoing projects span graphene and hybrid nanomaterials, next-generation batteries
         and supercapacitors, and translation from lab chemistry to practical engineering outcomes.
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-white">
+      <p className="mt-3 text-base leading-relaxed text-white sm:text-lg">
         Current focus areas include critical mineral recovery from e-waste and secondary resources, sustainable bioleaching
         and bio-assisted extraction pathways, and hydrogen generation from seawater-integrated systems. The lab combines
         materials design, process innovation, and industry-linked research to build scalable solutions for energy storage

@@ -21,7 +21,7 @@ export function SectionHeading({
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">{eyebrow}</p>
         ) : null}
         <h1
-          className={`text-balance text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl${eyebrow ? " mt-3" : ""}`}
+          className={`text-balance text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl${eyebrow ? " mt-3" : ""}`}
         >
           {title}
         </h1>
@@ -62,7 +62,7 @@ export function ContentCard({
         {subtitle ? (
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{subtitle}</p>
         ) : null}
-        <h3 className="mt-2 text-lg font-semibold text-slate-900 transition group-hover:text-blue-800">{title}</h3>
+        <h3 className="mt-2 text-base font-semibold text-slate-900 transition group-hover:text-blue-800">{title}</h3>
         {children ? <div className="mt-3 text-sm leading-relaxed text-slate-600">{children}</div> : null}
       </div>
     </div>

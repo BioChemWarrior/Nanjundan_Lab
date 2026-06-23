@@ -1,4 +1,5 @@
 import { principalInvestigator, site } from "@/lib/content";
+import { FooterAcknowledgement } from "@/components/FooterAcknowledgement";
 import { SocialProfileLinks } from "@/components/SocialProfileLinks";
 
 export function SiteFooter() {
@@ -17,9 +18,12 @@ export function SiteFooter() {
           orcid={principalInvestigator.links.orcid}
         />
       </div>
-      <div className="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} {site.name}.
+
+      <div className="border-t border-slate-200 bg-slate-50 px-4 py-4 text-center sm:px-6 lg:px-8">
+        <p className="text-xs text-slate-500">© {new Date().getFullYear()} {site.name}.</p>
       </div>
+
+      <FooterAcknowledgement />
     </footer>
   );
 }

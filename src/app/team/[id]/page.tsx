@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { getTeamMemberById, getTeamSectionLabel, teamMembers } from "@/lib/content";
 import { memberInitials, teamPhotoPosition, teamSectionHref } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
@@ -108,12 +109,8 @@ export default async function TeamMemberDetailPage({ params }: Props) {
   return (
     <>
       <TeamHeroStrip title={member.name} subtitle={member.role} />
-      <div className="bg-white text-slate-900">
-        <article
-          className={`mx-auto space-y-10 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 ${
-            isExpandedProfile ? "max-w-6xl" : "max-w-3xl"
-          }`}
-        >
+      <PageBody>
+        <PageBodyInner className="space-y-10">
           {!isExpandedProfile ? (
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700/90">
               <Link href={sectionHref} className="transition hover:text-blue-600">
@@ -148,7 +145,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                 {src ? (
                   <img
                     src={src}
-                    alt=""
+                    alt={member.name}
                     width={560}
                     height={560}
                     className="h-full w-full object-cover"
@@ -218,7 +215,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
               <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">
                 Professional experience
               </h2>
-              <p className="mt-2 max-w-5xl text-base leading-relaxed text-slate-600">{member.professionalExperience}</p>
+              <p className="mt-2 text-base leading-relaxed text-slate-600">{member.professionalExperience}</p>
             </div>
           ) : null}
 
@@ -229,8 +226,8 @@ export default async function TeamMemberDetailPage({ params }: Props) {
               </Link>
             </p>
           ) : null}
-        </article>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }

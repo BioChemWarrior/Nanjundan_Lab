@@ -41,7 +41,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
                 {src ? (
                   <img
                     src={src}
-                    alt=""
+                    alt={member.name}
                     width={440}
                     height={440}
                     className="h-full w-full object-cover"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { TeamMemberGrid } from "@/components/TeamMemberGrid";
 import { getTeamMembersByGroup } from "@/lib/content";
 
@@ -18,14 +19,14 @@ export default function AdjunctMembersPage() {
         title="Adjunct Faculty"
         subtitle="Collaborators and adjunct affiliates working with Nanjundan Lab."
       />
-      <div className="bg-white px-4 py-12 text-slate-900 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <PageBody>
+        <PageBodyInner>
           <TeamMemberGrid
             members={members}
             emptyMessage="Adjunct faculty profiles will be listed here."
           />
-        </div>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ContentCard";
+import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { site } from "@/lib/content";
 import { submitContactForm } from "./actions";
 
@@ -22,8 +23,8 @@ export default async function ContactPage({ searchParams }: Props) {
   return (
     <>
       <SectionHeading title="Contact the laboratory" />
-      <div className="bg-white px-4 py-12 text-slate-900 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto max-w-3xl space-y-12">
+      <PageBody>
+        <PageBodyInner className="space-y-12">
       {params.sent ? (
         <div className="space-y-3">
           <div className="rounded-2xl border border-emerald-300 bg-emerald-50 px-5 py-4 text-sm text-emerald-900">
@@ -106,6 +107,23 @@ export default async function ContactPage({ searchParams }: Props) {
         </div>
       ) : null}
 
+      <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-sm leading-relaxed text-slate-600">
+        <p className="font-semibold text-slate-900">{site.name}</p>
+        {site.address.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+        <p className="mt-3">
+          <a className="font-semibold text-blue-700 underline-offset-2 hover:underline" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+        </p>
+        <p>
+          <a className="text-blue-700 underline-offset-2 hover:underline" href={`tel:${site.phone.replace(/\s/g, "")}`}>
+            {site.phone}
+          </a>
+        </p>
+      </div>
+
       <form action={submitContactForm} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <div>
             <label htmlFor="name" className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-600">
@@ -117,7 +135,7 @@ export default async function ContactPage({ searchParams }: Props) {
               required
               autoComplete="name"
               className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none ring-blue-400/30 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2"
-              placeholder="Ada Lovelace"
+              placeholder="Your full name"
             />
           </div>
           <div>
@@ -155,7 +173,7 @@ export default async function ContactPage({ searchParams }: Props) {
               required
               rows={6}
               className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none ring-blue-400/30 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2"
-              placeholder="Tell us about datasets, timelines, and NDAs."
+              placeholder="Describe your background, research interests, and how you would like to collaborate."
             />
           </div>
           <button
@@ -165,8 +183,8 @@ export default async function ContactPage({ searchParams }: Props) {
             Send message
           </button>
       </form>
-        </div>
-      </div>
+        </PageBodyInner>
+      </PageBody>
     </>
   );
 }
