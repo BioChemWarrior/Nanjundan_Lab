@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ClippedInteractiveBackdrop } from "@/components/ClippedInteractiveBackdrop";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteLogoRail } from "@/components/SiteLogoRail";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteMain } from "@/components/SiteMain";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           <ClippedInteractiveBackdrop />
         </Suspense>
         <div className="relative z-10 flex min-h-screen flex-col">
+          <SiteLogoRail />
           <SiteHeader />
           <SiteMain>{children}</SiteMain>
           <SiteFooter />
