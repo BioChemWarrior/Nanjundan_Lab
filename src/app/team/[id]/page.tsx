@@ -88,17 +88,21 @@ function MemberLinks({
 }
 
 function formatHonourItem(item: string, boldName: boolean) {
-  if (!boldName) return item;
+  if (!boldName) {
+    return <span className="text-slate-600">{item}</span>;
+  }
 
-  const splitAt = item.indexOf(" (");
-  if (splitAt <= 0) return item;
+  const roleSplit = item.indexOf(" — ");
+  if (roleSplit > 0) {
+    return (
+      <>
+        <span className="font-bold text-slate-900">{item.slice(0, roleSplit)}</span>
+        <span className="font-normal text-slate-600">{item.slice(roleSplit)}</span>
+      </>
+    );
+  }
 
-  return (
-    <>
-      <span className="font-bold text-slate-800">{item.slice(0, splitAt)}</span>
-      {item.slice(splitAt)}
-    </>
-  );
+  return <span className="font-bold text-slate-900">{item}</span>;
 }
 
 function HonourStrip({
@@ -114,8 +118,11 @@ function HonourStrip({
     <div className="border-l-2 border-blue-600/80 pl-5 sm:pl-6">
       <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{title}</h2>
       <ul className="mt-4 list-none space-y-3">
-        {items.map((item) => (
-          <li key={item} className="text-sm leading-relaxed text-slate-600 sm:text-base">
+        {items.map((item, index) => (
+          <li
+            key={`${item}-${index}`}
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm leading-relaxed shadow-sm sm:text-base"
+          >
             {formatHonourItem(item, boldNames)}
           </li>
         ))}

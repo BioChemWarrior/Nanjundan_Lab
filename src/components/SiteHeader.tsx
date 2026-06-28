@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LabLogo } from "@/components/LabLogo";
 import { TeamNavDropdown } from "@/components/TeamNavDropdown";
 import { navItems } from "@/lib/content";
 
@@ -11,8 +12,16 @@ const navLinkClass =
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-lab-950/80 backdrop-blur-xl backdrop-saturate-150">
-      <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-5 sm:px-6 sm:py-6 lg:px-8">
-        <nav className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-2">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-4 sm:flex-row sm:justify-between sm:gap-6 sm:px-6 sm:py-5 lg:px-8">
+        <LabLogo
+          variant="mark"
+          className="h-11 w-11 sm:hidden"
+        />
+        <LabLogo
+          variant="full"
+          className="hidden h-12 w-auto sm:block sm:h-14"
+        />
+        <nav className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:flex-1 sm:justify-end">
           {navItems.slice(0, 3).map((item) => (
             <Link key={item.href} href={item.href} className={navLinkClass}>
               {item.label}
