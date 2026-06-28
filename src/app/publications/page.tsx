@@ -107,12 +107,12 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
       ) : (
         <>
           <AltmetricPublicationList refreshKey={altmetricRefreshKey}>
-            <ol className="space-y-6">
+            <ol className="divide-y divide-slate-200">
               {paginatedPublications.map((pub, index) => {
                 return (
                   <li
                     key={pub.id}
-                    className="rounded-2xl border border-slate-200 bg-white px-5 py-5 shadow-sm transition hover:border-blue-200 sm:flex sm:items-start sm:gap-6"
+                    className="py-6 first:pt-0 last:pb-0 sm:flex sm:items-start sm:gap-6"
                   >
                     <span className="font-mono text-sm text-blue-700">{String(startIndex + index + 1).padStart(2, "0")}</span>
                     <div className="mt-2 min-w-0 flex-1 sm:mt-0">
@@ -148,7 +148,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                         </p>
                       ) : null}
                     </div>
-                    <div className="mt-4 shrink-0 border-t border-slate-100 pt-4 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
+                    <div className="mt-4 shrink-0 sm:mt-0 sm:pl-2">
                       {pub.doi ? (
                         <div
                           className="altmetric-embed"

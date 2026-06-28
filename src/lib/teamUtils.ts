@@ -12,10 +12,27 @@ export function teamSectionHref(group: "pi" | "current" | "adjunct" | "alumni") 
   return "/team/current";
 }
 
+type TeamPhotoOverride = {
+  objectPosition?: string;
+  scale?: number;
+};
+
+const teamPhotoOverrides: Record<string, TeamPhotoOverride> = {
+  "ancy-joseph": { objectPosition: "center 58%" },
+  "bidita-salahuddin": { scale: 0.86 },
+};
+
 /** Fine-tune circular crop per member (`object-position` CSS value). */
 export function teamPhotoPosition(id: string) {
-  const positions: Record<string, string> = {
-    "ancy-joseph": "center 58%",
+  return teamPhotoOverrides[id]?.objectPosition;
+}
+
+/** Optional inline style for team photos (position + zoom). */
+export function teamPhotoStyle(id: string): { objectPosition?: string; transform?: string } | undefined {
+  const override = teamPhotoOverrides[id];
+  if (!override) return undefined;
+  return {
+    ...(override.objectPosition ? { objectPosition: override.objectPosition } : {}),
+    ...(override.scale ? { transform: `scale(${override.scale})` } : {}),
   };
-  return positions[id];
 }

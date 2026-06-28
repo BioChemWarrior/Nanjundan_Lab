@@ -132,6 +132,25 @@ const piMembers = [
       "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 11,000 citations (h-index 57). He is also named on seven patent filings, including a granted US patent.",
     professionalExperience:
       "At the University of Southern Queensland he is Professor of Energy Storage and Associate Head (Outreach, Engagement & International). He has held a visiting appointment at the Energy Consortium, IIT Madras. As Chief Scientific Officer at Graphene Manufacturing Group he connected academic research with industry priorities, led R&D from concept to manufacturing, commercialised the graphene aluminium-ion battery, developed graphene-based automotive additives, and prepared regulatory and quality-system documentation for nanomaterials and energy technologies. His earlier roles include UQ Postdoctoral Research Fellow, sessional academic at Griffith University, JSPS Fellow at Kumamoto University, research and visiting fellowships at Trinity College Dublin and UNSW, Marie-Curie Fellow at CEA Grenoble, and postdoctoral research at UNIST.",
+    awardsAndGrants: [
+      "Australia India Strategic Research Fund (AU$ 918,077) — Lead CI",
+      "ARC Research Hub for Safe and Reliable Energy (IH200100035 — AU$ 5,000,000) — CI",
+      "ARC Center of Excellence for Green Electrochemical Transformation of Carbon Dioxide (CE230100017 — AU$ 34,956,464)",
+      "ARC Research Hub for Advanced Manufacturing with 2D Materials (IH210100025 — AU$ ~4,421,943)",
+      "ARC Research Hub for Graphene Enabled Industry Transformation (IH150100003) — Part PI",
+      "ARC Linkage Projects 2019 (LP190101279) (AU$ ~390,000 from ARC; total AU$ 540,000)",
+      "ARC Linkage Projects 2019 (LP190100830) (AU$ ~511,812 from ARC; total AU$ 877,375)",
+      "ARC Linkage Projects 2019 (LP180100429) (AU$ ~425,000 from ARC; total AU$ 694,554)",
+      "Scheme for Promotion of Academic and Research Collaboration (SPARC) (AU$ ~100,000)",
+    ],
+    individualFellowships: [
+      "UQ Early Career Researcher Grant (2017) (AU$ 32,000)",
+      "UQ Fellowship (Feb 2015–Jan 2018) (AU$ 341,409)",
+      "JSPS Fellowship (November 2012–November 2014) (¥3,000,000 + ¥8,688,000)",
+      "Marie Curie Fellowship \"CEA-Eurotalents\" (Feb 2011–July 2012) (~€60,000 + salary)",
+      "Science Fellowship Writing Scheme Award (March 2012) (AU$ 5,000)",
+      "Brain of Korea (BK'21) PhD fellowship (September 2007–June 2010)",
+    ],
     photo: "/team/prof-ashok.png",
     email: "ashok.nanjundan@unisq.edu.au",
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
@@ -220,6 +239,7 @@ const currentTeamMembers = [
     role: "PhD Scholar",
     focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
     bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
+    photo: "/team/bidita-salahuddin.png",
     email: "",
   },
 ] as const;
@@ -380,6 +400,7 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
     focus: "",
     bio: "",
     email: "",
+    photo: "/team/rana-afzal.png",
     thesis: {
       title: "A systematic investigation on the valorisation of carbon from sorghum biomass for energy storage materials",
       citation:

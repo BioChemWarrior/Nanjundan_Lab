@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { TeamMember } from "@/lib/content";
-import { memberInitials, teamPhotoPosition } from "@/lib/teamUtils";
+import { memberInitials, teamPhotoStyle } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
 
 type Props = {
@@ -18,7 +18,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
       {members.map((member) => {
         const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
         const isPi = member.group === "pi";
-        const photoPosition = teamPhotoPosition(member.id);
+        const photoStyle = teamPhotoStyle(member.id);
 
         return (
           <li key={member.id} className="text-center">
@@ -45,7 +45,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
                     width={440}
                     height={440}
                     className="h-full w-full object-cover"
-                    style={photoPosition ? { objectPosition: photoPosition } : undefined}
+                    style={photoStyle}
                     loading="lazy"
                   />
                 ) : (

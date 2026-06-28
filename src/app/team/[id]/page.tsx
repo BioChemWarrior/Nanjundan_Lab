@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
 import { PageBody, PageBodyInner } from "@/components/PageBody";
 import { getTeamMemberById, getTeamSectionLabel, teamMembers } from "@/lib/content";
-import { memberInitials, teamPhotoPosition, teamSectionHref } from "@/lib/teamUtils";
+import { memberInitials, teamPhotoStyle, teamSectionHref } from "@/lib/teamUtils";
 import { toTeamPhotoSrc } from "@/lib/teamPhotoSrc";
 
 export const runtime = "nodejs";
@@ -87,13 +87,50 @@ function MemberLinks({
   );
 }
 
+function formatHonourItem(item: string, boldName: boolean) {
+  if (!boldName) return item;
+
+  const splitAt = item.indexOf(" (");
+  if (splitAt <= 0) return item;
+
+  return (
+    <>
+      <span className="font-bold text-slate-800">{item.slice(0, splitAt)}</span>
+      {item.slice(splitAt)}
+    </>
+  );
+}
+
+function HonourStrip({
+  title,
+  items,
+  boldNames = false,
+}: {
+  title: string;
+  items: readonly string[];
+  boldNames?: boolean;
+}) {
+  return (
+    <div className="border-l-2 border-blue-600/80 pl-5 sm:pl-6">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{title}</h2>
+      <ul className="mt-4 list-none space-y-3">
+        {items.map((item) => (
+          <li key={item} className="text-sm leading-relaxed text-slate-600 sm:text-base">
+            {formatHonourItem(item, boldNames)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default async function TeamMemberDetailPage({ params }: Props) {
   const { id } = await params;
   const member = getTeamMemberById(id);
   if (!member) notFound();
 
   const src = "photo" in member && member.photo ? toTeamPhotoSrc(member.photo) : "";
-  const photoPosition = teamPhotoPosition(member.id);
+  const photoStyle = teamPhotoStyle(member.id);
   const isPi = member.group === "pi";
   const isExpandedProfile = isPi || ("careerSummary" in member && Boolean(member.careerSummary));
   const sectionHref = teamSectionHref(member.group);
@@ -105,6 +142,12 @@ export default async function TeamMemberDetailPage({ params }: Props) {
   const orcidUrl = "orcid" in member && typeof member.orcid === "string" ? member.orcid : undefined;
   const hasLinks =
     Boolean(member.email) || Boolean(linkedinUrl) || Boolean(scholarUrl) || Boolean(orcidUrl);
+  const hasHonours =
+    isPi &&
+    "awardsAndGrants" in member &&
+    "individualFellowships" in member &&
+    member.awardsAndGrants.length > 0 &&
+    member.individualFellowships.length > 0;
 
   return (
     <>
@@ -149,7 +192,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                     width={560}
                     height={560}
                     className="h-full w-full object-cover"
-                    style={photoPosition ? { objectPosition: photoPosition } : undefined}
+                    style={photoStyle}
                     loading="lazy"
                   />
                 ) : (
@@ -190,7 +233,9 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                   <div className={isExpandedProfile ? "md:col-span-2" : undefined}>
                     <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">PhD thesis</h2>
                     <p className="mt-2 text-base font-bold leading-relaxed text-slate-800">{member.thesis.title}</p>
-                    <p className="mt-2 text-base leading-relaxed text-slate-600">{member.thesis.citation}</p>
+                    {member.id === "rohit-ranganathan-gaddam" ? (
+                      <p className="mt-2 text-base leading-relaxed text-slate-600">{member.thesis.citation}</p>
+                    ) : null}
                     <a
                       className="mt-3 inline-block text-base text-blue-700 underline-offset-2 hover:underline"
                       href={member.thesis.doi}
@@ -217,6 +262,16 @@ export default async function TeamMemberDetailPage({ params }: Props) {
               </h2>
               <p className="mt-2 text-base leading-relaxed text-slate-600">{member.professionalExperience}</p>
             </div>
+          ) : null}
+
+          {hasHonours ? (
+            <section
+              aria-label="Awards, grants, and fellowships"
+              className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-2 lg:gap-12"
+            >
+              <HonourStrip title="Awards and competitive grants" items={member.awardsAndGrants} boldNames />
+              <HonourStrip title="Individual fellowships" items={member.individualFellowships} boldNames />
+            </section>
           ) : null}
 
           {!isExpandedProfile ? (
