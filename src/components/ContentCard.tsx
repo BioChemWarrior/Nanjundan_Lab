@@ -92,7 +92,7 @@ export function ContentCard({
         <div className="absolute -left-16 top-0 h-40 w-40 rounded-full bg-blue-400/15 blur-3xl" />
       </div>
       <div className={`relative flex flex-1${showImage ? " items-stretch" : " flex-col p-6"}`}>
-        {showImage ? <ResearchCardImage src={imageSrc} alt={imageAlt} /> : null}
+        {imageSrc ? <ResearchCardImage src={imageSrc} alt={imageAlt ?? title} /> : null}
         <div className={`flex min-w-0 flex-1 flex-col${showImage ? " p-6" : ""}`}>
           {subtitle ? (
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{subtitle}</p>
