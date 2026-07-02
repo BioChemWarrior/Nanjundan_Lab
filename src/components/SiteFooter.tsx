@@ -5,10 +5,10 @@ import { SocialProfileLinks } from "@/components/SocialProfileLinks";
 export function SiteFooter() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
-      <div className="mx-auto max-w-6xl px-4 py-12 text-center sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-3 text-center sm:px-6 sm:py-4 lg:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Connect</p>
         <SocialProfileLinks
-          className="mt-4 justify-center"
+          className="mt-2 justify-center"
           size="large"
           linkedin={principalInvestigator.links.linkedin}
           universityBio={principalInvestigator.links.universityBio}
@@ -19,7 +19,7 @@ export function SiteFooter() {
         />
       </div>
 
-      <div className="border-t border-slate-200 bg-slate-50 px-4 py-4 text-center sm:px-6 lg:px-8">
+      <div className="border-t border-slate-200 bg-slate-50 px-4 py-2 text-center sm:px-6 lg:px-8">
         <p className="text-xs text-slate-500">© {new Date().getFullYear()} {site.name}.</p>
       </div>
 

@@ -31,8 +31,8 @@ export function FooterAcknowledgement() {
         </a>
       </p>
       <div className="relative flex h-full items-center justify-center px-4 sm:px-6">
-        <div className="max-w-md rounded-lg border border-white/30 bg-white/40 px-3 py-2 text-center shadow-sm backdrop-blur-md sm:max-w-lg sm:px-4 sm:py-2.5">
-          <p className="text-pretty text-[9px] leading-snug text-slate-800/90 sm:text-[10px]">{acknowledgementText}</p>
+        <div className="max-w-md rounded-lg border border-white/30 bg-white/40 px-3 py-1.5 text-center shadow-sm backdrop-blur-md sm:max-w-lg sm:px-4 sm:py-2">
+          <p className="text-pretty text-[10px] font-bold leading-tight text-slate-800/90 sm:text-[11px]">{acknowledgementText}</p>
         </div>
       </div>
     </section>

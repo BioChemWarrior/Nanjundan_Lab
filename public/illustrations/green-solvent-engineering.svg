@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 28 184 200" fill="none" role="img" aria-label="Green solvent engineering">
+  <defs>
+    <linearGradient id="gse-solvent" x1="88" y1="148" x2="168" y2="208" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399"/>
+      <stop offset="0.55" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gse-accent" x1="48" y1="40" x2="208" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="gse-leaf" x1="62" y1="118" x2="98" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <radialGradient id="gse-glow" cx="128" cy="132" r="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#020b1a" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="gse-flask-clip">
+      <path d="M108 78h40v8c0 0 0 18 14 34 10 12 14 28 14 44 0 18-14 32-34 32s-34-14-34-32c0-16 4-32 14-44 14-16 14-34 14-34v-8z"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="128" cy="132" r="108" fill="url(#gse-glow)"/>
+
+  <!-- Circular economy / process loop -->
+  <path
+    d="M128 36a92 92 0 0 1 78.4 44.2"
+    stroke="url(#gse-accent)"
+    stroke-width="2.25"
+    stroke-linecap="round"
+    opacity="0.55"
+  />
+  <path
+    d="M206.4 80.2 198 88.6l8.4 8.4"
+    stroke="#38bdf8"
+    stroke-width="2.25"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.7"
+  />
+  <path
+    d="M128 220a92 92 0 0 1-78.4-44.2"
+    stroke="url(#gse-accent)"
+    stroke-width="2.25"
+    stroke-linecap="round"
+    opacity="0.55"
+  />
+  <path
+    d="M49.6 175.8 58 167.4l-8.4-8.4"
+    stroke="#22d3ee"
+    stroke-width="2.25"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.7"
+  />
+
+  <!-- Molecular network (deep eutectic / hydrogen-bonded solvent) -->
+  <g opacity="0.85">
+    <line x1="92" y1="58" x2="128" y2="42" stroke="#38bdf8" stroke-width="1.5" opacity="0.55"/>
+    <line x1="128" y1="42" x2="164" y2="58" stroke="#38bdf8" stroke-width="1.5" opacity="0.55"/>
+    <line x1="92" y1="58" x2="110" y2="78" stroke="#22d3ee" stroke-width="1.5" opacity="0.45"/>
+    <line x1="164" y1="58" x2="146" y2="78" stroke="#22d3ee" stroke-width="1.5" opacity="0.45"/>
+    <circle cx="92" cy="58" r="5.5" fill="#34d399"/>
+    <circle cx="128" cy="42" r="6" fill="#22d3ee"/>
+    <circle cx="164" cy="58" r="5.5" fill="#3b82f6"/>
+    <circle cx="110" cy="78" r="4" fill="#38bdf8" opacity="0.8"/>
+    <circle cx="146" cy="78" r="4" fill="#38bdf8" opacity="0.8"/>
+  </g>
+
+  <!-- Round-bottom flask -->
+  <path
+    d="M108 78h40v8c0 0 0 18 14 34 10 12 14 28 14 44 0 18-14 32-34 32s-34-14-34-32c0-16 4-32 14-44 14-16 14-34 14-34v-8z"
+    stroke="url(#gse-accent)"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+  <rect x="118" y="70" width="20" height="10" rx="2" stroke="url(#gse-accent)" stroke-width="2.5"/>
+
+  <!-- Green solvent fill with meniscus -->
+  <g clip-path="url(#gse-flask-clip)">
+    <path
+      d="M96 176c8-6 18-10 32-10s24 4 32 10v44H96v-44z"
+      fill="url(#gse-solvent)"
+      opacity="0.92"
+    />
+    <path
+      d="M96 176c10-8 22-12 32-12s22 4 32 12"
+      stroke="#6ee7b7"
+      stroke-width="1.75"
+      opacity="0.65"
+    />
+    <ellipse cx="128" cy="176" rx="30" ry="5" fill="#6ee7b7" opacity="0.22"/>
+  </g>
+
+  <!-- Bubbles / dissolution -->
+  <circle cx="118" cy="188" r="3" fill="#a7f3d0" opacity="0.75"/>
+  <circle cx="136" cy="196" r="2.2" fill="#a7f3d0" opacity="0.6"/>
+  <circle cx="148" cy="184" r="2.5" fill="#a7f3d0" opacity="0.55"/>
+
+  <!-- Recovered mineral ions rising from solvent -->
+  <g opacity="0.9">
+    <line x1="118" y1="168" x2="118" y2="132" stroke="#22d3ee" stroke-width="1.25" stroke-dasharray="3 4" opacity="0.45"/>
+    <line x1="138" y1="164" x2="138" y2="124" stroke="#22d3ee" stroke-width="1.25" stroke-dasharray="3 4" opacity="0.45"/>
+    <circle cx="118" cy="126" r="7" fill="#38bdf8" opacity="0.25"/>
+    <circle cx="118" cy="126" r="4.5" fill="#22d3ee"/>
+    <text x="118" y="129" text-anchor="middle" fill="#020b1a" font-size="7" font-family="system-ui, sans-serif" font-weight="700">Li</text>
+    <circle cx="138" cy="118" r="7" fill="#3b82f6" opacity="0.25"/>
+    <circle cx="138" cy="118" r="4.5" fill="#3b82f6"/>
+    <text x="138" y="121" text-anchor="middle" fill="#ffffff" font-size="7" font-family="system-ui, sans-serif" font-weight="700">Co</text>
+  </g>
+
+  <!-- Sustainable leaf motif -->
+  <path
+    d="M74 142c10-18 24-24 34-20-10 4-18 12-22 24-2 8-2 16 0 22-8-6-12-16-12-26z"
+    fill="url(#gse-leaf)"
+    opacity="0.95"
+  />
+  <path
+    d="M86 132c-2 10-2 20 2 30"
+    stroke="#059669"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    opacity="0.7"
+  />
+
+  <!-- Engineering gear -->
+  <g transform="translate(176 150)">
+    <circle cx="0" cy="0" r="18" stroke="url(#gse-accent)" stroke-width="2" opacity="0.85"/>
+    <circle cx="0" cy="0" r="7" stroke="#38bdf8" stroke-width="1.75" opacity="0.7"/>
+    <path
+      d="M0-24v6M0 18v6M20.8-12l-5.2 3M-15.6 9l-5.2 3M20.8 12l-5.2-3M-15.6-9l-5.2-3M12 20.8h-6M-12-15.6h-6M12-20.8h-6M-12 15.6h-6"
+      stroke="#38bdf8"
+      stroke-width="3.5"
+      stroke-linecap="round"
+      opacity="0.75"
+    />
+  </g>
+
+  <!-- Process piping / engineered flow -->
+  <path
+    d="M188 118h18c8 0 14 6 14 14v10"
+    stroke="#22d3ee"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity="0.5"
+  />
+  <path
+    d="M68 118H50c-8 0-14 6-14 14v10"
+    stroke="#34d399"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity="0.5"
+  />
+</svg>

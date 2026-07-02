@@ -7,7 +7,7 @@ import { labBrand } from "@/lib/content";
 function HomeHeroHeadline() {
   return (
     <>
-      <h1 className="home-hero-title text-balance text-center text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl font-[var(--font-space-grotesk)]">
+      <h1 className="home-hero-title text-balance text-center font-heading text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
         {(() => {
           const title = labBrand.title;
           const lastSpace = title.lastIndexOf(" ");
@@ -26,7 +26,7 @@ function HomeHeroHeadline() {
         })()}
       </h1>
 
-      <p className="mt-6 max-w-6xl text-balance text-center font-[var(--font-space-grotesk)] text-xl font-light tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl">
+      <p className="mt-6 max-w-6xl text-balance text-center font-sans text-xl font-light tracking-wide text-slate-200 sm:mt-7 sm:text-2xl md:text-3xl">
         {labBrand.subtitle.split(" • ").map((part, index) => (
           <span key={part}>
             {index > 0 ? (part === "Circular Economy" ? " " : " • ") : null}

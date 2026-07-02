@@ -41,8 +41,8 @@ export const fundingPartners = [
     name: "University of Southern Queensland",
     src: "/funding/unisq.png",
     href: "https://www.unisq.edu.au/",
-    width: 1205,
-    height: 602,
+    width: 288,
+    height: 103,
   },
 ] as const;
 
@@ -132,25 +132,6 @@ const piMembers = [
       "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 11,000 citations (h-index 57). He is also named on seven patent filings, including a granted US patent.",
     professionalExperience:
       "At the University of Southern Queensland he is Professor of Energy Storage and Associate Head (Outreach, Engagement & International). He has held a visiting appointment at the Energy Consortium, IIT Madras. As Chief Scientific Officer at Graphene Manufacturing Group he connected academic research with industry priorities, led R&D from concept to manufacturing, commercialised the graphene aluminium-ion battery, developed graphene-based automotive additives, and prepared regulatory and quality-system documentation for nanomaterials and energy technologies. His earlier roles include UQ Postdoctoral Research Fellow, sessional academic at Griffith University, JSPS Fellow at Kumamoto University, research and visiting fellowships at Trinity College Dublin and UNSW, Marie-Curie Fellow at CEA Grenoble, and postdoctoral research at UNIST.",
-    awardsAndGrants: [
-      "Australia India Strategic Research Fund — Lead CI",
-      "ARC Research Hub for Safe and Reliable Energy — CI",
-      "ARC Center of Excellence for Green Electrochemical Transformation of Carbon Dioxide",
-      "ARC Research Hub for Advanced Manufacturing with 2D Materials",
-      "ARC Research Hub for Graphene Enabled Industry Transformation — Part PI",
-      "ARC Linkage Projects 2019",
-      "ARC Linkage Projects 2019",
-      "ARC Linkage Projects 2019",
-      "Scheme for Promotion of Academic and Research Collaboration (SPARC)",
-    ],
-    individualFellowships: [
-      "UQ Early Career Researcher Grant (2017)",
-      "UQ Fellowship (Feb 2015–Jan 2018)",
-      "JSPS Fellowship (November 2012–November 2014)",
-      "Marie Curie Fellowship \"CEA-Eurotalents\" (Feb 2011–July 2012)",
-      "Science Fellowship Writing Scheme Award (March 2012)",
-      "Brain of Korea (BK'21) PhD fellowship (September 2007–June 2010)",
-    ],
     photo: "/team/prof-ashok.png",
     email: "ashok.nanjundan@unisq.edu.au",
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
@@ -461,34 +442,42 @@ export const projects = [
   {
     slug: "novel-green-solvent-battery-recycling",
     title: "Development of Novel Green Solvent for Recycling of Spent Batteries",
+    shortTitle: "Green Solvent Battery Recycling",
     status: "Active",
     summary:
       "Development of sustainable green-solvent pathways to improve recovery of valuable materials from spent batteries and support circular-resource processing.",
     partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/illustrations/green-solvent-engineering.svg",
   },
   {
     slug: "carbon-accounting-plastic-waste-to-energy",
     title: "Carbon accounting of plastic waste-to-energy pathways for Australian climate and resource recovery policy",
+    shortTitle: "Carbon Accounting of Plastic Waste-to-Energy",
     status: "Active",
     summary:
       "Evaluation of emissions and resource outcomes across plastic waste-to-energy routes to inform evidence-based Australian climate and recovery policy.",
     partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/illustrations/carbon-accounting-waste-to-energy.svg",
   },
   {
     slug: "seawater-electrolysis-microgrids",
     title: "Seawater Electrolysis for Microgrids: Catalyst Performance, Water Quality Requirements, and Contextualised System Feasibility",
+    shortTitle: "Seawater Electrolysis for Microgrids",
     status: "Active",
     summary:
       "Investigation of catalyst behavior, feedwater quality constraints, and deployment feasibility for seawater-based hydrogen systems in microgrid contexts.",
     partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/illustrations/seawater-electrolysis-microgrids.svg",
   },
   {
     slug: "hybrid-energy-storage-performance-enhancement",
     title: "Performance Enhancement of Hybrid Energy Storage Devices",
+    shortTitle: "Hybrid Energy Storage Enhancement",
     status: "Active",
     summary:
       "Design and optimization of hybrid storage architectures to improve capacity retention, power delivery, and lifecycle reliability.",
     partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/illustrations/hybrid-energy-storage.svg",
   },
 ];
 

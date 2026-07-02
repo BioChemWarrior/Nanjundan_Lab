@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 28 184 200" fill="none" role="img" aria-label="Hybrid energy storage performance enhancement">
+  <defs>
+    <linearGradient id="hes-accent" x1="48" y1="40" x2="208" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="hes-battery" x1="88" y1="118" x2="128" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399"/>
+      <stop offset="0.55" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="hes-capacitor" x1="136" y1="96" x2="176" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67e8f9"/>
+      <stop offset="0.55" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <radialGradient id="hes-glow" cx="128" cy="132" r="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#020b1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="132" r="108" fill="url(#hes-glow)"/>
+
+  <path d="M128 36a92 92 0 0 1 78.4 44.2" stroke="url(#hes-accent)" stroke-width="2.25" stroke-linecap="round" opacity="0.55"/>
+  <path d="M206.4 80.2 198 88.6l8.4 8.4" stroke="#38bdf8" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <path d="M128 220a92 92 0 0 1-78.4-44.2" stroke="url(#hes-accent)" stroke-width="2.25" stroke-linecap="round" opacity="0.55"/>
+  <path d="M49.6 175.8 58 167.4l-8.4-8.4" stroke="#22d3ee" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- Performance curve -->
+  <g opacity="0.85">
+    <path d="M52 188V132" stroke="#94a3b8" stroke-width="1.5" opacity="0.45"/>
+    <path d="M52 188h120" stroke="#94a3b8" stroke-width="1.5" opacity="0.45"/>
+    <path d="M58 176c18-10 34-28 52-38 16-10 34-14 52-8" stroke="#34d399" stroke-width="2.25" stroke-linecap="round"/>
+    <path d="M58 182c20-4 38-6 56-2 18 4 34 12 48 24" stroke="#38bdf8" stroke-width="2.25" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- Battery module -->
+  <rect x="78" y="98" width="44" height="78" rx="5" stroke="url(#hes-accent)" stroke-width="2.5"/>
+  <rect x="84" y="106" width="32" height="14" rx="2" fill="url(#hes-battery)" opacity="0.9"/>
+  <rect x="84" y="126" width="32" height="14" rx="2" fill="url(#hes-battery)" opacity="0.65"/>
+  <rect x="84" y="146" width="32" height="14" rx="2" fill="url(#hes-battery)" opacity="0.9"/>
+  <path d="M122 118h8v18h-8z" fill="#10b981" opacity="0.85"/>
+
+  <!-- Supercapacitor stack -->
+  <g transform="translate(138 88)">
+    <rect x="0" y="0" width="34" height="88" rx="4" stroke="url(#hes-accent)" stroke-width="2.5"/>
+    <line x1="6" y1="12" x2="28" y2="12" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.85"/>
+    <line x1="6" y1="24" x2="28" y2="24" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.65"/>
+    <line x1="6" y1="36" x2="28" y2="36" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.85"/>
+    <line x1="6" y1="48" x2="28" y2="48" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.65"/>
+    <line x1="6" y1="60" x2="28" y2="60" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.85"/>
+    <line x1="6" y1="72" x2="28" y2="72" stroke="url(#hes-capacitor)" stroke-width="3" opacity="0.65"/>
+  </g>
+
+  <!-- Hybrid connection bridge -->
+  <path d="M122 136h16" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="130" cy="136" r="5" fill="#38bdf8" opacity="0.35"/>
+  <circle cx="130" cy="136" r="2.5" fill="#22d3ee"/>
+
+  <!-- Power delivery bolt -->
+  <path d="M128 54 118 78h12l-8 22 18-26h-12l8-20z" fill="#fbbf24" opacity="0.9"/>
+  <path d="M128 54 118 78h12l-8 22 18-26h-12l8-20z" stroke="#f59e0b" stroke-width="1" opacity="0.55"/>
+
+  <!-- Lifecycle / retention ring -->
+  <circle cx="176" cy="118" r="16" stroke="url(#hes-accent)" stroke-width="2" opacity="0.75"/>
+  <path d="M176 102v4M176 130v4M192 118h-4M160 118h-4" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M176 108a10 10 0 0 1 8 12" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Ion flow -->
+  <g opacity="0.75">
+    <circle cx="96" cy="72" r="4" fill="#22d3ee"/>
+    <circle cx="112" cy="64" r="3.5" fill="#38bdf8"/>
+    <circle cx="148" cy="68" r="4" fill="#3b82f6"/>
+    <line x1="96" y1="72" x2="112" y2="64" stroke="#38bdf8" stroke-width="1.25"/>
+    <line x1="112" y1="64" x2="148" y2="68" stroke="#38bdf8" stroke-width="1.25"/>
+  </g>
+
+  <path d="M188 118h14c6 0 10 4 10 10v8" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <path d="M68 118H54c-6 0-10 4-10 10v8" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>

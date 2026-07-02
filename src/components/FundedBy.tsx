@@ -12,12 +12,24 @@ function logoSizeClass(src: string) {
   if (src === "/funding/disr.png") {
     return "h-auto w-[min(100vw-2rem,180px)] object-contain object-center sm:w-[210px] lg:w-[230px]";
   }
+  if (src === "/funding/unisq.png") {
+    return "h-auto w-[min(100vw-2rem,200px)] object-contain object-center sm:w-[240px] lg:w-[280px]";
+  }
   return "h-auto max-h-[5.5rem] w-auto max-w-[min(100vw-2rem,240px)] object-contain object-center sm:max-h-[6.5rem] sm:max-w-[280px] lg:max-h-[7.5rem] lg:max-w-[320px]";
 }
 
+function partnerLinkClass(src: string) {
+  const base =
+    "relative block shrink-0 opacity-90 transition hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4";
+  if (src === "/funding/unisq.png") {
+    return `${base} focus-visible:outline-unisq-400`;
+  }
+  return `${base} focus-visible:outline-sky-400`;
+}
 function logoSizesAttr(src: string) {
   if (src === "/funding/arc.png") return "(max-width: 640px) 70vw, 340px";
   if (src === "/funding/disr.png") return "(max-width: 640px) 50vw, 230px";
+  if (src === "/funding/unisq.png") return "(max-width: 640px) 55vw, 280px";
   return "(max-width: 640px) 60vw, 320px";
 }
 
@@ -34,7 +46,7 @@ export function FundedBy() {
               href={partner.href}
               target="_blank"
               rel="noreferrer"
-              className="relative block shrink-0 opacity-90 transition hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400"
+              className={partnerLinkClass(partner.src)}
             >
               <Image
                 src={partner.src}

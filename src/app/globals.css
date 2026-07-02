@@ -6,8 +6,24 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --color-unisq-500: #ffb84d;
+  --color-unisq-600: #e6982a;
+}
+
 body {
   @apply bg-[#020b1a] text-slate-900 antialiased font-sans;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
 }
 
 ::selection {

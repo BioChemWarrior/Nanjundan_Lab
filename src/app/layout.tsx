@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { DM_Sans, JetBrains_Mono, Sora } from "next/font/google";
 import "./globals.css";
 import { ClippedInteractiveBackdrop } from "@/components/ClippedInteractiveBackdrop";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -8,21 +8,20 @@ import { SiteLogoRail } from "@/components/SiteLogoRail";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteMain } from "@/components/SiteMain";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
   title: {
     default: "Nanjundan Lab",
@@ -40,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
+      className={`${dmSans.variable} ${sora.variable} ${jetbrainsMono.variable}`}
     >
       <body className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#020b1a] text-slate-900 antialiased">
         <Suspense fallback={<div aria-hidden className="fixed inset-0 z-0 bg-[#020b1a]" />}>

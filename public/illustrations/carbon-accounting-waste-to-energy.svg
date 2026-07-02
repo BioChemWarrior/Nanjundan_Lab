@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 28 184 200" fill="none" role="img" aria-label="Carbon accounting for plastic waste-to-energy">
+  <defs>
+    <linearGradient id="caw-accent" x1="48" y1="40" x2="208" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="caw-energy" x1="120" y1="150" x2="168" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24"/>
+      <stop offset="0.55" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="caw-plastic" x1="72" y1="118" x2="108" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#94a3b8"/>
+      <stop offset="1" stop-color="#64748b"/>
+    </linearGradient>
+    <radialGradient id="caw-glow" cx="128" cy="132" r="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#020b1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="128" cy="132" r="108" fill="url(#caw-glow)"/>
+
+  <path d="M128 36a92 92 0 0 1 78.4 44.2" stroke="url(#caw-accent)" stroke-width="2.25" stroke-linecap="round" opacity="0.55"/>
+  <path d="M206.4 80.2 198 88.6l8.4 8.4" stroke="#38bdf8" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <path d="M128 220a92 92 0 0 1-78.4-44.2" stroke="url(#caw-accent)" stroke-width="2.25" stroke-linecap="round" opacity="0.55"/>
+  <path d="M49.6 175.8 58 167.4l-8.4-8.4" stroke="#22d3ee" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- Policy / accounting chart -->
+  <g opacity="0.9">
+    <rect x="154" y="118" width="44" height="52" rx="4" stroke="url(#caw-accent)" stroke-width="2"/>
+    <line x1="162" y1="162" x2="190" y2="162" stroke="#38bdf8" stroke-width="1.5" opacity="0.5"/>
+    <rect x="164" y="148" width="8" height="14" rx="1.5" fill="#34d399" opacity="0.85"/>
+    <rect x="176" y="138" width="8" height="24" rx="1.5" fill="#22d3ee" opacity="0.85"/>
+    <rect x="188" y="128" width="8" height="34" rx="1.5" fill="#3b82f6" opacity="0.85"/>
+  </g>
+
+  <!-- Plastic polymer chain -->
+  <g opacity="0.85">
+    <line x1="88" y1="52" x2="108" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="108" y1="68" x2="128" y2="54" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="128" y1="54" x2="148" y2="68" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="88" cy="52" r="5" fill="#64748b"/>
+    <circle cx="108" cy="68" r="5" fill="#94a3b8"/>
+    <circle cx="128" cy="54" r="5" fill="#64748b"/>
+    <circle cx="148" cy="68" r="5" fill="#94a3b8"/>
+  </g>
+
+  <!-- Plastic waste bale / bottle -->
+  <path d="M78 132h28l4 10v38c0 8-6 14-14 14h-8c-8 0-14-6-14-14v-38l4-10z" fill="url(#caw-plastic)" opacity="0.9"/>
+  <rect x="88" y="124" width="8" height="10" rx="2" fill="#cbd5e1"/>
+  <path d="M82 148h20" stroke="#475569" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Waste-to-energy conversion -->
+  <path d="M118 168c10-14 24-18 36-12 8 4 12 12 12 22" stroke="url(#caw-energy)" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  <path d="M154 178c6 4 10 10 12 18" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+  <path d="M148 156l8 10-10 4z" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- CO2 molecules -->
+  <g opacity="0.88">
+    <circle cx="118" cy="108" r="5" fill="#64748b"/>
+    <circle cx="108" cy="98" r="4.5" fill="#ef4444" opacity="0.75"/>
+    <circle cx="128" cy="98" r="4.5" fill="#ef4444" opacity="0.75"/>
+    <line x1="113" y1="104" x2="110" y2="101" stroke="#94a3b8" stroke-width="1.25"/>
+    <line x1="123" y1="104" x2="126" y2="101" stroke="#94a3b8" stroke-width="1.25"/>
+    <circle cx="142" cy="112" r="4" fill="#64748b" opacity="0.7"/>
+    <circle cx="134" cy="104" r="3.5" fill="#f87171" opacity="0.65"/>
+    <circle cx="150" cy="104" r="3.5" fill="#f87171" opacity="0.65"/>
+  </g>
+
+  <!-- Balance / accounting scale -->
+  <g transform="translate(168 78)">
+    <line x1="0" y1="0" x2="0" y2="24" stroke="url(#caw-accent)" stroke-width="2"/>
+    <line x1="-18" y1="8" x2="18" y2="8" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-18 8v10c0 4 3 7 7 7h4c4 0 7-3 7-7V8" stroke="#22d3ee" stroke-width="1.75"/>
+    <path d="M0 8v10c0 4 3 7 7 7h4c4 0 7-3 7-7V8" stroke="#22d3ee" stroke-width="1.75" transform="translate(18 0) scale(-1 1)"/>
+  </g>
+
+  <!-- Emissions-to-policy flow -->
+  <path d="M188 118h14c6 0 10 4 10 10v8" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <path d="M68 118H54c-6 0-10 4-10 10v8" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>

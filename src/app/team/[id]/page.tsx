@@ -87,50 +87,6 @@ function MemberLinks({
   );
 }
 
-function formatHonourItem(item: string, boldName: boolean) {
-  if (!boldName) {
-    return <span className="text-slate-600">{item}</span>;
-  }
-
-  const roleSplit = item.indexOf(" — ");
-  if (roleSplit > 0) {
-    return (
-      <>
-        <span className="font-bold text-slate-900">{item.slice(0, roleSplit)}</span>
-        <span className="font-normal text-slate-600">{item.slice(roleSplit)}</span>
-      </>
-    );
-  }
-
-  return <span className="font-bold text-slate-900">{item}</span>;
-}
-
-function HonourStrip({
-  title,
-  items,
-  boldNames = false,
-}: {
-  title: string;
-  items: readonly string[];
-  boldNames?: boolean;
-}) {
-  return (
-    <div className="border-l-2 border-blue-600/80 pl-5 sm:pl-6">
-      <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{title}</h2>
-      <ul className="mt-4 list-none space-y-3">
-        {items.map((item, index) => (
-          <li
-            key={`${item}-${index}`}
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm leading-relaxed shadow-sm sm:text-base"
-          >
-            {formatHonourItem(item, boldNames)}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default async function TeamMemberDetailPage({ params }: Props) {
   const { id } = await params;
   const member = getTeamMemberById(id);
@@ -149,12 +105,6 @@ export default async function TeamMemberDetailPage({ params }: Props) {
   const orcidUrl = "orcid" in member && typeof member.orcid === "string" ? member.orcid : undefined;
   const hasLinks =
     Boolean(member.email) || Boolean(linkedinUrl) || Boolean(scholarUrl) || Boolean(orcidUrl);
-  const hasHonours =
-    isPi &&
-    "awardsAndGrants" in member &&
-    "individualFellowships" in member &&
-    member.awardsAndGrants.length > 0 &&
-    member.individualFellowships.length > 0;
 
   return (
     <>
@@ -269,16 +219,6 @@ export default async function TeamMemberDetailPage({ params }: Props) {
               </h2>
               <p className="mt-2 text-base leading-relaxed text-slate-600">{member.professionalExperience}</p>
             </div>
-          ) : null}
-
-          {hasHonours ? (
-            <section
-              aria-label="Awards, grants, and fellowships"
-              className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-2 lg:gap-12"
-            >
-              <HonourStrip title="Awards and competitive grants" items={member.awardsAndGrants} boldNames />
-              <HonourStrip title="Individual fellowships" items={member.individualFellowships} boldNames />
-            </section>
           ) : null}
 
           {!isExpandedProfile ? (
