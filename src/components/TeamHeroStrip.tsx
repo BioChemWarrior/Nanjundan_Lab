@@ -16,7 +16,7 @@ export function TeamHeroStrip({
       className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-6 text-center sm:py-8"
     >
       {eyebrow ? (
-        <p className="relative z-10 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/85">{eyebrow}</p>
+        <p className="relative z-10 eyebrow-glow-dark tracking-[0.3em]">{eyebrow}</p>
       ) : null}
       <h1
         className={`relative z-10 max-w-6xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl${

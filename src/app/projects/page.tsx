@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { PageBody, PageBodyInner } from "@/components/PageBody";
-import { ResearchProjectGrid } from "@/components/ResearchProjectGrid";
+import { ResearchPageContent } from "@/components/ResearchPageContent";
 import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { researchPageCopy } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Research",
@@ -10,10 +11,14 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <TeamHeroStrip title="Research programs" />
+      <TeamHeroStrip
+        eyebrow="Centre for Future Materials · UniSQ"
+        title="Research programs"
+        subtitle={researchPageCopy.heroSubtitle}
+      />
       <PageBody>
-        <PageBodyInner className="!max-w-6xl space-y-16 py-4 sm:py-6">
-          <ResearchProjectGrid />
+        <PageBodyInner className="!max-w-7xl py-4 sm:py-6">
+          <ResearchPageContent />
         </PageBodyInner>
       </PageBody>
     </>

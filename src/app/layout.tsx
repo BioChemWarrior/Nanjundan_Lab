@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { DM_Sans, JetBrains_Mono, Sora } from "next/font/google";
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ClippedInteractiveBackdrop } from "@/components/ClippedInteractiveBackdrop";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -8,14 +8,15 @@ import { SiteLogoRail } from "@/components/SiteLogoRail";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteMain } from "@/components/SiteMain";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const sora = Sora({
-  variable: "--font-sora",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -39,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${sora.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#020b1a] text-slate-900 antialiased">
         <Suspense fallback={<div aria-hidden className="fixed inset-0 z-0 bg-[#020b1a]" />}>

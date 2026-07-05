@@ -2,10 +2,10 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 const socialIconClass =
-  "inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-blue-400 hover:bg-blue-50 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 sm:h-14 sm:w-14";
+  "inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-unisq-400 hover:bg-unisq-50 hover:text-unisq-800 hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-500 sm:h-14 sm:w-14";
 
 const footerSocialLinkClass =
-  "inline-flex items-center justify-center text-slate-700 transition hover:text-blue-800 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500";
+  "inline-flex items-center justify-center text-slate-700 transition hover:text-unisq-700 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-500";
 
 function LinkedInIcon({ className = "h-6 w-6 sm:h-7 sm:w-7" }: { className?: string }) {
   return (

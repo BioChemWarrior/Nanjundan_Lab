@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        heading: ["var(--font-sora)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        heading: ["var(--font-plus-jakarta-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "ui-monospace", "monospace"],
       },
       colors: {
@@ -34,6 +34,11 @@ const config: Config = {
           800: "#995c1e",
           900: "#7d4c1b",
         },
+      },
+      boxShadow: {
+        "unisq-glow": "0 0 24px rgba(255, 184, 77, 0.35)",
+        "unisq-glow-sm": "0 0 14px rgba(255, 184, 77, 0.28)",
+        "unisq-glow-lg": "0 0 48px rgba(255, 184, 77, 0.2)",
       },
     },
   },

@@ -46,7 +46,7 @@ export function SectionHeading({
     return (
       <div className="mx-auto max-w-3xl text-center">
         {eyebrow ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">{eyebrow}</p>
+          <p className="eyebrow-glow-light tracking-[0.3em]">{eyebrow}</p>
         ) : null}
         <h1
           className={`text-balance text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl${eyebrow ? " mt-3" : ""}`}
@@ -80,7 +80,7 @@ export function ContentCard({
 }) {
   const showImage = Boolean(imageSrc);
   const cardClassName = [
-    "group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-blue-300/60 hover:shadow-md active:translate-y-0",
+    "group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-unisq-300/60 hover:shadow-unisq-glow-sm active:translate-y-0",
     className,
   ]
     .filter(Boolean)
@@ -95,10 +95,10 @@ export function ContentCard({
         {imageSrc ? <ResearchCardImage src={imageSrc} alt={imageAlt ?? title} /> : null}
         <div className={`flex min-w-0 flex-1 flex-col${showImage ? " p-6" : ""}`}>
           {subtitle ? (
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700/90">{subtitle}</p>
+            <p className="eyebrow-glow-light tracking-[0.25em]">{subtitle}</p>
           ) : null}
           <h3
-            className={`line-clamp-3 text-base font-semibold text-slate-900 transition group-hover:text-blue-800${subtitle ? " mt-2" : ""}`}
+            className={`line-clamp-3 text-base font-semibold text-slate-900 transition group-hover:text-unisq-800${subtitle ? " mt-2" : ""}`}
           >
             {title}
           </h3>

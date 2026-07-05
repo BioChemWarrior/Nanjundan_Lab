@@ -34,7 +34,7 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
                 }`}
               >
                 {isPi ? (
-                  <span className="absolute left-3 top-3 z-10 rounded-full border border-cyan-600/35 bg-cyan-50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-800">
+                  <span className="absolute left-3 top-3 z-10 rounded-full border border-unisq-400/40 bg-unisq-50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-unisq-800 shadow-unisq-glow-sm">
                     PI
                   </span>
                 ) : null}

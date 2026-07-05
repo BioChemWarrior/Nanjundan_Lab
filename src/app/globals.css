@@ -9,6 +9,33 @@ html {
 :root {
   --color-unisq-500: #ffb84d;
   --color-unisq-600: #e6982a;
+  --glow-unisq: 0 0 24px rgba(255, 184, 77, 0.35);
+  --glow-unisq-soft: 0 0 40px rgba(255, 184, 77, 0.18);
+}
+
+@layer components {
+  .eyebrow-glow-dark {
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-unisq-300;
+    text-shadow: var(--glow-unisq);
+  }
+
+  .eyebrow-glow-light {
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-unisq-700;
+    text-shadow: var(--glow-unisq-soft);
+  }
+
+  .link-glow {
+    @apply font-semibold text-blue-700 underline-offset-2 transition;
+  }
+
+  .link-glow:hover {
+    @apply text-unisq-700 underline;
+    text-shadow: 0 0 16px rgba(255, 184, 77, 0.32);
+  }
+
+  .border-glow-unisq {
+    box-shadow: 0 0 0 1px rgba(255, 184, 77, 0.12), var(--glow-unisq-soft);
+  }
 }
 
 body {
@@ -32,7 +59,7 @@ body {
 
 /* Subtle lift on keyboard focus for custom-styled controls */
 :focus-visible {
-  outline: 2px solid rgb(96 165 250 / 0.65);
+  outline: 2px solid rgb(230 152 42 / 0.55);
   outline-offset: 2px;
 }
 
@@ -105,12 +132,46 @@ body {
     filter: brightness(1.04) saturate(1.15);
     text-shadow:
       0 0 18px rgba(34, 211, 238, 0.35),
-      0 0 42px rgba(59, 130, 246, 0.16);
+      0 0 42px rgba(59, 130, 246, 0.16),
+      0 0 28px rgba(255, 184, 77, 0.22);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home-hero-title {
     animation: none !important;
+  }
+}
+
+/* Home hero atmosphere — layered over the interactive particle canvas. */
+.home-hero-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(255, 184, 77, 0.06), transparent 70%);
+  background-size: 56px 56px, 56px 56px, 100% 100%;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 42%, black 15%, transparent 72%);
+}
+
+.home-hero-pulse-ring {
+  animation: homeHeroPulse 7s ease-in-out infinite;
+}
+
+@keyframes homeHeroPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.12;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-pulse-ring {
+    animation: none;
+    opacity: 0.25;
   }
 }

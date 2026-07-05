@@ -10,7 +10,7 @@ export function FooterAcknowledgement() {
   if (pathname !== "/") return null;
 
   return (
-    <section className="relative h-20 w-full overflow-hidden border-t border-slate-200 sm:h-24" aria-label="Acknowledgement of Country">
+    <section className="relative h-12 w-full overflow-hidden border-t border-slate-200 sm:h-14" aria-label="Acknowledgement of Country">
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         <img
           src="/acknowledgement/traditional-custodians.png"
@@ -19,7 +19,7 @@ export function FooterAcknowledgement() {
         />
       </div>
       <div className="absolute inset-0 bg-slate-900/25" aria-hidden />
-      <p className="absolute bottom-1 right-2 z-[1] text-[8px] leading-tight text-white/80 sm:bottom-1.5 sm:right-3 sm:text-[9px]">
+      <p className="absolute bottom-0.5 right-2 z-[1] text-[7px] leading-tight text-white/80 sm:bottom-1 sm:right-3 sm:text-[8px]">
         Colorful texture and background ·{" "}
         <a
           href="https://www.rawpixel.com/"
@@ -30,9 +30,9 @@ export function FooterAcknowledgement() {
           rawpixel.com
         </a>
       </p>
-      <div className="relative flex h-full items-center justify-center px-4 sm:px-6">
-        <div className="max-w-md rounded-lg border border-white/30 bg-white/40 px-3 py-1.5 text-center shadow-sm backdrop-blur-md sm:max-w-lg sm:px-4 sm:py-2">
-          <p className="text-pretty text-[10px] font-bold leading-tight text-slate-800/90 sm:text-[11px]">{acknowledgementText}</p>
+      <div className="relative flex h-full items-center justify-center px-3 sm:px-6 lg:px-8">
+        <div className="w-full max-w-6xl rounded-lg border border-white/30 bg-white/40 px-4 py-1 text-center shadow-sm backdrop-blur-md sm:px-6 sm:py-1">
+          <p className="text-pretty text-[10px] font-bold leading-snug text-slate-800/90 sm:text-xs sm:leading-tight">{acknowledgementText}</p>
         </div>
       </div>
     </section>

@@ -39,7 +39,7 @@ export function FundedBy() {
       <ParallaxLayer depth={6} scrollFactor={-6}>
         <h2 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">Nanjundan Lab Funded By</h2>
       </ParallaxLayer>
-      <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-10 border-t border-white/[0.08] pt-10 sm:flex-row sm:gap-8 lg:gap-12">
+      <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-10 border-t border-unisq-500/15 pt-10 sm:flex-row sm:gap-8 lg:gap-12">
         {fundingPartners.map((partner, index) => (
           <ParallaxLayer key={partner.name} depth={8 + index * 4} scrollFactor={-8 - index * 2} invert={index % 2 === 1}>
             <a

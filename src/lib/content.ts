@@ -11,9 +11,8 @@ export const site = {
     "Springfield Central QLD 4300",
   ],
   email: "ashok.nanjundan@unisq.edu.au",
-  /** Extra inboxes that receive the same contact form email as `email` (Resend `to`). Omit or leave empty for PI only. */
-  contactFormAdditionalRecipients: ["sohil.ganeshbabu@unisq.edu.au"],
   phone: "+61 7 3470 4534",
+  mapQuery: "37 Sinnathamby Boulevard, Springfield Central QLD 4300, Australia",
 };
 
 export const labBrand = {
@@ -76,11 +75,18 @@ export const principalInvestigator = {
 export const homeCopy = {
   piEyebrow: "Principal investigator",
   researchEyebrow: "Research",
-  researchTitle: "Themes",
+  researchTitle: "What we work on",
+  researchBody: "Graphene and hybrid nanomaterials, next-generation batteries, critical mineral recovery, and seawater-integrated hydrogen systems.",
   projectsEyebrow: "Projects",
   projectsTitle: "Active work",
-  contactTitle: "Get in touch",
-  contactDescription: "Students, collaborators, and partners can send a message to the lab team.",
+  aboutEyebrow: "About",
+  aboutTitle: "Materials innovation for clean energy",
+  aboutTeaser:
+    "Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource systems. We are part of the Centre for Future Materials at the University of Southern Queensland.",
+  statsEyebrow: "Impact",
+  statsTitle: "Research at a glance",
+  exploreEyebrow: "Explore",
+  exploreTitle: "Discover our work",
 };
 
 export const navItems = [
@@ -90,7 +96,6 @@ export const navItems = [
   { href: "/publications", label: "Publications" },
   // { href: "/news", label: "News" }, // hidden for now
   { href: "/join-us", label: "Join Us" },
-  { href: "/contact", label: "Contact" },
 ] as const;
 
 /** Sub-links under the Team nav dropdown. */
@@ -440,46 +445,166 @@ export function getTeamMembersByGroup(group: TeamGroup) {
 
 export const projects = [
   {
+    slug: "clean-energy",
+    title: "Clean Energy",
+    status: "Program",
+    summary:
+      "Advanced materials and electrochemical systems for next-generation batteries, supercapacitors, hydrogen generation, and scalable clean-energy storage.",
+    focusAreas: [
+      "Next-generation batteries & supercapacitors",
+      "Seawater electrolysis & hydrogen systems",
+      "Hybrid energy storage architectures",
+      "Lab-to-device translation",
+    ],
+    partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/images/research/clean-energy.png",
+  },
+  {
+    slug: "water-safety",
+    title: "Water Safety",
+    status: "Program",
+    summary:
+      "Research on water quality, treatment pathways, and seawater-based electrolysis to support safe, resilient water and energy systems.",
+    focusAreas: [
+      "Feedwater quality & treatment",
+      "Seawater electrolysis catalysts",
+      "Microgrid-linked water-energy systems",
+      "Environmental sensing & monitoring",
+    ],
+    partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/images/research/water-safety.png",
+  },
+  {
+    slug: "nanomaterials",
+    title: "Nanomaterials",
+    status: "Program",
+    summary:
+      "Design and engineering of graphene and hybrid nanomaterials for high-performance interfaces in energy, sensing, and advanced device applications.",
+    focusAreas: [
+      "Graphene & carbon nanoarchitectures",
+      "MOF-derived heterostructures",
+      "Electrochemical interface design",
+      "Nanomaterial scale-up & characterisation",
+    ],
+    partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/images/research/nanomaterials.png",
+  },
+  {
+    slug: "circular-economy",
+    title: "Circular Economy",
+    status: "Program",
+    summary:
+      "Sustainable recovery of critical minerals, green-solvent recycling, waste-to-resource processing, and circular approaches to materials and energy.",
+    focusAreas: [
+      "Critical mineral recovery from e-waste",
+      "Green-solvent battery recycling",
+      "Waste-to-energy carbon accounting",
+      "Bio-assisted extraction pathways",
+    ],
+    partners: ["Centre for Future Materials (UniSQ)"],
+    image: "/images/research/circular-economy.png",
+  },
+] as const;
+
+export const researchPageCopy = {
+  heroSubtitle:
+    "Integrating nanomaterials, electrochemical engineering, and circular-resource chemistry to deliver clean energy and sustainable materials outcomes.",
+  introEyebrow: "Our approach",
+  introTitle: "From molecular design to deployable technology",
+  introBody:
+    "Nanjundan Lab sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
+} as const;
+
+export const aboutPageCopy = {
+  heroSubtitle:
+    "A materials and energy research group at the University of Southern Queensland, working at the intersection of nanomaterials, electrochemistry, and sustainable technology.",
+  missionEyebrow: "Who we are",
+  missionTitle: "A lab built on rigorous science and real-world impact",
+  missionBody:
+    "Nanjundan Lab is part of the Centre for Future Materials at the University of Southern Queensland. We develop advanced materials and electrochemical technologies for clean energy and circular-resource systems — from graphene and hybrid nanomaterials to next-generation batteries, critical mineral recovery, and seawater-integrated hydrogen systems.",
+  missionBodyExtended:
+    "Our work combines materials design, process innovation, and industry-linked translation. We mentor the next generation of researchers while partnering with funding bodies, industry, and international collaborators to move ideas from the bench toward deployable outcomes.",
+  teamTitle: "Led by experienced researchers, powered by emerging talent",
+  teamBody:
+    "Prof. Ashok Kumar Nanjundan leads the group as Principal Investigator, with senior research fellow Dr. Pratheep K. Annamalai supporting translational materials research. Our cohort includes PhD scholars, adjunct collaborators across Australia and internationally, and a growing alumni network.",
+  exploreTitle: "Explore our group",
+  exploreBody: "Research programs, publications, and opportunities to join the lab live on their own pages.",
+} as const;
+
+export const centreForFutureMaterials = {
+  name: "Centre for Future Materials",
+  shortName: "CFM",
+  institute: "Institute for Space, Defence and Advanced Technologies",
+  url: "https://www.unisq.edu.au/research/institutes-centres/institute-for-space-defence-and-advanced-technologies/centre-for-future-materials",
+  tagline:
+    "A world-leading research centre in advanced composite materials and applications, partnering with industry towards innovation and growth.",
+  overview:
+    "The Centre for Future Materials (CFM) at the University of Southern Queensland is known internationally for research and development in engineered fibre composites, functional materials, and advanced manufacturing. It prioritises industry-led R&D across aerospace, defence, space, civil infrastructure, clean energy, and sustainable industry.",
+  overviewExtended:
+    "CFM operates one of Australia's largest dedicated composite materials manufacturing and testing facilities, with industrial-scale equipment for filament winding, robotic braiding, pultrusion, resin infusion, fire testing, and large-scale structural testing. Its industry test service has supported more than 1,000 clients nationally and internationally.",
+  labConnection:
+    "Nanjundan Lab contributes to CFM's Clean Energy and Environment research theme from the Springfield Central campus, advancing functional materials, next-generation batteries, critical mineral recovery, and electrochemical systems for sustainable technology.",
+  focusAreas: [
+    {
+      title: "Space & defence",
+      body: "High-value composites manufacturing for aerospace, defence, and space — including repair, robotic filament winding, pultrusion, and oxide-oxide ceramic composites.",
+    },
+    {
+      title: "Clean energy & environment",
+      body: "Functional composites, structural health monitoring, nanomaterials for energy conversion, sodium-ion batteries, electrochemical manufacturing, and sustainable materials.",
+    },
+    {
+      title: "Civil engineering",
+      body: "Engineered fibre composites for civil infrastructure, large-scale structural testing, computational modelling, and climate-resilient construction materials.",
+    },
+    {
+      title: "Sustainable industry design",
+      body: "Process technologies and management of recovered waste materials — plastics, fibres, and fly ash — for high-value, low-carbon emission products.",
+    },
+  ],
+} as const;
+
+export const researchStats = [
+  { label: "Research funding", value: "$5M+" },
+  { label: "Publications", value: "100+" },
+  { label: "Citations", value: "11,000+" },
+  { label: "Patents", value: "7" },
+] as const;
+
+export const activeResearchProjects = [
+  {
     slug: "novel-green-solvent-battery-recycling",
     title: "Development of Novel Green Solvent for Recycling of Spent Batteries",
-    shortTitle: "Green Solvent Battery Recycling",
     status: "Active",
     summary:
-      "Development of sustainable green-solvent pathways to improve recovery of valuable materials from spent batteries and support circular-resource processing.",
-    partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/illustrations/green-solvent-engineering.svg",
+      "Sustainable green-solvent pathways to improve recovery of valuable materials from spent batteries and support circular-resource processing.",
+    program: "circular-economy",
   },
   {
     slug: "carbon-accounting-plastic-waste-to-energy",
     title: "Carbon accounting of plastic waste-to-energy pathways for Australian climate and resource recovery policy",
-    shortTitle: "Carbon Accounting of Plastic Waste-to-Energy",
     status: "Active",
     summary:
       "Evaluation of emissions and resource outcomes across plastic waste-to-energy routes to inform evidence-based Australian climate and recovery policy.",
-    partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/illustrations/carbon-accounting-waste-to-energy.svg",
+    program: "circular-economy",
   },
   {
     slug: "seawater-electrolysis-microgrids",
-    title: "Seawater Electrolysis for Microgrids: Catalyst Performance, Water Quality Requirements, and Contextualised System Feasibility",
-    shortTitle: "Seawater Electrolysis for Microgrids",
+    title: "Seawater Electrolysis for Microgrids",
     status: "Active",
     summary:
-      "Investigation of catalyst behavior, feedwater quality constraints, and deployment feasibility for seawater-based hydrogen systems in microgrid contexts.",
-    partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/illustrations/seawater-electrolysis-microgrids.svg",
+      "Catalyst behaviour, feedwater quality constraints, and deployment feasibility for seawater-based hydrogen systems in microgrid contexts.",
+    program: "water-safety",
   },
   {
     slug: "hybrid-energy-storage-performance-enhancement",
     title: "Performance Enhancement of Hybrid Energy Storage Devices",
-    shortTitle: "Hybrid Energy Storage Enhancement",
     status: "Active",
     summary:
-      "Design and optimization of hybrid storage architectures to improve capacity retention, power delivery, and lifecycle reliability.",
-    partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/illustrations/hybrid-energy-storage.svg",
+      "Design and optimisation of hybrid storage architectures to improve capacity retention, power delivery, and lifecycle reliability.",
+    program: "clean-energy",
   },
-];
+] as const;
 
 export const newsPosts = [
   {

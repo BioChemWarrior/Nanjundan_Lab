@@ -43,7 +43,7 @@ export function ClippedInteractiveBackdrop() {
   }, [pathname, isHome]);
 
   const clipPath = isHome
-    ? "polygon(0 72svh, 100% 72svh, 100% 100%, 0 100%)"
+    ? undefined
     : stripBottom && stripBottom > 0
       ? `polygon(0 0, 100% 0, 100% ${stripBottom}px, 0 ${stripBottom}px)`
       : "polygon(0 0, 100% 0, 100% 0, 0 0)";
@@ -53,7 +53,7 @@ export function ClippedInteractiveBackdrop() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#020b1a]" />
         <div className="absolute inset-0">
-          <InteractiveBackground parallax={false} />
+          <InteractiveBackground parallax={isHome} />
         </div>
       </div>
     </div>

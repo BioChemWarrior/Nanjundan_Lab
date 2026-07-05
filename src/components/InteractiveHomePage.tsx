@@ -1,6 +1,7 @@
 "use client";
 
 import { FundedBy } from "@/components/FundedBy";
+import { HomePageSections } from "@/components/HomePageSections";
 import { HomeParallaxPage } from "@/context/HomeParallaxContext";
 import { labBrand } from "@/lib/content";
 
@@ -18,9 +19,7 @@ function HomeHeroHeadline() {
           return (
             <>
               {before}{" "}
-              <span className="text-emerald-400 drop-shadow-[0_0_16px_rgba(16,185,129,0.35)]">
-                {last}
-              </span>
+              <span className="text-unisq-400 drop-shadow-[0_0_20px_rgba(255,184,77,0.4)]">{last}</span>
             </>
           );
         })()}
@@ -38,54 +37,34 @@ function HomeHeroHeadline() {
   );
 }
 
-function HomeHeroRegion() {
+function HomeHeroAtmosphere() {
   return (
-    <section className="relative isolate min-h-[min(88svh,52rem)] overflow-hidden px-6 pb-10 pt-14 text-center sm:pb-12 sm:pt-20 md:pt-24">
-      {/* Background hero video (must exist under `public/videos/hero.mp4`) */}
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <video
-          src="/videos/hero.mp4"
-          className="h-full w-full object-cover opacity-40"
-          muted
-          playsInline
-          autoPlay
-          loop
-          preload="metadata"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(2,11,26,0) 0%, rgba(2,11,26,0.08) 42%, rgba(2,11,26,0.22) 64%, rgba(2,11,26,0.45) 80%, rgba(2,11,26,0.78) 92%, rgba(2,11,26,0.96) 100%)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-[2] flex flex-col items-center">
-        <HomeHeroHeadline />
-        <HomeAbout />
-      </div>
-    </section>
+    <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+      <div className="home-hero-grid absolute inset-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_42%,rgba(0,212,255,0.08)_0%,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_50%,transparent_35%,rgba(2,11,26,0.55)_72%,rgba(2,11,26,0.92)_100%)]" />
+      <div className="home-hero-pulse-ring absolute left-1/2 top-[46%] h-[min(70vw,34rem)] w-[min(70vw,34rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-unisq-400/25 shadow-unisq-glow-sm" />
+      <div className="home-hero-pulse-ring absolute left-1/2 top-[46%] h-[min(88vw,42rem)] w-[min(88vw,42rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-500/10 [animation-delay:1.5s]" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-unisq-400/40 to-transparent shadow-unisq-glow-sm" />
+    </div>
   );
 }
 
-function HomeAbout() {
+function HomeHeroRegion() {
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-20 md:pt-24 lg:px-8">
-      <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About The Nanjundan Lab</h2>
-      <p className="mt-2 text-base text-white sm:text-lg">Advanced materials, clean energy, and energy storage innovation</p>
-      <p className="mt-4 text-base leading-relaxed text-white sm:text-lg">
-        Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource
-        systems. Our published work and ongoing projects span graphene and hybrid nanomaterials, next-generation batteries
-        and supercapacitors, and translation from lab chemistry to practical engineering outcomes.
-      </p>
-      <p className="mt-3 text-base leading-relaxed text-white sm:text-lg">
-        Current focus areas include critical mineral recovery from e-waste and secondary resources, sustainable bioleaching
-        and bio-assisted extraction pathways, and hydrogen generation from seawater-integrated systems. The lab combines
-        materials design, process innovation, and industry-linked research to build scalable solutions for energy storage
-        and decarbonization. Nanjundan Lab is part of the Centre for Future Materials at UniSQ, strengthening
-        interdisciplinary collaboration and translation of advanced materials research into real-world clean-energy impact.
-      </p>
+    <section className="relative isolate flex min-h-svh flex-col items-center justify-center px-6 py-20 text-center">
+      <HomeHeroAtmosphere />
+
+      <div className="relative z-[2] flex max-w-6xl flex-col items-center">
+        <HomeHeroHeadline />
+      </div>
+
+      <div className="pointer-events-none absolute bottom-8 left-1/2 z-[2] -translate-x-1/2" aria-hidden>
+        <div className="flex flex-col items-center gap-2 text-slate-500">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">Scroll</span>
+          <span className="block h-8 w-px bg-gradient-to-b from-unisq-400/60 to-transparent shadow-unisq-glow-sm" />
+        </div>
+      </div>
     </section>
   );
 }
@@ -95,7 +74,12 @@ export function InteractiveHomePage() {
     <HomeParallaxPage>
       <HomeHeroRegion />
 
-      <div className="space-y-16 pb-24 sm:space-y-20">
+      <div className="relative space-y-20 pb-24 pt-4 sm:space-y-24 sm:pt-8">
+        <div
+          className="pointer-events-none absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-transparent to-[#020b1a]/80"
+          aria-hidden
+        />
+        <HomePageSections />
         <FundedBy />
       </div>
     </HomeParallaxPage>

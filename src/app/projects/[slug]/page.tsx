@@ -36,6 +36,19 @@ export default async function ProjectDetailPage({ params }: Props) {
             <span className="text-slate-600">{project.title}</span>
           </p>
           <p className="text-pretty text-lg leading-relaxed text-slate-600">{project.summary}</p>
+          {project.focusAreas?.length ? (
+            <div>
+              <h2 className="text-lg font-semibold text-slate-900">Focus areas</h2>
+              <ul className="mt-4 space-y-2">
+                {project.focusAreas.map((area) => (
+                  <li key={area} className="flex items-start gap-2 text-slate-600">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden />
+                    {area}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </PageBodyInner>
       </PageBody>
     </>

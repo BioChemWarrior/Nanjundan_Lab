@@ -8,7 +8,7 @@ type Project = (typeof projects)[number];
 
 function ProjectRoundIcon({ project }: { project: Project }) {
   return (
-    <div className="relative h-36 w-36 overflow-hidden rounded-full border-[3px] border-slate-200 bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-100 shadow-md transition duration-300 group-hover:border-blue-300/70 group-hover:shadow-lg sm:h-60 sm:w-60 sm:border-4 lg:h-72 lg:w-72">
+    <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-slate-200 bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-100 shadow-md transition duration-300 group-hover:border-blue-300/70 group-hover:shadow-lg sm:h-28 sm:w-28 lg:h-32 lg:w-32 xl:h-36 xl:w-36">
       {project.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -16,15 +16,7 @@ function ProjectRoundIcon({ project }: { project: Project }) {
           alt=""
           className="h-full w-full object-cover object-center"
         />
-      ) : (
-        <div className="flex h-full w-full items-center justify-center" aria-hidden>
-          <svg className="h-14 w-14 text-slate-300 sm:h-16 sm:w-16 lg:h-20 lg:w-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <circle cx="8.5" cy="10.5" r="1.75" fill="currentColor" stroke="none" />
-            <path d="M3 16l4.5-4.5 3.5 3.5L14 12l7 7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-      )}
+      ) : null}
       <div className="pointer-events-none absolute inset-0 rounded-full bg-blue-500/0 transition duration-300 group-hover:bg-blue-500/5" />
     </div>
   );
@@ -49,19 +41,19 @@ export function ResearchProjectGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-10 sm:gap-16 lg:gap-20">
+      <div className="flex w-full flex-wrap items-start justify-evenly gap-4 sm:gap-6 lg:gap-8 xl:gap-10">
         {projects.map((project) => (
-          <div key={project.slug} className="flex flex-col items-center gap-6 text-center sm:gap-8">
+          <div key={project.slug} className="flex w-[5.5rem] shrink-0 flex-col items-center gap-2.5 text-center sm:w-[6.5rem] sm:gap-3 lg:w-[8rem] xl:w-[9rem]">
             <button
               type="button"
               onClick={() => openProject(project)}
-              className="group rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
+              className="group shrink-0 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
               aria-label={`Show details for ${project.title}`}
             >
               <ProjectRoundIcon project={project} />
             </button>
-            <h3 className="max-w-[9.5rem] text-pretty text-base font-semibold leading-snug text-slate-900 sm:max-w-sm sm:text-2xl lg:max-w-md lg:text-3xl">
-              {project.shortTitle ?? project.title}
+            <h3 className="w-full text-pretty text-[11px] font-semibold leading-snug text-slate-900 sm:text-xs lg:text-sm">
+              {project.title}
             </h3>
           </div>
         ))}
@@ -77,20 +69,19 @@ export function ResearchProjectGrid() {
           <div className="flex max-h-[min(100vh-2rem,90vh)] flex-col">
             <div className="flex items-start justify-between gap-5 border-b border-slate-100 px-7 py-6 sm:px-8 sm:py-7">
               <div className="flex min-w-0 items-center gap-5">
-                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/40 sm:h-24 sm:w-24">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/40 sm:h-20 sm:w-20">
                   {selected.image ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={selected.image} alt="" className="h-full w-full object-cover object-center" />
                   ) : null}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">{selected.status}</p>
-                  <h2
-                    id={`project-dialog-title-${selected.slug}`}
-                    className="mt-2 text-pretty text-xl font-semibold leading-snug text-slate-900 sm:text-2xl"
-                  >
-                    {selected.title}
-                  </h2>
+                <h2
+                  id={`project-dialog-title-${selected.slug}`}
+                  className="text-pretty text-xl font-semibold leading-snug text-slate-900 sm:text-2xl"
+                >
+                  {selected.title}
+                </h2>
                 </div>
               </div>
               <button
@@ -107,12 +98,15 @@ export function ResearchProjectGrid() {
 
             <div className="space-y-6 overflow-y-auto px-7 py-6 sm:px-8 sm:py-7">
               <p className="text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">{selected.summary}</p>
-              {selected.partners.length > 0 ? (
+              {selected.focusAreas?.length ? (
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Partners</p>
-                  <ul className="mt-3 space-y-1.5 text-base text-slate-700">
-                    {selected.partners.map((partner) => (
-                      <li key={partner}>{partner}</li>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Focus areas</p>
+                  <ul className="mt-3 space-y-2">
+                    {selected.focusAreas.map((area) => (
+                      <li key={area} className="flex items-start gap-2 text-sm text-slate-700 sm:text-base">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden />
+                        {area}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -122,7 +116,7 @@ export function ResearchProjectGrid() {
             <div className="border-t border-slate-100 px-7 py-5 sm:px-8 sm:py-6">
               <Link
                 href={`/projects/${selected.slug}`}
-                className="inline-flex items-center gap-2 text-base font-semibold text-blue-700 transition hover:text-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                className="link-glow inline-flex items-center gap-2 text-base"
               >
                 View full program page
                 <span aria-hidden>→</span>
