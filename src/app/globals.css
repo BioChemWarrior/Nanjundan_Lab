@@ -110,7 +110,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-parallax-content [style*="transform"],
+  .home-parallax-root [style*="transform"],
   .hero-parallax-root [style*="transform"] {
     transform: none !important;
   }
@@ -143,6 +143,30 @@ body {
   }
 }
 
+/* Fixed header mark — subtle pulsing glow (SiteLogoRail only). */
+.site-logo-mark-glow {
+  animation: siteLogoMarkGlow 5s ease-in-out infinite;
+  will-change: filter;
+}
+
+@keyframes siteLogoMarkGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.35)) drop-shadow(0 0 10px rgba(255, 184, 77, 0.18));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.7)) drop-shadow(0 0 22px rgba(255, 184, 77, 0.42))
+      brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-logo-mark-glow {
+    animation: none;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+  }
+}
+
 /* Home hero atmosphere — layered over the interactive particle canvas. */
 .home-hero-grid {
   background-image:
@@ -161,11 +185,11 @@ body {
   0%,
   100% {
     opacity: 0.55;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
   50% {
     opacity: 0.12;
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: scale(1.05);
   }
 }
 

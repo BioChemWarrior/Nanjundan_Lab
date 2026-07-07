@@ -1,6 +1,6 @@
 /** Shown under the lab name on the home splash and in the header tagline area. */
 export const labTagline =
-  "Graphene Nanomaterials • Next Generation Batteries • Circular Economy • Energy Materials";
+  "Graphene Nanomaterials • Next Generation Batteries\nCircular Economy • Energy Materials";
 
 export const site = {
   name: "Nanjundan Lab",
@@ -82,7 +82,7 @@ export const homeCopy = {
   aboutEyebrow: "About",
   aboutTitle: "Materials innovation for clean energy",
   aboutTeaser:
-    "Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource systems. We are part of the Centre for Future Materials at the University of Southern Queensland.",
+    "We design advanced materials and electrochemical systems for clean energy and the circular economy at the University of Southern Queensland.",
   statsEyebrow: "Impact",
   statsTitle: "Research at a glance",
   exploreEyebrow: "Explore",
@@ -159,14 +159,14 @@ const currentTeamMembers = [
     orcid: "https://orcid.org/0000-0002-7284-0813",
   },
   {
-    id: "sohil-gb",
+    id: "sandeep-kumar",
     group: "current" as const,
-    name: "Mr. Sohil Ganesh Babu",
+    name: "Sandeep Kumar",
     role: "PhD Scholar",
-    focus: "Green solvents · critical mineral recovery · e-waste recycling",
-    bio: "Mr. Sohil Ganesh Babu is a PhD scholar at UniSQ. His research focuses on the development of green solvents for critical mineral recovery from e-waste. He has diverse experience in biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods to recover critical minerals from spent batteries for a circular economy and safer recycling practices.",
-    photo: "/team/sohil-ganesh-babu.png",
-    email: "sohil.ganeshbabu@unisq.edu.au",
+    focus: "Laboratory research",
+    bio: "Sandeep Kumar is an interdisciplinary researcher with a master's degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep's passion lies in developing innovative solutions for next-generation batteries. His PhD research focuses on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
+    photo: "/team/sandeep-kumar.png",
+    email: "sandeep.kumar@unisq.edu.au",
   },
   {
     id: "rollins-suluia",
@@ -179,24 +179,24 @@ const currentTeamMembers = [
     email: "rollins.suluia@unisq.edu.au",
   },
   {
-    id: "sandeep-kumar",
+    id: "bidita-salahuddin",
     group: "current" as const,
-    name: "Sandeep Kumar",
+    name: "Bidita Salahuddin",
     role: "PhD Scholar",
-    focus: "Laboratory research",
-    bio: "Sandeep Kumar is an interdisciplinary researcher with a master's degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep's passion lies in developing innovative solutions for next-generation batteries. His PhD research focuses on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
-    photo: "/team/sandeep-kumar.png",
-    email: "sandeep.kumar@unisq.edu.au",
+    focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
+    bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
+    photo: "/team/bidita-salahuddin.png",
+    email: "",
   },
   {
-    id: "ancy-joseph",
+    id: "sohil-gb",
     group: "current" as const,
-    name: "Ancy Joseph",
+    name: "Sohil Ganesh Babu",
     role: "PhD Scholar",
-    focus: "Biomedical engineering · polymer biomaterials · blood storage",
-    bio: "Ancy Joseph is a PhD researcher in biomedical engineering with a background in biopolymer science and experience in polymer modification, biomaterials, and nanostructure synthesis. Her research focuses on developing functional polymer-based materials and applying nanotechnology to challenges in blood storage, including short shelf life, bacterial contamination, and harmful chemical leaching from storage bags, with the aim of making blood transfusions safer and more effective. Her project develops nano-textured surfaces inside blood bags using advanced fabrication techniques.",
-    photo: "/team/ancy-joseph.png",
-    email: "ancy.joseph@unisq.edu.au",
+    focus: "Green solvents · critical mineral recovery · e-waste recycling",
+    bio: "Mr. Sohil Ganesh Babu is a PhD scholar at UniSQ. His research focuses on the development of green solvents for critical mineral recovery from e-waste. He has diverse experience in biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods to recover critical minerals from spent batteries for a circular economy and safer recycling practices.",
+    photo: "/team/sohil-ganesh-babu.png",
+    email: "sohil.ganeshbabu@unisq.edu.au",
   },
   {
     id: "vedang-sonar",
@@ -209,6 +209,16 @@ const currentTeamMembers = [
     email: "",
   },
   {
+    id: "ancy-joseph",
+    group: "current" as const,
+    name: "Ancy Joseph",
+    role: "PhD Scholar",
+    focus: "Biomedical engineering · polymer biomaterials · blood storage",
+    bio: "Ancy Joseph is a PhD researcher in biomedical engineering with a background in biopolymer science and experience in polymer modification, biomaterials, and nanostructure synthesis. Her research focuses on developing functional polymer-based materials and applying nanotechnology to challenges in blood storage, including short shelf life, bacterial contamination, and harmful chemical leaching from storage bags, with the aim of making blood transfusions safer and more effective. Her project develops nano-textured surfaces inside blood bags using advanced fabrication techniques.",
+    photo: "/team/ancy-joseph.png",
+    email: "ancy.joseph@unisq.edu.au",
+  },
+  {
     id: "jiahu-zhang",
     group: "current" as const,
     name: "Jiahu Zhang",
@@ -217,16 +227,6 @@ const currentTeamMembers = [
     bio: "Jiahu Zhang began his PhD study in 2026 at the School of Science, Engineering and Digital Technologies, University of Southern Queensland. His current research focuses on the development of advanced materials for the removal and recovery of heavy-metal ions from contaminated water. His broader research interests include the design of environmental functional materials for heavy-metal pollution remediation, particularly through adsorption and electrocatalytic approaches. He has a background in materials science, materials characterization, and adsorption, and is currently working on a range of environmental functional materials, such as metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and magnetic polymer-based composites, for heavy-metal removal and mechanistic investigation.",
     photo: "/team/jiahu-zhang.png",
     email: "Jiahu.Zhang@unisq.edu.au",
-  },
-  {
-    id: "bidita-salahuddin",
-    group: "current" as const,
-    name: "Bidita Salahuddin",
-    role: "PhD Scholar",
-    focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
-    bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
-    photo: "/team/bidita-salahuddin.png",
-    email: "",
   },
 ] as const;
 
@@ -516,8 +516,6 @@ export const researchPageCopy = {
 } as const;
 
 export const aboutPageCopy = {
-  heroSubtitle:
-    "A materials and energy research group at the University of Southern Queensland, working at the intersection of nanomaterials, electrochemistry, and sustainable technology.",
   missionEyebrow: "Who we are",
   missionTitle: "A lab built on rigorous science and real-world impact",
   missionBody:
@@ -565,10 +563,10 @@ export const centreForFutureMaterials = {
 } as const;
 
 export const researchStats = [
-  { label: "Research funding", value: "$5M+" },
-  { label: "Publications", value: "100+" },
-  { label: "Citations", value: "11,000+" },
-  { label: "Patents", value: "7" },
+  { label: "Research funding", value: "$5M+", icon: "funding" },
+  { label: "Publications", value: "100+", icon: "publications" },
+  { label: "Citations", value: "11,000+", icon: "citations" },
+  { label: "Patents", value: "7", icon: "patents" },
 ] as const;
 
 export const activeResearchProjects = [

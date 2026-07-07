@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ParallaxLayer } from "@/context/HomeParallaxContext";
 import { fundingPartners } from "@/lib/content";
 
 /** Partner logos — sizes tuned so three marks fit on one row without overlap. */
@@ -35,30 +34,27 @@ function logoSizesAttr(src: string) {
 
 export function FundedBy() {
   return (
-    <section className="mx-auto w-full max-w-[100rem] px-4 sm:px-6 lg:px-8" aria-label="Funding and institutional support">
-      <ParallaxLayer depth={6} scrollFactor={-6}>
-        <h2 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">Nanjundan Lab Funded By</h2>
-      </ParallaxLayer>
-      <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-10 border-t border-unisq-500/15 pt-10 sm:flex-row sm:gap-8 lg:gap-12">
-        {fundingPartners.map((partner, index) => (
-          <ParallaxLayer key={partner.name} depth={8 + index * 4} scrollFactor={-8 - index * 2} invert={index % 2 === 1}>
-            <a
-              href={partner.href}
-              target="_blank"
-              rel="noreferrer"
-              className={partnerLinkClass(partner.src)}
-            >
-              <Image
-                src={partner.src}
-                alt={partner.name}
-                width={partner.width}
-                height={partner.height}
-                className={logoSizeClass(partner.src)}
-                sizes={logoSizesAttr(partner.src)}
-                unoptimized
-              />
-            </a>
-          </ParallaxLayer>
+    <section className="w-full" aria-label="Funding and institutional support">
+      <h2 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">Nanjundan Lab Funded By</h2>
+      <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-10 border-t border-unisq-500/15 pt-10 sm:flex-row sm:gap-12 lg:gap-16">
+        {fundingPartners.map((partner) => (
+          <a
+            key={partner.name}
+            href={partner.href}
+            target="_blank"
+            rel="noreferrer"
+            className={partnerLinkClass(partner.src)}
+          >
+            <Image
+              src={partner.src}
+              alt={partner.name}
+              width={partner.width}
+              height={partner.height}
+              className={logoSizeClass(partner.src)}
+              sizes={logoSizesAttr(partner.src)}
+              unoptimized
+            />
+          </a>
         ))}
       </div>
     </section>

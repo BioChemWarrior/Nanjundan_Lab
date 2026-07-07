@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
-import { type ParallaxMotion } from "@/hooks/useParallaxPointer";
+import { createContext, useContext, type ReactNode, type RefObject } from "react";
+import { useParallaxPointer, type ParallaxMotion } from "@/hooks/useParallaxPointer";
 import { HomeLightBlooms } from "@/components/HomeLightBlooms";
 import { layerTransform } from "@/lib/parallax";
 
@@ -42,12 +42,16 @@ export function ParallaxLayer({
 export function HomeParallaxPage({
   children,
   beforeContent,
+  heroRef,
 }: {
   children: ReactNode;
   beforeContent?: ReactNode;
+  heroRef: RefObject<HTMLElement | null>;
 }) {
+  const motion = useParallaxPointer(heroRef);
+
   return (
-    <HomeParallaxContext.Provider value={INITIAL}>
+    <HomeParallaxContext.Provider value={motion}>
       <div className="home-parallax-root relative flex flex-1 flex-col text-slate-100">
         <HomeLightBlooms />
         {beforeContent}

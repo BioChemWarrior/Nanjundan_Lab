@@ -1,11 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import { ParallaxLayer } from "@/context/HomeParallaxContext";
-import { highlights, homeCopy, researchStats } from "@/lib/content";
+import { homeCopy, researchStats } from "@/lib/content";
 
-const glassPanelClass =
-  "rounded-3xl border border-white/[0.1] border-glow-unisq bg-lab-900/65 p-6 backdrop-blur-md sm:p-8";
+type StatIconName = (typeof researchStats)[number]["icon"];
+
+function StatIcon({ icon }: { icon: StatIconName }) {
+  const className = "h-5 w-5 sm:h-6 sm:w-6";
+
+  switch (icon) {
+    case "funding":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+          <circle cx="12" cy="12" r="9" />
+          <path strokeLinecap="round" d="M12 7v10M9.5 9.5c0-1.1 1.12-2 2.5-2s2.5.9 2.5 2-1.12 2-2.5 2-1.38 0-2.5.9-2.5 2 1.12 2 2.5 2 2.5.9 2.5 2" />
+        </svg>
+      );
+    case "publications":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M7 4h8l3 3v13H7V4z" />
+          <path strokeLinecap="round" d="M15 4v4h4M9 12h6M9 16h4" />
+        </svg>
+      );
+    case "citations":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 7H5v10h4M15 7h4v10h-4" />
+          <path strokeLinecap="round" d="M9 12h6" />
+        </svg>
+      );
+    case "patents":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3 5 6v6c0 4.2 3 7.5 7 8.5 4-1 7-4.3 7-8.5V6l-7-3z" />
+          <path strokeLinecap="round" d="M9.5 12.5 11 14l3.5-4" />
+        </svg>
+      );
+  }
+}
 
 function HomeSectionHeader({
   eyebrow,
@@ -25,100 +58,43 @@ function HomeSectionHeader({
   );
 }
 
-function HomeExploreLink({ href, label, description }: { href: string; label: string; description: string }) {
+export function HomeAboutPanel() {
   return (
-    <Link
-      href={href}
-      className="group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-lab-900/40 px-5 py-5 text-center transition hover:border-unisq-400/30 hover:bg-lab-900/70 hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-400 sm:px-6"
-    >
-      <span className="text-base font-semibold text-white transition group-hover:text-unisq-300">{label}</span>
-      <span className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">{description}</span>
-    </Link>
+    <div className="w-full rounded-3xl border border-white/[0.1] border-glow-unisq bg-lab-900/65 p-6 backdrop-blur-md sm:p-8">
+      <HomeSectionHeader eyebrow={homeCopy.aboutEyebrow} title={homeCopy.aboutTitle} />
+      <p className="mx-auto mt-5 max-w-3xl text-center text-pretty text-sm leading-relaxed text-slate-300 sm:text-base">
+        {homeCopy.aboutTeaser}
+      </p>
+      <div className="mt-5 flex justify-center sm:mt-6">
+        <Link
+          href="/about"
+          className="inline-flex rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-unisq-400/50 hover:bg-unisq-500/10 hover:text-white hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-400"
+        >
+          Learn more about the lab
+        </Link>
+      </div>
+    </div>
   );
 }
 
 export function HomePageSections() {
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-20 px-4 sm:space-y-24 sm:px-6 lg:px-8">
-      <section>
-        <ParallaxLayer depth={4} scrollFactor={-4}>
-          <div className={glassPanelClass}>
-            <HomeSectionHeader eyebrow={homeCopy.aboutEyebrow} title={homeCopy.aboutTitle} />
-            <p className="mx-auto mt-6 max-w-3xl text-center text-pretty text-sm leading-relaxed text-slate-300 sm:text-base">
-              {homeCopy.aboutTeaser}
-            </p>
-            <div className="mt-6 flex justify-center">
-              <Link
-                href="/about"
-                className="inline-flex rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-unisq-400/50 hover:bg-unisq-500/10 hover:text-white hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-400"
-              >
-                Learn more about the lab
-              </Link>
-            </div>
-          </div>
-        </ParallaxLayer>
-      </section>
-
-      <section className="space-y-8">
-        <ParallaxLayer depth={5} scrollFactor={-5}>
-          <HomeSectionHeader
-            eyebrow={homeCopy.researchEyebrow}
-            title={homeCopy.researchTitle}
-            body={homeCopy.researchBody}
-          />
-        </ParallaxLayer>
-        <div className="grid gap-4 md:grid-cols-3">
-          {highlights.map((item, index) => (
-            <ParallaxLayer key={item.title} depth={6 + index * 2} scrollFactor={-4 - index}>
-              <article className={`${glassPanelClass} h-full text-center`}>
-                <span className="text-3xl font-semibold leading-none text-unisq-400/30">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 text-base font-semibold text-white sm:text-lg">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-400">{item.body}</p>
-              </article>
-            </ParallaxLayer>
-          ))}
-        </div>
-        <div className="flex justify-center">
-          <Link
-            href="/projects"
-            className="link-glow text-sm"
+    <section className="space-y-8">
+      <HomeSectionHeader eyebrow={homeCopy.statsEyebrow} title={homeCopy.statsTitle} />
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        {researchStats.map((stat) => (
+          <div
+            key={stat.label}
+            className="flex h-full flex-col items-center justify-center rounded-2xl border border-unisq-500/15 bg-gradient-to-br from-lab-900/80 to-lab-950/60 px-4 py-5 text-center shadow-unisq-glow-sm"
           >
-            View research programs →
-          </Link>
-        </div>
-      </section>
-
-      <section className="space-y-8">
-        <ParallaxLayer depth={5} scrollFactor={-5}>
-          <HomeSectionHeader eyebrow={homeCopy.statsEyebrow} title={homeCopy.statsTitle} />
-        </ParallaxLayer>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-          {researchStats.map((stat, index) => (
-            <ParallaxLayer key={stat.label} depth={7 + index} scrollFactor={-3 - index}>
-              <div className="rounded-2xl border border-unisq-500/15 bg-gradient-to-br from-lab-900/80 to-lab-950/60 px-4 py-5 text-center shadow-unisq-glow-sm">
-                <p className="text-2xl font-semibold tracking-tight text-unisq-300 sm:text-3xl">{stat.value}</p>
-                <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500 sm:text-xs">
-                  {stat.label}
-                </p>
-              </div>
-            </ParallaxLayer>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <ParallaxLayer depth={4} scrollFactor={-4}>
-          <HomeSectionHeader eyebrow={homeCopy.exploreEyebrow} title={homeCopy.exploreTitle} />
-        </ParallaxLayer>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <HomeExploreLink href="/about" label="About" description="Who we are and our affiliation with CFM at UniSQ." />
-          <HomeExploreLink href="/projects" label="Research" description="Programs, projects, and capabilities." />
-          <HomeExploreLink href="/publications" label="Publications" description="Peer-reviewed outputs in leading journals." />
-          <HomeExploreLink href="/join-us" label="Join us" description="PhD, postdoc, and collaboration opportunities." />
-        </div>
-      </section>
-    </div>
+            <span className="mb-3 inline-flex items-center justify-center rounded-xl border border-unisq-400/20 bg-unisq-500/10 p-2 text-unisq-300 shadow-unisq-glow-sm">
+              <StatIcon icon={stat.icon} />
+            </span>
+            <p className="text-2xl font-semibold tracking-tight text-unisq-300 sm:text-3xl">{stat.value}</p>
+            <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500 sm:text-xs">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
