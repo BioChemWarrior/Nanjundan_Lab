@@ -60,9 +60,9 @@ function HomeSectionHeader({
 
 export function HomeAboutPanel() {
   return (
-    <div className="w-full rounded-3xl border border-white/[0.1] border-glow-unisq bg-lab-900/65 p-6 backdrop-blur-md sm:p-8">
+    <div className="w-full px-2 text-center sm:px-4">
       <HomeSectionHeader eyebrow={homeCopy.aboutEyebrow} title={homeCopy.aboutTitle} />
-      <p className="mx-auto mt-5 max-w-3xl text-center text-pretty text-sm leading-relaxed text-slate-300 sm:text-base">
+      <p className="mx-auto mt-5 max-w-3xl text-pretty text-sm leading-relaxed text-slate-300 sm:text-base">
         {homeCopy.aboutTeaser}
       </p>
       <div className="mt-5 flex justify-center sm:mt-6">

@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { HomeHeroVideo } from "@/components/HomeHeroVideo";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
 
 function measureHeroStripBottom() {
@@ -14,7 +15,7 @@ function measureHeroStripBottom() {
   return header ? Math.ceil(header.getBoundingClientRect().bottom) : 0;
 }
 
-/** Home: full-screen particles. Other routes: top band clipped to the page hero heading strip. */
+/** Home: hero video only. Other routes: particle band clipped to the page hero heading strip. */
 export function ClippedInteractiveBackdrop() {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -52,9 +53,15 @@ export function ClippedInteractiveBackdrop() {
     <div aria-hidden className="fixed inset-0 z-0 overflow-hidden" style={clipPath ? { clipPath } : undefined}>
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#020b1a]" />
-        <div className="absolute inset-0">
-          <InteractiveBackground parallax={isHome} />
-        </div>
+        {isHome ? (
+          <div className="absolute inset-0">
+            <HomeHeroVideo />
+          </div>
+        ) : (
+          <div className="absolute inset-0">
+            <InteractiveBackground parallax={false} />
+          </div>
+        )}
       </div>
     </div>
   );
