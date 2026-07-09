@@ -108,7 +108,20 @@ export default async function TeamMemberDetailPage({ params }: Props) {
 
   return (
     <>
-      <TeamHeroStrip title={member.name} subtitle={member.role} />
+      <TeamHeroStrip
+        title={member.name}
+        subtitle={
+          <>
+            {member.role}
+            {"joined" in member && member.joined ? (
+              <>
+                {"\n"}
+                <span className="text-sm text-slate-400 sm:text-base">Joined {member.joined}</span>
+              </>
+            ) : null}
+          </>
+        }
+      />
       <PageBody>
         <PageBodyInner className="space-y-10">
           {!isExpandedProfile ? (

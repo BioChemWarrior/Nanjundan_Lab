@@ -13,7 +13,7 @@ export default function ProjectsPage() {
     <>
       <TeamHeroStrip
         eyebrow="Centre for Future Materials · UniSQ"
-        title="Research programs"
+        title="Research interests"
         subtitle={researchPageCopy.heroSubtitle}
       />
       <PageBody>

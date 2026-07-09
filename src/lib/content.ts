@@ -51,7 +51,6 @@ export const principalInvestigator = {
   affiliations: [
     "University of Southern Queensland",
     "Honorary Professor, The University of Queensland",
-    "Honorary Professor, Queensland University of Technology",
   ],
   bio: "An innovative materials scientist focused on carbon-based nanomaterials for advanced energy storage, with leadership experience spanning university research, international fellowships, and graphene industry translation.",
   bioExtended:
@@ -147,6 +146,17 @@ const piMembers = [
 
 const currentTeamMembers = [
   {
+    id: "rollins-suluia",
+    group: "current" as const,
+    name: "Rollins Suluia",
+    role: "PhD Scholar",
+    focus: "Electrical engineering · hydrogen from seawater · solar PV integration",
+    bio: "Rollins Suluia is an electrical engineer with two decades of experience and qualifications in electrical engineering and engineering science. He has worked as a technician, electrical engineer, project manager, and utility operational manager, with strong expertise in complex electrical systems and infrastructure. His PhD research investigates hydrogen extraction from seawater using excess energy from solar photovoltaic systems while considering social and environmental impacts to support safer renewable energy adoption.",
+    photo: "/team/rollins-suluia.png",
+    email: "rollins.suluia@unisq.edu.au",
+    joined: "May 2025",
+  },
+  {
     id: "annamalai",
     group: "current" as const,
     name: "Dr. Pratheep K. Annamalai",
@@ -167,16 +177,7 @@ const currentTeamMembers = [
     bio: "Sandeep Kumar is an interdisciplinary researcher with a master's degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep's passion lies in developing innovative solutions for next-generation batteries. His PhD research focuses on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
     photo: "/team/sandeep-kumar.png",
     email: "sandeep.kumar@unisq.edu.au",
-  },
-  {
-    id: "rollins-suluia",
-    group: "current" as const,
-    name: "Rollins Suluia",
-    role: "PhD Scholar",
-    focus: "Electrical engineering · hydrogen from seawater · solar PV integration",
-    bio: "Rollins Suluia is an electrical engineer with two decades of experience and qualifications in electrical engineering and engineering science. He has worked as a technician, electrical engineer, project manager, and utility operational manager, with strong expertise in complex electrical systems and infrastructure. His PhD research investigates hydrogen extraction from seawater using excess energy from solar photovoltaic systems while considering social and environmental impacts to support safer renewable energy adoption.",
-    photo: "/team/rollins-suluia.png",
-    email: "rollins.suluia@unisq.edu.au",
+    joined: "May 2025",
   },
   {
     id: "bidita-salahuddin",
@@ -184,9 +185,10 @@ const currentTeamMembers = [
     name: "Bidita Salahuddin",
     role: "PhD Scholar",
     focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
-    bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
+    bio: "Bidita joined Prof. Nanjundan's research group in January 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
     photo: "/team/bidita-salahuddin.png",
     email: "",
+    joined: "January 2026",
   },
   {
     id: "sohil-gb",
@@ -197,6 +199,7 @@ const currentTeamMembers = [
     bio: "Mr. Sohil Ganesh Babu is a PhD scholar at UniSQ. His research focuses on the development of green solvents for critical mineral recovery from e-waste. He has diverse experience in biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods to recover critical minerals from spent batteries for a circular economy and safer recycling practices.",
     photo: "/team/sohil-ganesh-babu.png",
     email: "sohil.ganeshbabu@unisq.edu.au",
+    joined: "April 2026",
   },
   {
     id: "vedang-sonar",
@@ -207,6 +210,7 @@ const currentTeamMembers = [
     bio: "Vedang Sonar obtained his M.Sc. in General Chemistry from Vellore Institute of Technology (VIT), Tamil Nadu, India, following a B.Sc. in Chemistry from Sir Parashurambhau (S.P.) College, Pune, India. His research interests focus on Covalent Organic Frameworks (COFs) and other functional porous materials for electrochemical energy storage. During his academic training, he gained research experience in both India and Australia, including at the National Chemical Laboratory (NCL) and Queensland University of Technology (QUT). He is the first author of a peer-reviewed review article on COFs for multivalent-ion batteries. His interests include sodium-ion and potassium-ion batteries, organic electrode materials, and the development of sustainable materials for next-generation energy storage systems — spanning electrochemical applications of COFs, synthesis and characterization of advanced polymers and hybrid materials, porous functional materials for energy storage, and sustainable energy-storage technologies.",
     photo: "/team/vedang-avinash-sonar.png",
     email: "",
+    joined: "July 2026",
   },
   {
     id: "ancy-joseph",
@@ -217,6 +221,7 @@ const currentTeamMembers = [
     bio: "Ancy Joseph is a PhD researcher in biomedical engineering with a background in biopolymer science and experience in polymer modification, biomaterials, and nanostructure synthesis. Her research focuses on developing functional polymer-based materials and applying nanotechnology to challenges in blood storage, including short shelf life, bacterial contamination, and harmful chemical leaching from storage bags, with the aim of making blood transfusions safer and more effective. Her project develops nano-textured surfaces inside blood bags using advanced fabrication techniques.",
     photo: "/team/ancy-joseph.png",
     email: "ancy.joseph@unisq.edu.au",
+    joined: "June 2025",
   },
   {
     id: "jiahu-zhang",
@@ -227,6 +232,7 @@ const currentTeamMembers = [
     bio: "Jiahu Zhang began his PhD study in 2026 at the School of Science, Engineering and Digital Technologies, University of Southern Queensland. His current research focuses on the development of advanced materials for the removal and recovery of heavy-metal ions from contaminated water. His broader research interests include the design of environmental functional materials for heavy-metal pollution remediation, particularly through adsorption and electrocatalytic approaches. He has a background in materials science, materials characterization, and adsorption, and is currently working on a range of environmental functional materials, such as metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and magnetic polymer-based composites, for heavy-metal removal and mechanistic investigation.",
     photo: "/team/jiahu-zhang.png",
     email: "Jiahu.Zhang@unisq.edu.au",
+    joined: "January 2026",
   },
 ] as const;
 
@@ -460,19 +466,19 @@ export const projects = [
     image: "/images/research/clean-energy.png",
   },
   {
-    slug: "water-safety",
-    title: "Water Safety",
+    slug: "defence",
+    title: "Defence",
     status: "Program",
     summary:
-      "Research on water quality, treatment pathways, and seawater-based electrolysis to support safe, resilient water and energy systems.",
+      "Advanced materials, energy systems, and sensing technologies for resilient defence applications, including secure power, environmental monitoring, and field-deployable electrochemical devices.",
     focusAreas: [
-      "Feedwater quality & treatment",
-      "Seawater electrolysis catalysts",
-      "Microgrid-linked water-energy systems",
-      "Environmental sensing & monitoring",
+      "Energy storage for defence systems",
+      "Environmental & threat sensing",
+      "Seawater electrolysis for remote operations",
+      "Durable materials for harsh environments",
     ],
     partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/images/research/water-safety.png",
+    image: "/images/research/defence.png",
   },
   {
     slug: "nanomaterials",
@@ -592,7 +598,7 @@ export const activeResearchProjects = [
     status: "Active",
     summary:
       "Catalyst behaviour, feedwater quality constraints, and deployment feasibility for seawater-based hydrogen systems in microgrid contexts.",
-    program: "water-safety",
+    program: "defence",
   },
   {
     slug: "hybrid-energy-storage-performance-enhancement",

@@ -63,6 +63,9 @@ export function TeamMemberGrid({ members, emptyMessage = "No members listed yet.
               {member.role ? (
                 <p className="mt-1 whitespace-pre-line text-pretty px-1 text-xs text-slate-500 sm:text-sm">{member.role}</p>
               ) : null}
+              {"joined" in member && member.joined ? (
+                <p className="mt-0.5 px-1 text-[11px] text-slate-400 sm:text-xs">Joined {member.joined}</p>
+              ) : null}
             </Link>
           </li>
         );

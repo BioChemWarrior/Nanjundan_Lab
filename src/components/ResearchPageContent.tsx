@@ -85,7 +85,7 @@ export function ResearchPageContent() {
         <div className="mx-auto max-w-4xl space-y-3">
           <p className="eyebrow-glow-light">Active projects</p>
           <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Current funded research
+            Currently funded research
           </h2>
           <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
             Ongoing grants and collaborations advancing each strategic program.
