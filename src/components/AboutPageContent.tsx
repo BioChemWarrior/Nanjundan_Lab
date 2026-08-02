@@ -29,7 +29,7 @@ export function AboutPageContent() {
 
   return (
     <div className="w-full space-y-12 text-center text-base leading-relaxed text-slate-600 sm:space-y-14">
-      <section className="mx-auto max-w-5xl space-y-5">
+      <section className="mx-auto max-w-6xl space-y-5">
         <p className="eyebrow-glow-light">{aboutPageCopy.missionEyebrow}</p>
         <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
           {aboutPageCopy.missionTitle}

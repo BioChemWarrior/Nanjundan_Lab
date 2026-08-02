@@ -15,7 +15,7 @@ export function ResearchPageContent() {
   return (
     <div className="w-full space-y-16 sm:space-y-20">
       <section className="space-y-10 text-center">
-        <div className="mx-auto max-w-4xl space-y-4">
+        <div className="mx-auto max-w-6xl space-y-4">
           <p className="eyebrow-glow-light">{researchPageCopy.introEyebrow}</p>
           <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             {researchPageCopy.introTitle}
@@ -53,7 +53,7 @@ export function ResearchPageContent() {
       </section>
 
       <section className="space-y-6 text-center">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <p className="eyebrow-glow-light">Core capabilities</p>
           <h2 className="mt-2 text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             What we do across the lab
@@ -75,7 +75,7 @@ export function ResearchPageContent() {
       </section>
 
       <section className="overflow-hidden rounded-3xl border border-unisq-400/25 bg-gradient-to-r from-blue-800 via-slate-900 to-lab-950 px-6 py-8 text-center text-white shadow-unisq-glow-lg sm:px-8 sm:py-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
           <div className="space-y-3">
             <p className="eyebrow-glow-dark">Collaborate</p>
             <h2 className="text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">

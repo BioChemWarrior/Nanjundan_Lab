@@ -6,7 +6,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { teamNavDropdown } from "@/lib/content";
 
 const triggerClass =
-  "relative inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-lg text-slate-300 transition duration-200 sm:px-5 sm:py-3 sm:text-xl " +
+  "relative inline-flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm text-slate-300 transition duration-200 sm:gap-1.5 sm:px-5 sm:py-3 sm:text-xl " +
   "hover:bg-white/10 hover:text-white active:scale-[0.98] " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400";
 
@@ -72,7 +72,7 @@ export function TeamNavDropdown() {
         <div
           id={menuId}
           role="menu"
-          className="absolute left-1/2 top-full z-50 mt-2 min-w-[15.5rem] -translate-x-1/2 rounded-xl border border-white/10 bg-lab-950/95 p-1.5 shadow-xl backdrop-blur-xl"
+          className="absolute left-1/2 top-full z-50 mt-2 min-w-[12rem] max-w-[calc(100vw-1.5rem)] -translate-x-1/2 rounded-xl border border-white/10 bg-lab-950/95 p-1.5 shadow-xl backdrop-blur-xl sm:min-w-[15.5rem]"
         >
           {teamNavDropdown.map((item) => {
             const active = pathname === item.href;

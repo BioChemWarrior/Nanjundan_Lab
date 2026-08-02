@@ -17,7 +17,7 @@ export default function GrantsPage() {
         subtitle={grantsPageCopy.heroSubtitle}
       />
       <PageBody>
-        <PageBodyInner className="!max-w-7xl py-4 sm:py-6">
+        <PageBodyInner className="py-4 sm:py-6">
           <GrantsPageContent />
         </PageBodyInner>
       </PageBody>
