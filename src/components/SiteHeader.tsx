@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResearchNavDropdown } from "@/components/ResearchNavDropdown";
 import { TeamNavDropdown } from "@/components/TeamNavDropdown";
 import { navItems } from "@/lib/content";
 
@@ -14,13 +15,14 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center px-4 py-5 sm:px-6 sm:py-6 lg:px-8">
         <div aria-hidden className="w-16 shrink-0 sm:w-[4.5rem] xl:hidden" />
         <nav className="flex min-w-0 flex-1 flex-wrap items-center justify-center gap-x-2 gap-y-2">
-          {navItems.slice(0, 3).map((item) => (
+          {navItems.slice(0, 2).map((item) => (
             <Link key={item.href} href={item.href} className={navLinkClass}>
               {item.label}
             </Link>
           ))}
+          <ResearchNavDropdown />
           <TeamNavDropdown />
-          {navItems.slice(3).map((item) => (
+          {navItems.slice(2).map((item) => (
             <Link key={item.href} href={item.href} className={navLinkClass}>
               {item.label}
             </Link>

@@ -140,7 +140,7 @@ export function SocialProfileLinks({
             href={item.href}
             className={linkClass}
             aria-label={item.label}
-            {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+            {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           >
             {item.icon}
           </a>

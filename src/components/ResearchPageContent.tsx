@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { ResearchProjectGrid } from "@/components/ResearchProjectGrid";
-import {
-  activeResearchProjects,
-  highlights,
-  projects,
-  researchPageCopy,
-  researchStats,
-} from "@/lib/content";
+import { highlights, researchPageCopy, researchStats } from "@/lib/content";
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
@@ -17,29 +11,7 @@ function StatCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ActiveProjectCard({
-  title,
-  summary,
-  programTitle,
-}: {
-  title: string;
-  summary: string;
-  programTitle: string;
-}) {
-  return (
-    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition duration-300 hover:border-unisq-300/50 hover:shadow-unisq-glow-sm sm:p-6">
-      <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-unisq-700">{programTitle}</span>
-      <h3 className="mt-4 text-pretty text-base font-semibold leading-snug text-slate-900 transition group-hover:text-unisq-800 sm:text-lg">
-        {title}
-      </h3>
-      <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-slate-600">{summary}</p>
-    </article>
-  );
-}
-
 export function ResearchPageContent() {
-  const programBySlug = Object.fromEntries(projects.map((program) => [program.slug, program.title]));
-
   return (
     <div className="w-full space-y-16 sm:space-y-20">
       <section className="space-y-10 text-center">
@@ -52,7 +24,6 @@ export function ResearchPageContent() {
         </div>
 
         <div>
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Research programs</p>
           <ResearchProjectGrid />
         </div>
 
@@ -78,29 +49,6 @@ export function ResearchPageContent() {
               <StatCard key={stat.label} label={stat.label} value={stat.value} />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="space-y-6 text-center">
-        <div className="mx-auto max-w-4xl space-y-3">
-          <p className="eyebrow-glow-light">Active projects</p>
-          <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Currently funded research
-          </h2>
-          <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
-            Ongoing grants and collaborations advancing each strategic program.
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          {activeResearchProjects.map((project) => (
-            <ActiveProjectCard
-              key={project.slug}
-              title={project.title}
-              summary={project.summary}
-              programTitle={programBySlug[project.program] ?? project.program}
-            />
-          ))}
         </div>
       </section>
 

@@ -91,10 +91,15 @@ export const homeCopy = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/projects", label: "Research" },
   { href: "/publications", label: "Publications" },
   // { href: "/news", label: "News" }, // hidden for now
   { href: "/join-us", label: "Join Us" },
+] as const;
+
+/** Sub-links under the Research nav dropdown. */
+export const researchNavDropdown = [
+  { href: "/projects", label: "Research interests" },
+  { href: "/grants", label: "Grants" },
 ] as const;
 
 /** Sub-links under the Team nav dropdown. */
@@ -272,7 +277,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz-Zentrum Berlin, Adjunct Associate Professor - UniSQ",
+    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz-Zentrum Berlin\nAdjunct Associate Professor - UniSQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
@@ -423,6 +428,7 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
     focus: "",
     bio: "",
     email: "",
+    photo: "/team/nashaat-gadelhak.png",
     thesis: {
       title: "Functional Membrane Separators for Rechargeable Non-Aqueous Aluminium-Ion Batteries",
       citation:
@@ -520,6 +526,136 @@ export const researchPageCopy = {
   introBody:
     "Nanjundan Lab sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
 } as const;
+
+export const grantsPageCopy = {
+  heroSubtitle:
+    "Competitive research funding and fellowships supporting nanomaterials, energy storage, and industry-linked translation.",
+  introEyebrow: "Funding",
+  introTitle: "Competitive grants and fellowships",
+  introBody:
+    "Prof. Ashok Kumar Nanjundan has secured over AUD 5 million in research funding since 2015, spanning ARC Centres and Hubs, Linkage Projects, bilateral schemes, and prestigious individual fellowships.",
+} as const;
+
+/** Competitive grants and fellowships — URLs from CV_Ashok Nanjundan_April 2026.docx */
+export const competitiveGrants = [
+  {
+    year: 2026,
+    role: "Lead CI",
+    title: "Australia India Strategic Research Fund",
+    code: null,
+    amount: "AU$ 918K",
+    href: "https://www.industry.gov.au/accessing-information/grants-reporting/australia-india-strategic-research-fund-grant-recipients",
+  },
+  {
+    year: 2023,
+    role: "CI",
+    title: "ARC Centre of Excellence for Green Electrochemical Transformation of Carbon Dioxide",
+    code: "CE230100017",
+    amount: "AU$ 35.0M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/CE230100017",
+  },
+  {
+    year: 2021,
+    role: "CI",
+    title: "ARC Research Hub for Advanced Manufacturing with 2D Materials",
+    code: "IH210100025",
+    amount: "AU$ ~4.4M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH210100025",
+  },
+  {
+    year: 2020,
+    role: "CI",
+    title: "ARC Research Hub for Safe and Reliable Energy",
+    code: "IH200100035",
+    amount: "AU$ 5.0M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH200100035",
+  },
+  {
+    year: 2020,
+    role: "CI",
+    title: "ARC Linkage Project",
+    code: "LP190101279",
+    amount: "AU$ ~390K from ARC; total AU$ 540K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP190101279",
+  },
+  {
+    year: 2020,
+    role: "CI",
+    title: "ARC Linkage Project",
+    code: "LP190100830",
+    amount: "AU$ ~512K from ARC; total AU$ 877K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP190100830",
+  },
+  {
+    year: 2019,
+    role: "CI",
+    title: "ARC Linkage Project",
+    code: "LP180100429",
+    amount: "AU$ ~425K from ARC; total AU$ 695K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP180100429",
+  },
+  {
+    year: 2019,
+    role: "CI",
+    title: "Scheme for Promotion of Academic and Research Collaboration (SPARC)",
+    code: null,
+    amount: "AU$ ~100K",
+    href: "https://researchers.uq.edu.au/research-project/39645",
+  },
+  {
+    year: 2015,
+    role: "Part PI",
+    title: "ARC Research Hub for Graphene Enabled Industry Transformation",
+    code: "IH150100003",
+    amount: null,
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH150100003",
+  },
+] as const;
+
+export const individualFellowships = [
+  {
+    year: 2017,
+    role: "CIA",
+    title: "UQ Early Career Researcher Grant",
+    amount: "AU$ 32K",
+    href: "https://researchers.uq.edu.au/research-project/30317",
+  },
+  {
+    year: 2015,
+    role: "CIA",
+    title: "UQ Fellowship",
+    amount: "AU$ 341K",
+    href: "https://researchers.uq.edu.au/research-project/22916",
+  },
+  {
+    year: 2012,
+    role: "CIA",
+    title: "JSPS Fellowship",
+    amount: "¥3.0M + ¥8.7M",
+    href: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-12F02347",
+  },
+  {
+    year: 2012,
+    role: "CIA",
+    title: "Science Fellowship Writing Scheme Award",
+    amount: "AU$ 5K",
+    href: null,
+  },
+  {
+    year: 2011,
+    role: "CIA",
+    title: 'Marie Curie Fellowship "CEA-Eurotalents"',
+    amount: "~€60K + salary",
+    href: null,
+  },
+  {
+    year: 2007,
+    role: "CIA",
+    title: "Brain of Korea (BK21) PhD Fellowship",
+    amount: null,
+    href: null,
+  },
+] as const;
 
 export const aboutPageCopy = {
   missionEyebrow: "Who we are",

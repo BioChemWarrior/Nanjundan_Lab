@@ -24,7 +24,7 @@ export function FooterAcknowledgement() {
         <a
           href="https://www.rawpixel.com/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="underline underline-offset-2 transition hover:text-white"
         >
           rawpixel.com

@@ -97,7 +97,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
       {publications.length === 0 ? (
         <p className="text-center text-slate-600">
           No works could be loaded right now. Try again later, or view the full list on{" "}
-          <a href={principalInvestigator.links.orcid} className="text-blue-700 hover:text-blue-600" target="_blank" rel="noreferrer">
+          <a href={principalInvestigator.links.orcid} className="text-blue-700 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
             ORCID
           </a>
           .
@@ -118,7 +118,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                     <div className="mt-1.5 min-w-0 flex-1 sm:mt-0">
                       <h2 className="text-base font-semibold text-slate-900">
                         {pub.url ? (
-                          <a href={pub.url} target="_blank" rel="noreferrer" className="transition hover:text-blue-700">
+                          <a href={pub.url} target="_blank" rel="noopener noreferrer" className="transition hover:text-blue-700">
                             {pub.title}
                           </a>
                         ) : (
@@ -142,7 +142,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                       </p>
                       {pub.doi ? (
                         <p className="mt-1.5 font-mono text-xs text-blue-700">
-                          <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer" className="hover:text-blue-900">
+                          <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-900">
                             {pub.doi}
                           </a>
                         </p>

@@ -42,7 +42,7 @@ export function FundedBy() {
             key={partner.name}
             href={partner.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className={partnerLinkClass(partner.src)}
           >
             <Image

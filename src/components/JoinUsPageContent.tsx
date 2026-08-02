@@ -163,7 +163,7 @@ export function JoinUsPageContent() {
               className="text-sm font-semibold text-unisq-700 underline-offset-2 transition hover:text-unisq-800 hover:underline"
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Open in Google Maps →
             </a>
