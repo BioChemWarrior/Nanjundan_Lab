@@ -12,19 +12,19 @@ export const runtime = "nodejs";
 
 export default function CurrentTeamPage() {
   const members = getTeamMembersByGroup("current");
-  const seniorResearchFellows = members.filter((member) => /senior research fellow/i.test(member.role));
-  const phdScholars = members.filter((member) => !/senior research fellow/i.test(member.role));
+  const researchFellows = members.filter((member) => /research fellow/i.test(member.role));
+  const phdScholars = members.filter((member) => !/research fellow/i.test(member.role));
 
   return (
     <>
       <TeamHeroStrip title="Current team" />
       <PageBody>
         <PageBodyInner className="space-y-12">
-          {seniorResearchFellows.length > 0 ? (
+          {researchFellows.length > 0 ? (
             <section>
-              <h2 className="text-lg font-semibold text-slate-900">Senior Research Fellows</h2>
+              <h2 className="text-lg font-semibold text-slate-900">Research Fellows</h2>
               <div className="mt-6">
-                <TeamMemberGrid members={seniorResearchFellows} />
+                <TeamMemberGrid members={researchFellows} />
               </div>
             </section>
           ) : null}

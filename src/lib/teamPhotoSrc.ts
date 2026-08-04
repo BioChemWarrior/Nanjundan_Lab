@@ -1,13 +1,13 @@
-import { existsSync, readFileSync } from "node:fs";
-import path from "node:path";
+import { readFileSync } from "node:fs";
 
 const photoSrcCache = new Map<string, string>();
 
 /** Resolve team photo paths for server components (public files or raw FS paths). */
 export function toTeamPhotoSrc(photo: string) {
+  // Public URLs are served by Next from /public — return as-is so OneDrive/cwd
+  // timing never blanks a photo that is already wired in content.
   if (photo.startsWith("/")) {
-    const absolutePublicPath = path.join(process.cwd(), "public", photo.slice(1));
-    return existsSync(absolutePublicPath) ? photo : "";
+    return photo;
   }
 
   const cached = photoSrcCache.get(photo);

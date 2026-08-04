@@ -174,6 +174,16 @@ const currentTeamMembers = [
     orcid: "https://orcid.org/0000-0002-7284-0813",
   },
   {
+    id: "shuimei-chen",
+    group: "current" as const,
+    name: "Dr. Shuimei Chen",
+    role: "Research Fellow",
+    focus: "Rechargeable aluminium-ion batteries · Electrode materials",
+    bio: "Shuimei Chen specialises in rechargeable aluminium-ion batteries. She received her Master's degree from China University of Geosciences, Wuhan in 2019, and completed her PhD under the supervision of Dr. Xiaodan Huang, Prof. Chengzhong Yu, and Prof. Ashok Kumar Nanjundan at the University of Queensland. Her research focuses on the design and synthesis of electrode materials for rechargeable aluminium batteries.",
+    photo: "/team/shuimei-chen.png",
+    email: "Shuimei.chen@unisq.edu.au",
+  },
+  {
     id: "sandeep-kumar",
     group: "current" as const,
     name: "Sandeep Kumar",
@@ -408,11 +418,12 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
   {
     id: "shumei-chen",
     group: "alumni",
-    name: "Shumei Chen",
-    role: "Former PhD Student",
+    name: "Shuimei Chen",
+    role: "Former PhD Student\nPostdoc at UniSQ",
     focus: "",
     bio: "",
     email: "",
+    photo: "/team/shuimei-chen.png",
     thesis: {
       title: "Development of stable and high-capacity aqueous aluminum-ion batteries",
       citation:
