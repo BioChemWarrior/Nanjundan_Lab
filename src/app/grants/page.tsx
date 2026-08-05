@@ -12,7 +12,6 @@ export default function GrantsPage() {
   return (
     <>
       <TeamHeroStrip
-        eyebrow="Centre for Future Materials · UniSQ"
         title="Grants"
         subtitle={grantsPageCopy.heroSubtitle}
       />

@@ -6,8 +6,9 @@ import {
 
 type GrantEntry = {
   year: number;
-  role: string;
+  role?: string | null;
   title: string;
+  topic?: string | null;
   code?: string | null;
   amount?: string | null;
   href?: string | null;
@@ -50,17 +51,22 @@ function GrantCard({ entry }: { entry: GrantEntry }) {
       </div>
       <div className="flex min-w-0 flex-1 items-start gap-3 bg-gradient-to-br from-white to-unisq-50/20 p-4 sm:gap-4 sm:p-6">
         <div className="min-w-0 flex-1 space-y-2.5 sm:space-y-3">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-            <span className="inline-flex rounded-md bg-unisq-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-unisq-800 ring-1 ring-unisq-200/70">
-              {entry.role}
-            </span>
-            {entry.amount ? (
-              <span className="text-xs font-semibold tabular-nums text-slate-800 sm:text-sm">{entry.amount}</span>
+          <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+            <h3 className="min-w-0 flex-1 text-pretty text-[0.95rem] font-semibold leading-snug text-slate-900 transition group-hover:text-unisq-900 sm:text-lg">
+              {entry.title}
+            </h3>
+            {entry.role ? (
+              <span className="inline-flex shrink-0 rounded-md bg-unisq-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-unisq-800 ring-1 ring-unisq-200/70">
+                {entry.role}
+              </span>
             ) : null}
           </div>
-          <h3 className="text-pretty text-[0.95rem] font-semibold leading-snug text-slate-900 transition group-hover:text-unisq-900 sm:text-lg">
-            {entry.title}
-          </h3>
+          {entry.topic ? (
+            <p className="text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">{entry.topic}</p>
+          ) : null}
+          {entry.amount ? (
+            <p className="text-xs font-semibold tabular-nums text-slate-800 sm:text-sm">{entry.amount}</p>
+          ) : null}
           {entry.code ? (
             <p className="break-all font-mono text-[11px] tracking-wide text-slate-500 sm:break-normal sm:text-xs">
               {entry.code}

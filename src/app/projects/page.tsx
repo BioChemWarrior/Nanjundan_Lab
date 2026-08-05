@@ -12,7 +12,6 @@ export default function ProjectsPage() {
   return (
     <>
       <TeamHeroStrip
-        eyebrow="Centre for Future Materials · UniSQ"
         title="Research interests"
         subtitle={researchPageCopy.heroSubtitle}
       />

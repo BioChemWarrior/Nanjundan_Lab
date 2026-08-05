@@ -35,7 +35,7 @@ function logoSizesAttr(src: string) {
 export function FundedBy() {
   return (
     <section className="w-full" aria-label="Funding and institutional support">
-      <h2 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">Nanjundan Lab Funded By</h2>
+      <h2 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">Our Research is funded by</h2>
       <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-10 border-t border-unisq-500/15 pt-10 sm:flex-row sm:gap-12 lg:gap-16">
         {fundingPartners.map((partner) => (
           <a
