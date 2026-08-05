@@ -81,7 +81,7 @@ export const homeCopy = {
   aboutEyebrow: "About",
   aboutTitle: "Materials innovation for clean energy",
   aboutTeaser:
-    "We are a part of the Institute for Space, Defence and Advanced Technologies and the Centre for Future Materials. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and\nthe Centre for Future Materials at UniSQ.\nWe design advanced materials and electrochemical systems for clean energy and the circular economy.",
   statsEyebrow: "Impact",
   statsTitle: "Research at a glance",
   exploreEyebrow: "Explore",
@@ -690,7 +690,7 @@ export const aboutPageCopy = {
   missionEyebrow: "Who we are",
   missionTitle: "A lab built on rigorous science and real-world impact",
   missionBody:
-    "We are a part of the Institute for Space, Defence and Advanced Technologies and the Centre for Future Materials. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and\nthe Centre for Future Materials at UniSQ.\nWe design advanced materials and electrochemical systems for clean energy and the circular economy.",
   missionBodyExtended:
     "Our work combines materials design, process innovation, and industry-linked translation. We mentor the next generation of researchers while partnering with funding bodies, industry, and international collaborators to move ideas from the bench toward deployable outcomes.",
   teamTitle: "Led by experienced researchers, powered by emerging talent",

@@ -13,12 +13,14 @@ const ContentSecurityPolicy = [
   "form-action 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://embed.altmetric.com`,
-  "style-src 'self' 'unsafe-inline'",
+  // Altmetric badges: embed.js + secondary badge bundle from embed.altmetric.com;
+  // citation data is loaded via JSONP script tags from api.altmetric.com.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://embed.altmetric.com https://api.altmetric.com`,
+  "style-src 'self' 'unsafe-inline' https://embed.altmetric.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://pub.orcid.org https://api.altmetric.com https://embed.altmetric.com https://badge.altmetric.com",
-  "frame-src 'self' https://embed.altmetric.com https://www.youtube.com https://www.youtube-nocookie.com",
+  "connect-src 'self' https://pub.orcid.org https://api.altmetric.com https://embed.altmetric.com https://badges.altmetric.com https://d1uo4w7k31k5mn.cloudfront.net",
+  "frame-src 'self' https://embed.altmetric.com https://www.altmetric.com https://www.youtube.com https://www.youtube-nocookie.com",
   "media-src 'self' blob:",
   "worker-src 'self' blob:",
   "upgrade-insecure-requests",

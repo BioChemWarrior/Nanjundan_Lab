@@ -59,11 +59,20 @@ function HomeSectionHeader({
 }
 
 export function HomeAboutPanel() {
+  const aboutLines = homeCopy.aboutTeaser.split("\n").filter(Boolean);
+
   return (
     <div className="w-full px-2 text-center sm:px-4">
       <HomeSectionHeader eyebrow={homeCopy.aboutEyebrow} title={homeCopy.aboutTitle} />
-      <p className="mx-auto mt-5 max-w-3xl text-pretty text-sm leading-relaxed text-slate-300 sm:text-base">
-        {homeCopy.aboutTeaser}
+      <p className="mx-auto mt-5 max-w-6xl text-sm leading-relaxed text-slate-300 sm:text-base">
+        {aboutLines.map((line, index) => (
+          <span
+            key={line}
+            className={`block text-pretty${index === 0 ? " lg:whitespace-nowrap" : ""}${index > 0 ? " mt-1" : ""}`}
+          >
+            {line}
+          </span>
+        ))}
       </p>
       <div className="mt-5 flex justify-center sm:mt-6">
         <Link

@@ -5,7 +5,7 @@ const socialIconClass =
   "inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-unisq-400 hover:bg-unisq-50 hover:text-unisq-800 hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-500 sm:h-14 sm:w-14";
 
 const footerSocialLinkClass =
-  "inline-flex h-12 w-12 shrink-0 items-center justify-center text-slate-700 transition hover:text-unisq-700 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-500 sm:h-14 sm:w-14";
+  "inline-flex h-[50px] w-[50px] shrink-0 items-center justify-center leading-none text-slate-700 transition hover:text-unisq-700 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-500";
 
 function LinkedInIcon({ className = "h-6 w-6 sm:h-7 sm:w-7" }: { className?: string }) {
   return (
@@ -39,7 +39,7 @@ function GoogleScholarIcon({ className = "h-6 w-6 sm:h-7 sm:w-7" }: { className?
 }
 
 function CircularBrandLogo({ src, large = false }: { src: string; large?: boolean }) {
-  const sizeClass = large ? "h-10 w-10 sm:h-11 sm:w-11" : "h-7 w-7 sm:h-8 sm:w-8";
+  const sizeClass = large ? "h-9 w-9" : "h-7 w-7 sm:h-8 sm:w-8";
 
   return (
     <span
@@ -70,7 +70,7 @@ function UnisqEmblem({ large = false }: { large?: boolean }) {
       height={128}
       className={
         large
-          ? "h-10 w-auto max-w-full object-contain sm:h-11"
+          ? "h-9 w-auto max-w-full object-contain"
           : "h-7 w-auto translate-x-0.5 object-contain sm:h-8 sm:translate-x-1"
       }
       unoptimized
@@ -105,7 +105,7 @@ export function SocialProfileLinks({
 }: SocialProfileLinksProps) {
   const isLarge = size === "large";
   const linkClass = isLarge ? footerSocialLinkClass : socialIconClass;
-  const svgClass = isLarge ? "h-10 w-10 sm:h-11 sm:w-11" : "h-6 w-6 sm:h-7 sm:w-7";
+  const svgClass = isLarge ? "h-9 w-9" : "h-6 w-6 sm:h-7 sm:w-7";
   const items = [
     universityBio
       ? { href: universityBio, label: "UniSQ researcher profile", external: true, icon: <UnisqEmblem large={isLarge} /> }
@@ -132,7 +132,7 @@ export function SocialProfileLinks({
 
   return (
     <ul
-      className={`flex flex-wrap items-center ${isLarge ? "gap-5 sm:gap-6" : "gap-3 sm:gap-4"} ${className}`.trim()}
+      className={`flex flex-wrap items-center ${isLarge ? "h-[50px] max-h-[50px] overflow-hidden gap-5 sm:gap-6" : "gap-3 sm:gap-4"} ${className}`.trim()}
     >
       {items.map((item) => (
         <li key={item.label} className="flex items-center">

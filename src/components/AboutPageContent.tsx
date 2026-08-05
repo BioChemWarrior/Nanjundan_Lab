@@ -34,7 +34,7 @@ export function AboutPageContent() {
         <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
           {aboutPageCopy.missionTitle}
         </h2>
-        <p className="text-pretty sm:text-lg">{aboutPageCopy.missionBody}</p>
+        <p className="whitespace-pre-line text-pretty sm:text-lg">{aboutPageCopy.missionBody}</p>
         <p className="text-pretty">{aboutPageCopy.missionBodyExtended}</p>
       </section>
 
