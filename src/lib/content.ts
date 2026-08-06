@@ -81,7 +81,7 @@ export const homeCopy = {
   aboutEyebrow: "About",
   aboutTitle: "Materials innovation for clean energy",
   aboutTeaser:
-    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and\nthe Centre for Future Materials at UniSQ.\nWe design advanced materials and electrochemical systems for clean energy and the circular economy.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and the Centre for Future Materials at UniSQ. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
   statsEyebrow: "Impact",
   statsTitle: "Research at a glance",
   exploreEyebrow: "Explore",
@@ -606,7 +606,7 @@ export const competitiveGrants = [
   },
   {
     year: 2019,
-    role: "PI",
+    role: "CI/PI",
     title: "ARC Linkage Project",
     topic: "Functional biomass carbons for low-cost sodium and potassium-ion batteries",
     code: "LP180100429",
@@ -664,7 +664,7 @@ export const individualFellowships = [
     year: 2012,
     role: null,
     title: "Science Fellowship Writing Scheme Award",
-    topic: null,
+    topic: "University of New South Wales, Australia",
     amount: null,
     href: null,
   },
@@ -672,7 +672,7 @@ export const individualFellowships = [
     year: 2011,
     role: null,
     title: 'Marie Curie Fellowship "CEA-Eurotalents"',
-    topic: null,
+    topic: "Commissariat à l'énergie atomique (CEA), Grenoble, France",
     amount: null,
     href: null,
   },
@@ -690,7 +690,7 @@ export const aboutPageCopy = {
   missionEyebrow: "Who we are",
   missionTitle: "A lab built on rigorous science and real-world impact",
   missionBody:
-    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and\nthe Centre for Future Materials at UniSQ.\nWe design advanced materials and electrochemical systems for clean energy and the circular economy.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and the Centre for Future Materials at UniSQ. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
   missionBodyExtended:
     "Our work combines materials design, process innovation, and industry-linked translation. We mentor the next generation of researchers while partnering with funding bodies, industry, and international collaborators to move ideas from the bench toward deployable outcomes.",
   teamTitle: "Led by experienced researchers, powered by emerging talent",
