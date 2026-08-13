@@ -8,15 +8,15 @@ import { labBrand } from "@/lib/content";
 
 function HomeHeroHeadline() {
   const title = labBrand.title;
-  const lastSpace = title.lastIndexOf(" ");
-  const before = lastSpace === -1 ? title : title.slice(0, lastSpace);
-  const lastRaw = lastSpace === -1 ? "" : title.slice(lastSpace + 1);
-  const last = lastRaw.toLowerCase() === "lab" ? "Laboratory" : lastRaw;
+  const accent = "Research Group";
+  const accentIndex = title.endsWith(accent) ? title.length - accent.length : title.lastIndexOf(" ");
+  const before = accentIndex <= 0 ? title : title.slice(0, accentIndex).trimEnd();
+  const last = accentIndex <= 0 ? "" : title.slice(accentIndex).trimStart();
 
   return (
     <div className="mx-auto w-full max-w-4xl text-center">
       <h1 className="home-hero-title text-balance font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-        {lastSpace === -1 ? (
+        {accentIndex <= 0 ? (
           title
         ) : (
           <>

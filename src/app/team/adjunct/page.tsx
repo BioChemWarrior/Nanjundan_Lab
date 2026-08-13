@@ -17,7 +17,7 @@ export default function AdjunctMembersPage() {
     <>
       <TeamHeroStrip
         title="Adjunct Faculty"
-        subtitle="Collaborators and adjunct affiliates working with Nanjundan Lab."
+        subtitle="Collaborators and adjunct affiliates working with Nanjundan Research Group."
       />
       <PageBody>
         <PageBodyInner>

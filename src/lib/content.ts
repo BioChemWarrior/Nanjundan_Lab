@@ -3,7 +3,7 @@ export const labTagline =
   "Graphene Nanomaterials • Next Generation Batteries\nCircular Economy • Energy Materials";
 
 export const site = {
-  name: "Nanjundan Lab",
+  name: "Nanjundan Research Group",
   tagline: labTagline,
   address: [
     "University of Southern Queensland",
@@ -16,7 +16,7 @@ export const site = {
 };
 
 export const labBrand = {
-  title: "Nanjundan Lab",
+  title: "Nanjundan Research Group",
   subtitle: labTagline,
 } as const;
 
@@ -536,7 +536,7 @@ export const researchPageCopy = {
   introEyebrow: "Our approach",
   introTitle: "From molecular design to deployable technology",
   introBody:
-    "Nanjundan Lab sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
+    "Nanjundan Research Group sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
 } as const;
 
 export const grantsPageCopy = {
@@ -713,7 +713,7 @@ export const centreForFutureMaterials = {
   overviewExtended:
     "CFM operates one of Australia's largest dedicated composite materials manufacturing and testing facilities, with industrial-scale equipment for filament winding, robotic braiding, pultrusion, resin infusion, fire testing, and large-scale structural testing. Its industry test service has supported more than 1,000 clients nationally and internationally.",
   labConnection:
-    "Nanjundan Lab contributes to CFM's Clean Energy and Environment research theme from the Springfield Central campus, advancing functional materials, next-generation batteries, critical mineral recovery, and electrochemical systems for sustainable technology.",
+    "Nanjundan Research Group contributes to CFM's Clean Energy and Environment research theme from the Springfield Central campus, advancing functional materials, next-generation batteries, critical mineral recovery, and electrochemical systems for sustainable technology.",
   focusAreas: [
     {
       title: "Space & defence",

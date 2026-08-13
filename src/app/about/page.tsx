@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <TeamHeroStrip title="About the lab" />
+      <TeamHeroStrip title="About the group" />
       <PageBody>
         <PageBodyInner className="py-4 sm:py-6">
           <AboutPageContent />

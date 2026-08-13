@@ -90,7 +90,7 @@ export function ResearchPageContent() {
               href="/join-us"
               className="inline-flex items-center justify-center rounded-full bg-unisq-400 px-5 py-2.5 text-sm font-semibold text-lab-950 shadow-unisq-glow transition hover:bg-unisq-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Join the lab
+              Join the group
             </Link>
             <Link
               href="/publications"

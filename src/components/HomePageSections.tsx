@@ -70,7 +70,7 @@ export function HomeAboutPanel() {
           href="/about"
           className="inline-flex rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-unisq-400/50 hover:bg-unisq-500/10 hover:text-white hover:shadow-unisq-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-unisq-400"
         >
-          Learn more about the lab
+          Learn more about the group
         </Link>
       </div>
     </div>

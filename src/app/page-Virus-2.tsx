@@ -40,10 +40,10 @@ export default function HomePage() {
         {/* About */}
         <section className="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
           <div className="mt-8 rounded-3xl border border-white/[0.08] bg-lab-900/60 p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About Nanjundan Lab</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">About Nanjundan Research Group</h2>
             <p className="mt-2 text-sm text-blue-300/90">Advanced materials, clean energy, and energy storage innovation</p>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
-              Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource systems.
+              Nanjundan Research Group develops advanced materials and electrochemical technologies for clean energy and circular-resource systems.
               Our published work and ongoing projects span graphene and hybrid nanomaterials, next-generation batteries and
               supercapacitors, and translation from lab chemistry to practical engineering outcomes.
             </p>
@@ -51,7 +51,7 @@ export default function HomePage() {
               Current focus areas include critical mineral recovery from e-waste and secondary resources, sustainable bioleaching and
               bio-assisted extraction pathways, and hydrogen generation from seawater-integrated systems. The lab combines materials
               design, process innovation, and industry-linked research to build scalable solutions for energy storage and decarbonization.
-              Nanjundan Lab is part of the Centre for Future Materials at UniSQ, strengthening interdisciplinary collaboration and
+              Nanjundan Research Group is part of the Centre for Future Materials at UniSQ, strengthening interdisciplinary collaboration and
               translation of advanced materials research into real-world clean-energy impact.
             </p>
           </div>

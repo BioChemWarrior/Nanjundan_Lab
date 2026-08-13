@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" fill="none" role="img" aria-label="Nanjundan Lab">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" fill="none" role="img" aria-label="Nanjundan Research Group">
   <defs>
     <linearGradient id="nl-grad" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
       <stop stop-color="#22d3ee"/>
@@ -85,6 +85,6 @@
     font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
     font-size="14"
     font-weight="600"
-    letter-spacing="0.32em"
-  >LAB</text>
+    letter-spacing="0.12em"
+  >RESEARCH GROUP</text>
 </svg>

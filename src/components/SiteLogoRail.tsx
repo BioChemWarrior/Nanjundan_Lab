@@ -4,14 +4,8 @@ import { LabLogo } from "@/components/LabLogo";
 export function SiteLogoRail() {
   return (
     <div className="pointer-events-none fixed left-0 top-0 z-[60] flex items-center py-3 pl-2 sm:py-6 sm:pl-5 lg:pl-6">
-      <LabLogo
-        variant="mark"
-        className="site-logo-mark-glow pointer-events-auto h-11 w-11 sm:h-16 sm:w-16 xl:hidden"
-      />
-      <LabLogo
-        variant="full"
-        className="pointer-events-auto hidden h-[3.25rem] w-auto xl:block xl:h-[4.5rem]"
-      />
+      <LabLogo variant="mark" className="pointer-events-auto xl:hidden" />
+      <LabLogo variant="full" className="pointer-events-auto hidden xl:flex" />
     </div>
   );
 }
