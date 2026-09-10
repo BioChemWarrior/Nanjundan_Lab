@@ -2,6 +2,7 @@ import {
   competitiveGrants,
   grantsPageCopy,
   individualFellowships,
+  researchStats,
 } from "@/lib/content";
 
 type GrantEntry = {
@@ -119,6 +120,7 @@ function GrantSection({
 
 export function GrantsPageContent() {
   const grantCount = competitiveGrants.length + individualFellowships.length;
+  const fundingTotal = researchStats.find((stat) => stat.label === "Research funding")?.value ?? "$6.5M+";
 
   return (
     <div className="w-full space-y-12 sm:space-y-20">
@@ -135,7 +137,7 @@ export function GrantsPageContent() {
 
         <div className="mx-auto grid max-w-2xl grid-cols-2 gap-2.5 sm:gap-4">
           <div className="rounded-2xl border border-unisq-200/40 bg-gradient-to-br from-white to-unisq-50/30 px-3 py-3.5 text-center shadow-unisq-glow-sm sm:px-4 sm:py-4">
-            <p className="text-xl font-semibold tracking-tight text-unisq-800 sm:text-3xl">$5M+</p>
+            <p className="text-xl font-semibold tracking-tight text-unisq-800 sm:text-3xl">{fundingTotal}</p>
             <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-500 sm:text-xs sm:tracking-[0.18em]">
               Research funding
             </p>

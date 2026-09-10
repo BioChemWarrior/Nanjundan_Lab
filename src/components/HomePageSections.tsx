@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { HomeNewsTicker } from "@/components/HomeNewsTicker";
 import { homeCopy, researchStats } from "@/lib/content";
 
 type StatIconName = (typeof researchStats)[number]["icon"];
@@ -73,6 +74,7 @@ export function HomeAboutPanel() {
           Learn more about the group
         </Link>
       </div>
+      <HomeNewsTicker />
     </div>
   );
 }

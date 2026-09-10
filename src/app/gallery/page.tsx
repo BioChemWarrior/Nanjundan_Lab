@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/ContentCard";
+import { GalleryGrid } from "@/components/GalleryGrid";
 import { PageBody, PageBodyInner } from "@/components/PageBody";
+import { TeamHeroStrip } from "@/components/TeamHeroStrip";
+import { galleryItems } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  robots: { index: false, follow: false },
 };
 
 export default function GalleryPage() {
   return (
     <>
-      <SectionHeading title="Laboratory gallery" description="Photography from the lab will be added here soon." />
+      <TeamHeroStrip title="Gallery" subtitle="Life in the Nanjundan Research Group." />
       <PageBody>
-        <PageBodyInner>
-          <p className="text-center text-base leading-relaxed text-slate-600">
-            Gallery content is being prepared. Check back for images from our research facilities and team.
-          </p>
+        <PageBodyInner className="py-4 sm:py-6">
+          {galleryItems.length === 0 ? (
+            <p className="text-center text-slate-600">Gallery photos will appear here soon.</p>
+          ) : (
+            <GalleryGrid items={galleryItems} imageClass="aspect-[4/5] sm:aspect-[4/3] [&_img]:object-cover" />
+          )}
         </PageBodyInner>
       </PageBody>
     </>

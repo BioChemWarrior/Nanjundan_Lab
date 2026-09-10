@@ -4,7 +4,7 @@ import { TeamNavDropdown } from "@/components/TeamNavDropdown";
 import { navItems } from "@/lib/content";
 
 const navLinkClass =
-  "relative rounded-lg px-2.5 py-2 text-sm text-slate-300 transition duration-200 sm:px-5 sm:py-3 sm:text-xl " +
+  "relative rounded-lg px-2 py-2 text-sm text-slate-300 transition duration-200 sm:px-3 sm:py-3 sm:text-lg xl:px-4 xl:text-xl " +
   "hover:bg-white/10 hover:text-white " +
   "active:scale-[0.98] " +
   "after:pointer-events-none after:absolute after:inset-x-2 after:bottom-1 after:h-px after:origin-center after:scale-x-0 after:rounded-full after:bg-unisq-400/90 after:shadow-unisq-glow-sm after:transition after:duration-200 hover:after:scale-x-100 sm:after:inset-x-4 sm:after:bottom-1.5";

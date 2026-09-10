@@ -227,3 +227,32 @@ body {
     opacity: 0.25;
   }
 }
+
+/* Homepage news ticker — seamless horizontal roll. */
+@keyframes news-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.news-marquee-track {
+  animation: news-marquee 36s linear infinite;
+  will-change: transform;
+}
+
+.news-ticker:hover .news-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-marquee-track {
+    display: none;
+  }
+
+  .news-ticker-static {
+    display: flex;
+  }
+}
