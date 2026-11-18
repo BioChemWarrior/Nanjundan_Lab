@@ -260,6 +260,7 @@ const currentTeamMembers = [
     bio: "Gabriel Longe is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland. He has an undergraduate background in Materials and Metallurgical Engineering. His interests are renewable and sustainable energy, energy efficiency, materials and mechanical systems. He has joined the battery recycling and second-life applications project to gain hands-on research experience.",
     photo: "/team/gabriel-longe.jpg",
     email: "",
+    joined: "November 2026",
   },
 ] as const;
 
