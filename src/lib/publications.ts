@@ -1,4 +1,4 @@
-import { principalInvestigator } from "@/lib/content";
+import { getTeamMembersByGroup, principalInvestigator } from "@/lib/content";
 import { fetchOrcidPublications, comparePublicationsByDate, type OrcidPublication } from "@/lib/orcid";
 
 export type Publication = OrcidPublication;
@@ -12,8 +12,17 @@ function publicationKey(pub: Publication): string {
   return `${pub.title.toLowerCase()}|${pub.year}|${pub.venue.toLowerCase()}`;
 }
 
+/** ORCID IDs for the PI plus current team members who publish public ORCID works. */
 function getOrcidRecordIds(): string[] {
-  return [normalizeOrcidId(principalInvestigator.links.orcid)];
+  const ids = [normalizeOrcidId(principalInvestigator.links.orcid)];
+
+  for (const member of getTeamMembersByGroup("current")) {
+    if ("orcid" in member && typeof member.orcid === "string" && member.orcid.trim()) {
+      ids.push(normalizeOrcidId(member.orcid));
+    }
+  }
+
+  return [...new Set(ids.filter(Boolean))];
 }
 
 function publicationDateValue(pub: Pick<Publication, "year" | "month" | "day">): number {
@@ -21,8 +30,8 @@ function publicationDateValue(pub: Pick<Publication, "year" | "month" | "day">):
 }
 
 /**
- * Publications loaded from the principal investigator's public ORCID record.
- * Cached per Next.js data cache (see `fetch` in `fetchOrcidPublications`).
+ * Publications loaded from public ORCID records (PI + current team).
+ * Deduped by DOI/title and cached per Next.js data cache (see `fetch` in `fetchOrcidPublications`).
  */
 export async function getPublications(): Promise<Publication[]> {
   const ids = getOrcidRecordIds();
