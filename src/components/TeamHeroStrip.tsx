@@ -13,20 +13,20 @@ export function TeamHeroStrip({
   return (
     <section
       data-page-hero-strip
-      className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-6 text-center sm:py-8"
+      className="relative flex flex-col items-center justify-center overflow-hidden px-4 py-5 text-center sm:px-6 sm:py-8"
     >
       {eyebrow ? (
         <p className="relative z-10 eyebrow-glow-dark tracking-[0.3em]">{eyebrow}</p>
       ) : null}
       <h1
-        className={`relative z-10 max-w-6xl text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl${
-          eyebrow ? " mt-3" : ""
+        className={`relative z-10 max-w-6xl text-balance text-2xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl${
+          eyebrow ? " mt-2 sm:mt-3" : ""
         }`}
       >
         {title}
       </h1>
       {subtitle ? (
-        <div className="relative z-10 mt-3 max-w-6xl whitespace-pre-line text-pretty text-base font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-lg">
+        <div className="relative z-10 mt-2 max-w-6xl whitespace-pre-line text-pretty text-sm font-light leading-relaxed text-slate-300 sm:mt-4 sm:text-lg">
           {subtitle}
         </div>
       ) : null}

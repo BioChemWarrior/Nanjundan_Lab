@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" fill="none" role="img" aria-label="Nanjundan Research Group mark">
+  <defs>
+    <linearGradient id="nrg-mark-gold" x1="12" y1="10" x2="92" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffc107"/>
+      <stop offset="0.55" stop-color="#f5b82e"/>
+      <stop offset="1" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#nrg-mark-gold)" d="M10 8h20v46L78 8h20v84H78V46L32 92H10V8z"/>
+  <path fill="#fff1b5" d="M102 30 109 37 102 44 95 37zm0 10 9 15h-7l-2-7-2 7H93l9-15z"/>
+  <path fill="#ffffff" d="M116 8h22v42c0-2 2-20 22-20 18 0 28 14 28 32 0 20-16 30-36 30h-36V8zm22 70c12 0 18-7 18-18s-6-18-18-18h-4v36h4zm-4-52v18h8c9 0 14-5 14-12s-5-12-14-12h-8z"/>
+</svg>

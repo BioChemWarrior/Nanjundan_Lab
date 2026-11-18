@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 90" fill="none" role="img" aria-label="Nanjundan Research Group">
+  <text
+    x="200"
+    y="38"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="30"
+    font-weight="700"
+    letter-spacing="0.14em"
+  >NANJUNDAN</text>
+  <text
+    x="200"
+    y="68"
+    text-anchor="middle"
+    fill="#d59400"
+    font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="12"
+    font-weight="700"
+    letter-spacing="0.34em"
+  >RESEARCH GROUP</text>
+</svg>

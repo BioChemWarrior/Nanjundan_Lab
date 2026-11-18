@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { ResearchProjectGrid } from "@/components/ResearchProjectGrid";
-import {
-  activeResearchProjects,
-  highlights,
-  projects,
-  researchPageCopy,
-  researchStats,
-} from "@/lib/content";
+import { highlights, researchPageCopy, researchStats } from "@/lib/content";
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
@@ -17,33 +11,11 @@ function StatCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ActiveProjectCard({
-  title,
-  summary,
-  programTitle,
-}: {
-  title: string;
-  summary: string;
-  programTitle: string;
-}) {
-  return (
-    <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition duration-300 hover:border-unisq-300/50 hover:shadow-unisq-glow-sm sm:p-6">
-      <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-unisq-700">{programTitle}</span>
-      <h3 className="mt-4 text-pretty text-base font-semibold leading-snug text-slate-900 transition group-hover:text-unisq-800 sm:text-lg">
-        {title}
-      </h3>
-      <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-slate-600">{summary}</p>
-    </article>
-  );
-}
-
 export function ResearchPageContent() {
-  const programBySlug = Object.fromEntries(projects.map((program) => [program.slug, program.title]));
-
   return (
     <div className="w-full space-y-16 sm:space-y-20">
       <section className="space-y-10 text-center">
-        <div className="mx-auto max-w-4xl space-y-4">
+        <div className="mx-auto max-w-6xl space-y-4">
           <p className="eyebrow-glow-light">{researchPageCopy.introEyebrow}</p>
           <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             {researchPageCopy.introTitle}
@@ -52,7 +24,6 @@ export function ResearchPageContent() {
         </div>
 
         <div>
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Research programs</p>
           <ResearchProjectGrid />
         </div>
 
@@ -82,30 +53,7 @@ export function ResearchPageContent() {
       </section>
 
       <section className="space-y-6 text-center">
-        <div className="mx-auto max-w-4xl space-y-3">
-          <p className="eyebrow-glow-light">Active projects</p>
-          <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Current funded research
-          </h2>
-          <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
-            Ongoing grants and collaborations advancing each strategic program.
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          {activeResearchProjects.map((project) => (
-            <ActiveProjectCard
-              key={project.slug}
-              title={project.title}
-              summary={project.summary}
-              programTitle={programBySlug[project.program] ?? project.program}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6 text-center">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <p className="eyebrow-glow-light">Core capabilities</p>
           <h2 className="mt-2 text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             What we do across the lab
@@ -127,7 +75,7 @@ export function ResearchPageContent() {
       </section>
 
       <section className="overflow-hidden rounded-3xl border border-unisq-400/25 bg-gradient-to-r from-blue-800 via-slate-900 to-lab-950 px-6 py-8 text-center text-white shadow-unisq-glow-lg sm:px-8 sm:py-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
           <div className="space-y-3">
             <p className="eyebrow-glow-dark">Collaborate</p>
             <h2 className="text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -142,7 +90,7 @@ export function ResearchPageContent() {
               href="/join-us"
               className="inline-flex items-center justify-center rounded-full bg-unisq-400 px-5 py-2.5 text-sm font-semibold text-lab-950 shadow-unisq-glow transition hover:bg-unisq-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Join the lab
+              Join the group
             </Link>
             <Link
               href="/publications"

@@ -10,21 +10,32 @@ export const metadata: Metadata = {
 
 export const runtime = "nodejs";
 
+function isVisitingResearcher(role: string) {
+  return /visiting researcher|adjunct research fellow/i.test(role);
+}
+
+function isResearchFellow(role: string) {
+  return /research fellow/i.test(role) && !isVisitingResearcher(role);
+}
+
 export default function CurrentTeamPage() {
   const members = getTeamMembersByGroup("current");
-  const seniorResearchFellows = members.filter((member) => /senior research fellow/i.test(member.role));
-  const phdScholars = members.filter((member) => !/senior research fellow/i.test(member.role));
+  const researchFellows = members.filter((member) => isResearchFellow(member.role));
+  const phdScholars = members.filter(
+    (member) => !isResearchFellow(member.role) && !isVisitingResearcher(member.role),
+  );
+  const visitingResearchers = members.filter((member) => isVisitingResearcher(member.role));
 
   return (
     <>
       <TeamHeroStrip title="Current team" />
       <PageBody>
         <PageBodyInner className="space-y-12">
-          {seniorResearchFellows.length > 0 ? (
+          {researchFellows.length > 0 ? (
             <section>
-              <h2 className="text-lg font-semibold text-slate-900">Senior Research Fellows</h2>
+              <h2 className="text-lg font-semibold text-slate-900">Research Fellows</h2>
               <div className="mt-6">
-                <TeamMemberGrid members={seniorResearchFellows} />
+                <TeamMemberGrid members={researchFellows} />
               </div>
             </section>
           ) : null}
@@ -33,6 +44,14 @@ export default function CurrentTeamPage() {
               <h2 className="text-lg font-semibold text-slate-900">PhD Scholars</h2>
               <div className="mt-6">
                 <TeamMemberGrid members={phdScholars} />
+              </div>
+            </section>
+          ) : null}
+          {visitingResearchers.length > 0 ? (
+            <section>
+              <h2 className="text-lg font-semibold text-slate-900">Visiting Researchers</h2>
+              <div className="mt-6">
+                <TeamMemberGrid members={visitingResearchers} />
               </div>
             </section>
           ) : null}

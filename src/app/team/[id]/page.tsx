@@ -57,7 +57,7 @@ function MemberLinks({
             className="text-blue-700 underline-offset-2 hover:underline"
             href={linkedin}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
@@ -67,18 +67,18 @@ function MemberLinks({
             className="text-blue-700 underline-offset-2 hover:underline"
             href={universityBio}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             UniSQ profile
           </a>
         ) : null}
         {scholar ? (
-          <a className="text-blue-700 underline-offset-2 hover:underline" href={scholar} target="_blank" rel="noreferrer">
+          <a className="text-blue-700 underline-offset-2 hover:underline" href={scholar} target="_blank" rel="noopener noreferrer">
             Google Scholar
           </a>
         ) : null}
         {orcid ? (
-          <a className="text-blue-700 underline-offset-2 hover:underline" href={orcid} target="_blank" rel="noreferrer">
+          <a className="text-blue-700 underline-offset-2 hover:underline" href={orcid} target="_blank" rel="noopener noreferrer">
             ORCID
           </a>
         ) : null}
@@ -108,7 +108,20 @@ export default async function TeamMemberDetailPage({ params }: Props) {
 
   return (
     <>
-      <TeamHeroStrip title={member.name} subtitle={member.role} />
+      <TeamHeroStrip
+        title={member.name}
+        subtitle={
+          <>
+            {member.role}
+            {"joined" in member && member.joined ? (
+              <>
+                {"\n"}
+                <span className="text-sm text-slate-400 sm:text-base">Joined {member.joined}</span>
+              </>
+            ) : null}
+          </>
+        }
+      />
       <PageBody>
         <PageBodyInner className="space-y-10">
           {!isExpandedProfile ? (
@@ -197,7 +210,7 @@ export default async function TeamMemberDetailPage({ params }: Props) {
                       className="mt-3 inline-block text-base text-blue-700 underline-offset-2 hover:underline"
                       href={member.thesis.doi}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       {member.thesis.doi}
                     </a>

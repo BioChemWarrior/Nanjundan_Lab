@@ -20,6 +20,7 @@ type TeamPhotoOverride = {
 const teamPhotoOverrides: Record<string, TeamPhotoOverride> = {
   "ancy-joseph": { objectPosition: "center 58%" },
   "bidita-salahuddin": { scale: 0.86 },
+  "shuimei-chen": { objectPosition: "center 28%" },
 };
 
 /** Fine-tune circular crop per member (`object-position` CSS value). */

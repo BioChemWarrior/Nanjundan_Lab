@@ -11,7 +11,7 @@ function TipPanel({ children, className }: { children: ReactNode; className?: st
 export function JoinUsPageContent() {
   return (
     <div className="space-y-12 text-base leading-relaxed text-slate-600 sm:space-y-14">
-      <section className={`${panelClass} mx-auto max-w-3xl space-y-4`}>
+      <section className={`${panelClass} mx-auto max-w-6xl space-y-4`}>
         <p className="text-pretty sm:text-lg">
           Over the last 20 years, I have learned that hard work is the engine of a successful PhD, but it needs a
           steering wheel. For highly driven students entering our rigorous, experimental research environment, the key
@@ -76,16 +76,16 @@ export function JoinUsPageContent() {
       </section>
 
       <section className="overflow-hidden rounded-3xl border border-unisq-200/40 border-glow-unisq bg-gradient-to-br from-white via-unisq-50/30 to-slate-50 px-6 py-8 sm:px-10 sm:py-10">
-        <div className="mx-auto max-w-3xl space-y-4 text-center">
-          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Join The Nanjundan Lab</h2>
+        <div className="mx-auto max-w-6xl space-y-4 text-center">
+          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Join the Nanjundan Research Group</h2>
           <p>
             We are always looking for passionate and driven individuals to join our research team at the University of
             Southern Queensland.
           </p>
         </div>
-        <div className="mx-auto mt-6 max-w-3xl space-y-4">
+        <div className="mx-auto mt-6 max-w-6xl space-y-4">
           <p>
-            At the Nanjundan Lab, our work sits at the forefront of materials science, green chemistry, and advanced
+            At the Nanjundan Research Group, our work sits at the forefront of materials science, green chemistry, and advanced
             energy storage technologies. Our research focuses on developing next-generation solutions, including
             high-performance sodium-ion batteries, self-healing electrodes, and innovative eco-friendly processes for
             recovering critical minerals from spent batteries.
@@ -163,7 +163,7 @@ export function JoinUsPageContent() {
               className="text-sm font-semibold text-unisq-700 underline-offset-2 transition hover:text-unisq-800 hover:underline"
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Open in Google Maps →
             </a>
@@ -172,7 +172,7 @@ export function JoinUsPageContent() {
 
         <div className="overflow-hidden rounded-2xl border border-slate-200/80 shadow-sm">
           <iframe
-            title="Nanjundan Lab location at UniSQ Springfield Central"
+            title="Nanjundan Research Group location at UniSQ Springfield Central"
             src={`https://maps.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&z=15&output=embed`}
             className="h-full min-h-[280px] w-full border-0 sm:min-h-[320px]"
             loading="lazy"

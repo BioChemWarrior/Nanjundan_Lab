@@ -1,9 +1,9 @@
 /** Shown under the lab name on the home splash and in the header tagline area. */
 export const labTagline =
-  "Graphene Nanomaterials • Next Generation Batteries • Circular Economy • Energy Materials";
+  "Graphene Nanomaterials • Next Generation Batteries\nCircular Economy • Energy Materials";
 
 export const site = {
-  name: "Nanjundan Lab",
+  name: "Nanjundan Research Group",
   tagline: labTagline,
   address: [
     "University of Southern Queensland",
@@ -16,7 +16,7 @@ export const site = {
 };
 
 export const labBrand = {
-  title: "Nanjundan Lab",
+  title: "Nanjundan Research Group",
   subtitle: labTagline,
 } as const;
 
@@ -51,11 +51,10 @@ export const principalInvestigator = {
   affiliations: [
     "University of Southern Queensland",
     "Honorary Professor, The University of Queensland",
-    "Honorary Professor, Queensland University of Technology",
   ],
   bio: "An innovative materials scientist focused on carbon-based nanomaterials for advanced energy storage, with leadership experience spanning university research, international fellowships, and graphene industry translation.",
   bioExtended:
-    "He has secured more than AUD 5 million in research funding, authored over 100 publications in leading journals, accumulated more than 11,000 citations (h-index 57), and filed seven patents including a granted US patent.",
+    "He has secured more than AUD 6.5 million in research funding, authored over 100 publications in leading journals, accumulated more than 11,000 citations (h-index 57), and filed seven patents including a granted US patent.",
   links: {
     scholar: "https://scholar.google.com/citations?hl=en&user=p6EhiTkAAAAJ",
     universityBio: "https://research.usq.edu.au/researcher/z1045/prof-ashok-nanjundan",
@@ -82,7 +81,7 @@ export const homeCopy = {
   aboutEyebrow: "About",
   aboutTitle: "Materials innovation for clean energy",
   aboutTeaser:
-    "Nanjundan Lab develops advanced materials and electrochemical technologies for clean energy and circular-resource systems. We are part of the Centre for Future Materials at the University of Southern Queensland.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and the Centre for Future Materials at UniSQ. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
   statsEyebrow: "Impact",
   statsTitle: "Research at a glance",
   exploreEyebrow: "Explore",
@@ -92,10 +91,16 @@ export const homeCopy = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/projects", label: "Research" },
   { href: "/publications", label: "Publications" },
-  // { href: "/news", label: "News" }, // hidden for now
+  { href: "/news", label: "News" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/join-us", label: "Join Us" },
+] as const;
+
+/** Sub-links under the Research nav dropdown. */
+export const researchNavDropdown = [
+  { href: "/projects", label: "Research interests" },
+  { href: "/grants", label: "Grants" },
 ] as const;
 
 /** Sub-links under the Team nav dropdown. */
@@ -134,7 +139,7 @@ const piMembers = [
     focus: "Carbon Nanomaterials · Advanced Energy Storage · Industry Translation",
     bio: "An innovative materials scientist specialising in carbon-based nanomaterials for energy storage, with an academic and industry career spanning graphene commercialisation, international fellowships, and large-scale collaborative research.",
     careerSummary:
-      "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 11,000 citations (h-index 57). He is also named on seven patent filings, including a granted US patent.",
+      "Prof. Ashok Kumar Nanjundan is an innovative materials scientist whose work centres on carbon-based nanomaterials for advanced energy storage. He previously served as Chief Scientific Officer at Graphene Manufacturing Group, Australia, and holds honorary professorships at The University of Queensland and Queensland University of Technology. He has been awarded the Marie-Curie, JSPS-Japan, and UQ fellowships. He has secured more than AUD 6.5 million in research funding, published over 100 articles in journals including Nature Protocols, Chemical Reviews, and ACS Nano, and accumulated more than 11,000 citations (h-index 57). He is also named on seven patent filings, including a granted US patent.",
     professionalExperience:
       "At the University of Southern Queensland he is Professor of Energy Storage and Associate Head (Outreach, Engagement & International). He has held a visiting appointment at the Energy Consortium, IIT Madras. As Chief Scientific Officer at Graphene Manufacturing Group he connected academic research with industry priorities, led R&D from concept to manufacturing, commercialised the graphene aluminium-ion battery, developed graphene-based automotive additives, and prepared regulatory and quality-system documentation for nanomaterials and energy technologies. His earlier roles include UQ Postdoctoral Research Fellow, sessional academic at Griffith University, JSPS Fellow at Kumamoto University, research and visiting fellowships at Trinity College Dublin and UNSW, Marie-Curie Fellow at CEA Grenoble, and postdoctoral research at UNIST.",
     photo: "/team/prof-ashok.png",
@@ -146,6 +151,17 @@ const piMembers = [
 ] as const;
 
 const currentTeamMembers = [
+  {
+    id: "rollins-suluia",
+    group: "current" as const,
+    name: "Rollins Suluia",
+    role: "PhD Scholar",
+    focus: "Electrical engineering · hydrogen from seawater · solar PV integration",
+    bio: "Rollins Suluia is an electrical engineer with two decades of experience and qualifications in electrical engineering and engineering science. He has worked as a technician, electrical engineer, project manager, and utility operational manager, with strong expertise in complex electrical systems and infrastructure. His PhD research investigates hydrogen extraction from seawater using excess energy from solar photovoltaic systems while considering social and environmental impacts to support safer renewable energy adoption.",
+    photo: "/team/rollins-suluia.png",
+    email: "rollins.suluia@unisq.edu.au",
+    joined: "May 2025",
+  },
   {
     id: "annamalai",
     group: "current" as const,
@@ -159,24 +175,15 @@ const currentTeamMembers = [
     orcid: "https://orcid.org/0000-0002-7284-0813",
   },
   {
-    id: "sohil-gb",
+    id: "shuimei-chen",
     group: "current" as const,
-    name: "Mr. Sohil Ganesh Babu",
-    role: "PhD Scholar",
-    focus: "Green solvents · critical mineral recovery · e-waste recycling",
-    bio: "Mr. Sohil Ganesh Babu is a PhD scholar at UniSQ. His research focuses on the development of green solvents for critical mineral recovery from e-waste. He has diverse experience in biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods to recover critical minerals from spent batteries for a circular economy and safer recycling practices.",
-    photo: "/team/sohil-ganesh-babu.png",
-    email: "sohil.ganeshbabu@unisq.edu.au",
-  },
-  {
-    id: "rollins-suluia",
-    group: "current" as const,
-    name: "Rollins Suluia",
-    role: "PhD Scholar",
-    focus: "Electrical engineering · hydrogen from seawater · solar PV integration",
-    bio: "Rollins Suluia is an electrical engineer with two decades of experience and qualifications in electrical engineering and engineering science. He has worked as a technician, electrical engineer, project manager, and utility operational manager, with strong expertise in complex electrical systems and infrastructure. His PhD research investigates hydrogen extraction from seawater using excess energy from solar photovoltaic systems while considering social and environmental impacts to support safer renewable energy adoption.",
-    photo: "/team/rollins-suluia.png",
-    email: "rollins.suluia@unisq.edu.au",
+    name: "Dr. Shuimei Chen",
+    role: "Research Fellow",
+    focus: "Rechargeable aluminium-ion batteries · Electrode materials",
+    bio: "Shuimei Chen specialises in rechargeable aluminium-ion batteries. She received her Master's degree from China University of Geosciences, Wuhan in 2019, and completed her PhD under the supervision of Dr. Xiaodan Huang, Prof. Chengzhong Yu, and Prof. Ashok Kumar Nanjundan at the University of Queensland. Her research focuses on the design and synthesis of electrode materials for rechargeable aluminium batteries.",
+    photo: "/team/shuimei-chen.png",
+    email: "Shuimei.chen@unisq.edu.au",
+    joined: "August 2026",
   },
   {
     id: "sandeep-kumar",
@@ -187,16 +194,29 @@ const currentTeamMembers = [
     bio: "Sandeep Kumar is an interdisciplinary researcher with a master's degree in energy storage devices and a strong foundation in electronics and electrical engineering. With hands-on experience in multiple research projects, his work bridges materials science, electrochemistry, and engineering. Sandeep's passion lies in developing innovative solutions for next-generation batteries. His PhD research focuses on advancing post-lithium battery technologies, particularly exploring novel components to enhance safety, performance, and sustainability. Through his research, he aims to contribute to the future of clean energy storage by integrating experimental methods with modern design approaches.",
     photo: "/team/sandeep-kumar.png",
     email: "sandeep.kumar@unisq.edu.au",
+    joined: "May 2025",
   },
   {
-    id: "ancy-joseph",
+    id: "bidita-salahuddin",
     group: "current" as const,
-    name: "Ancy Joseph",
+    name: "Bidita Salahuddin",
     role: "PhD Scholar",
-    focus: "Biomedical engineering · polymer biomaterials · blood storage",
-    bio: "Ancy Joseph is a PhD researcher in biomedical engineering with a background in biopolymer science and experience in polymer modification, biomaterials, and nanostructure synthesis. Her research focuses on developing functional polymer-based materials and applying nanotechnology to challenges in blood storage, including short shelf life, bacterial contamination, and harmful chemical leaching from storage bags, with the aim of making blood transfusions safer and more effective. Her project develops nano-textured surfaces inside blood bags using advanced fabrication techniques.",
-    photo: "/team/ancy-joseph.png",
-    email: "ancy.joseph@unisq.edu.au",
+    focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
+    bio: "Bidita joined Prof. Nanjundan's research group in January 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
+    photo: "/team/bidita-salahuddin.png",
+    email: "",
+    joined: "January 2026",
+  },
+  {
+    id: "sohil-gb",
+    group: "current" as const,
+    name: "Sohil Ganesh Babu",
+    role: "PhD Scholar",
+    focus: "Green solvents · critical mineral recovery · e-waste recycling",
+    bio: "Mr. Sohil Ganesh Babu is a PhD scholar at UniSQ. His research focuses on the development of green solvents for critical mineral recovery from e-waste. He has diverse experience in biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods to recover critical minerals from spent batteries for a circular economy and safer recycling practices.",
+    photo: "/team/sohil-ganesh-babu.png",
+    email: "sohil.ganeshbabu@unisq.edu.au",
+    joined: "April 2026",
   },
   {
     id: "vedang-sonar",
@@ -207,6 +227,18 @@ const currentTeamMembers = [
     bio: "Vedang Sonar obtained his M.Sc. in General Chemistry from Vellore Institute of Technology (VIT), Tamil Nadu, India, following a B.Sc. in Chemistry from Sir Parashurambhau (S.P.) College, Pune, India. His research interests focus on Covalent Organic Frameworks (COFs) and other functional porous materials for electrochemical energy storage. During his academic training, he gained research experience in both India and Australia, including at the National Chemical Laboratory (NCL) and Queensland University of Technology (QUT). He is the first author of a peer-reviewed review article on COFs for multivalent-ion batteries. His interests include sodium-ion and potassium-ion batteries, organic electrode materials, and the development of sustainable materials for next-generation energy storage systems — spanning electrochemical applications of COFs, synthesis and characterization of advanced polymers and hybrid materials, porous functional materials for energy storage, and sustainable energy-storage technologies.",
     photo: "/team/vedang-avinash-sonar.png",
     email: "",
+    joined: "June 2026",
+  },
+  {
+    id: "ancy-joseph",
+    group: "current" as const,
+    name: "Ancy Joseph",
+    role: "PhD Scholar",
+    focus: "Biomedical engineering · polymer biomaterials · blood storage",
+    bio: "Ancy Joseph is a PhD researcher in biomedical engineering with a background in biopolymer science and experience in polymer modification, biomaterials, and nanostructure synthesis. Her research focuses on developing functional polymer-based materials and applying nanotechnology to challenges in blood storage, including short shelf life, bacterial contamination, and harmful chemical leaching from storage bags, with the aim of making blood transfusions safer and more effective. Her project develops nano-textured surfaces inside blood bags using advanced fabrication techniques.",
+    photo: "/team/ancy-joseph.png",
+    email: "ancy.joseph@unisq.edu.au",
+    joined: "June 2025",
   },
   {
     id: "jiahu-zhang",
@@ -217,15 +249,27 @@ const currentTeamMembers = [
     bio: "Jiahu Zhang began his PhD study in 2026 at the School of Science, Engineering and Digital Technologies, University of Southern Queensland. His current research focuses on the development of advanced materials for the removal and recovery of heavy-metal ions from contaminated water. His broader research interests include the design of environmental functional materials for heavy-metal pollution remediation, particularly through adsorption and electrocatalytic approaches. He has a background in materials science, materials characterization, and adsorption, and is currently working on a range of environmental functional materials, such as metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and magnetic polymer-based composites, for heavy-metal removal and mechanistic investigation.",
     photo: "/team/jiahu-zhang.png",
     email: "Jiahu.Zhang@unisq.edu.au",
+    joined: "January 2026",
   },
   {
-    id: "bidita-salahuddin",
+    id: "gabriel-longe",
     group: "current" as const,
-    name: "Bidita Salahuddin",
-    role: "PhD Scholar",
-    focus: "Life cycle assessment · carbon accounting · plastic waste-to-energy",
-    bio: "Bidita joined Prof. Nanjundan's research group in February 2026. Her research focuses on life cycle assessment, carbon accounting and sustainability evaluation of plastic waste treatment technologies, with a particular emphasis on thermochemical waste-to-energy pathways such as pyrolysis, gasification and incineration. Her work examines environmental impacts, carbon flow dynamics and circularity potential to support sustainable plastic waste management under net-zero transitions. Bidita is also affiliated with the Solving Plastic Waste CRC, contributing to collaborative research on circular economy approaches and advanced plastic waste recovery solutions.",
-    photo: "/team/bidita-salahuddin.png",
+    name: "Gabriel Longe",
+    role: "Masters Student",
+    focus: "Renewable & sustainable energy · energy efficiency · materials & mechanical systems · battery recycling",
+    bio: "Gabriel Longe is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland. He has an undergraduate background in Materials and Metallurgical Engineering. His interests are renewable and sustainable energy, energy efficiency, materials and mechanical systems. He has joined the battery recycling and second-life applications project to gain hands-on research experience.",
+    photo: "/team/gabriel-longe.jpg",
+    email: "",
+    joined: "November 2026",
+  },
+  {
+    id: "motassim-billah",
+    group: "current" as const,
+    name: "Dr. Motassim Billah",
+    role: "Adjunct Research Fellow",
+    focus: "Mesoporous BaTiO₃ · ferroelectric materials · energy storage under force · energy harvesting",
+    bio: "Dr. Motassim Billah worked on the synthesis of mesoporous ferroelectric barium titanate (BaTiO₃, pore size between 10 nm–35 nm) and its variations [Ba₁₋ₓSrₓTiO₃ where x≤0.05; Ba₁₋ₓCaₓ(Ti₁₋ᵧZrᵧ)O₃ where x≤0.15; y≤0.10]. Materials can be prepared as powder or as thin films with layer thickness between 200 nm–5 µm. His typical interest is measuring how much energy these engineered materials can store under a known applied force. From initial theoretical understanding (mostly in-practice work on lead zirconate titanate), it remains unclear why the morphotropic phase boundary of non-Pb systems is inferior to that of Pb-based systems. He completed higher studies (2003–2006) in Design Science at the University of Sydney, including involvement in bioscience instrumentation design and interfacing for R&D. He worked (2011–2013) as a full-time Technical Officer at the University of Technology Sydney (UTS), Faculty of Applied Physics and Advanced Materials, providing research and teaching support for Measurement and Analysis of Physical Process and Applied Electronics & Interfacing. He was a visiting researcher (2014–2016) at the Institute of Superconductor and Electronic Materials (ISEM), University of Wollongong, with a key contribution investigating energy-harvesting techniques and their application. He was also a visiting researcher (3 months, 2016) at the National Institute of Material Science (NIMS), Japan, with a key focus on learning techniques for mesoporous materials. He is currently awarded a scholarship for a Doctor of Philosophy at the AIBN, University of Queensland.",
+    photo: "/team/motassim-billah.jpg",
     email: "",
   },
 ] as const;
@@ -252,7 +296,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "kothandaraman-ramanujam",
     group: "adjunct",
     name: "Prof. Kothandaraman Ramanujam, FRSC",
-    role: "Professor - IIT Madras\nAdjunct Professor - UniSQ",
+    role: "Professor\nIIT Madras\nAdjunct Professor - UniSQ",
     focus: "Li/Na/Zn batteries · dye-sensitized solar cells · electrochemical sensors",
     bio: "An electrochemist focused on India-centric energy storage, functional materials, and translatable battery, solar, and sensor technologies.",
     careerSummary:
@@ -266,7 +310,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Head of Department - Materials Chemistry for Catalysis, Helmholtz-Zentrum Berlin, Adjunct Associate Professor - UniSQ",
+    role: "Head of Department\nMaterials Chemistry for catalysis\nHelmholtz-Zentrum Berlin\nAdjunct Professor - UniSQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
@@ -278,7 +322,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "rohit-ranganathan-gaddam",
     group: "adjunct",
     name: "Dr. Rohit Ranganathan Gaddam",
-    role: "Assistant Professor - IISER Bhopal\nAdjunct Senior Lecturer - UniSQ",
+    role: "Assistant Professor\nIISER Bhopal\nAdjunct Senior Lecturer - UniSQ",
     focus: "Functional materials · lithium-ion storage · sodium-ion & aqueous batteries · solid-state conductors",
     bio: "A materials scientist specialising in advanced functional materials and electrochemical energy storage across lithium-ion, sodium-ion, and solid-state battery systems.",
     careerSummary:
@@ -355,9 +399,10 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
     id: "yverick-rangom",
     group: "alumni",
     name: "Yverick Rangom",
-    role: "Former PhD Student",
-    focus: "",
-    bio: "",
+    role: "Former PhD Student\nCurrently Assistant Professor at University of Waterloo",
+    focus: "Material bonding · Li-ion & Na-ion electrodes · capacitors · solid-state batteries · fast charging",
+    bio: "Yverick Rangom is an Assistant Professor in the Department of Chemical Engineering at the University of Waterloo. His research focuses on material bonding in advanced and complex systems where the original function and properties of the materials are to be preserved, enhanced and complemented with new advantageous properties such as increased mechanical strength or enhanced thermal properties. This research is currently targeted toward improving the performance of Li-ion, Na-ion battery electrodes, capacitors, and future solid-state batteries but it will be expanded to other systems. Assistant Professor Rangom is pioneering this multi-disciplinary field of research to foster new knowledge and know-how in the fields of chemical, mechanical and electrical engineering made to work at unison. His research is currently advancing the fast-charging capabilities of Li-ion batteries as it is believed to be a key factor for the mass adoption of electric vehicles.",
+    photo: "/team/yverick-rangom.png",
     email: "",
   },
   {
@@ -397,11 +442,12 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
   {
     id: "shumei-chen",
     group: "alumni",
-    name: "Shumei Chen",
-    role: "Former PhD Student",
+    name: "Shuimei Chen",
+    role: "Former PhD Student\nPost Doctoral Researcher at UniSQ",
     focus: "",
     bio: "",
     email: "",
+    photo: "/team/shuimei-chen.png",
     thesis: {
       title: "Development of stable and high-capacity aqueous aluminum-ion batteries",
       citation:
@@ -417,6 +463,7 @@ export const alumniMembers: readonly AlumniTeamMember[] = [
     focus: "",
     bio: "",
     email: "",
+    photo: "/team/nashaat-gadelhak.png",
     thesis: {
       title: "Functional Membrane Separators for Rechargeable Non-Aqueous Aluminium-Ion Batteries",
       citation:
@@ -460,19 +507,19 @@ export const projects = [
     image: "/images/research/clean-energy.png",
   },
   {
-    slug: "water-safety",
-    title: "Water Safety",
+    slug: "defence",
+    title: "Defence",
     status: "Program",
     summary:
-      "Research on water quality, treatment pathways, and seawater-based electrolysis to support safe, resilient water and energy systems.",
+      "Advanced materials, energy systems, and sensing technologies for resilient defence applications, including secure power, environmental monitoring, and field-deployable electrochemical devices.",
     focusAreas: [
-      "Feedwater quality & treatment",
-      "Seawater electrolysis catalysts",
-      "Microgrid-linked water-energy systems",
-      "Environmental sensing & monitoring",
+      "Energy storage for defence systems",
+      "Environmental & threat sensing",
+      "Seawater electrolysis for remote operations",
+      "Durable materials for harsh environments",
     ],
     partners: ["Centre for Future Materials (UniSQ)"],
-    image: "/images/research/water-safety.png",
+    image: "/images/research/defence.png",
   },
   {
     slug: "nanomaterials",
@@ -512,16 +559,171 @@ export const researchPageCopy = {
   introEyebrow: "Our approach",
   introTitle: "From molecular design to deployable technology",
   introBody:
-    "Nanjundan Lab sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
+    "Nanjundan Research Group sits within the Centre for Future Materials at the University of Southern Queensland. We combine materials synthesis, device fabrication, and industry-linked translation across four strategic programs — select a program below to explore its focus areas and active workstreams.",
 } as const;
 
-export const aboutPageCopy = {
+export const grantsPageCopy = {
   heroSubtitle:
-    "A materials and energy research group at the University of Southern Queensland, working at the intersection of nanomaterials, electrochemistry, and sustainable technology.",
+    "Competitive research funding and fellowships supporting nanomaterials, energy storage, and industry-linked translation.",
+  introEyebrow: "Funding",
+  introTitle: "Competitive grants and fellowships",
+  introBody:
+    "Prof. Ashok Kumar Nanjundan has secured over AUD 6.5 million in research funding since 2015, spanning ARC Centres and Hubs, Linkage Projects, bilateral schemes, and prestigious individual fellowships.",
+} as const;
+
+/** Competitive grants and fellowships — URLs from CV_Ashok Nanjundan_April 2026.docx */
+/** Competitive grants — topics from CV-linked ARC/UQ project pages (AISRF omitted). */
+export const competitiveGrants = [
+  {
+    year: 2026,
+    role: "Lead CI",
+    title: "Australia India Strategic Research Fund",
+    topic: "Green chemistry for recovering critical minerals from batteries in e-waste",
+    code: null,
+    amount: "AU$ 918K",
+    href: "https://www.industry.gov.au/accessing-information/grants-reporting/australia-india-strategic-research-fund-grant-recipients",
+  },
+  {
+    year: 2023,
+    role: "CI",
+    title: "ARC Centre of Excellence for Green Electrochemical Transformation of Carbon Dioxide",
+    topic: null,
+    code: "CE230100017",
+    amount: "AU$ 35.0M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/CE230100017",
+  },
+  {
+    year: 2021,
+    role: "PI",
+    title: "ARC Research Hub for Advanced Manufacturing with 2D Materials",
+    topic: null,
+    code: "IH210100025",
+    amount: "AU$ ~4.4M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH210100025",
+  },
+  {
+    year: 2020,
+    role: "CI",
+    title: "ARC Research Hub for Safe and Reliable Energy",
+    topic: "New safe and reliable energy storage and conversion technologies",
+    code: "IH200100035",
+    amount: "AU$ 5.0M",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH200100035",
+  },
+  {
+    year: 2020,
+    role: "PI",
+    title: "ARC Linkage Project",
+    topic: "Enabling next-generation rechargeable aluminium-ion batteries",
+    code: "LP190101279",
+    amount: "AU$ ~390K from ARC; total AU$ 540K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP190101279",
+  },
+  {
+    year: 2020,
+    role: "PI",
+    title: "ARC Linkage Project",
+    topic: "Developing high performance nanocomposite coatings for domestic appliances",
+    code: "LP190100830",
+    amount: "AU$ ~512K from ARC; total AU$ 877K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP190100830",
+  },
+  {
+    year: 2019,
+    role: "CI/PI",
+    title: "ARC Linkage Project",
+    topic: "Functional biomass carbons for low-cost sodium and potassium-ion batteries",
+    code: "LP180100429",
+    amount: "AU$ ~425K from ARC; total AU$ 695K",
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/LP180100429",
+  },
+  {
+    year: 2019,
+    role: "CI",
+    title: "Scheme for Promotion of Academic and Research Collaboration (SPARC)",
+    topic:
+      "Preparation of nanocellulose and nanocomposites as multifunctional materials derived from biomass towards sustainable developments",
+    code: null,
+    amount: "AU$ ~100K",
+    href: "https://researchers.uq.edu.au/research-project/39645",
+  },
+  {
+    year: 2015,
+    role: "Part PI",
+    title: "ARC Research Hub for Graphene Enabled Industry Transformation",
+    topic: null,
+    code: "IH150100003",
+    amount: null,
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/IH150100003",
+  },
+] as const;
+
+export const individualFellowships = [
+  {
+    year: 2026,
+    role: "Future Fellow",
+    title: "ARC Future Fellowship",
+    topic: "Designing Self-Healing Sodium-Ion Battery Electrodes.",
+    code: "FT260101468",
+    amount: null,
+    href: "https://dataportal.arc.gov.au/NCGP/Web/Grant/Grant/FT260101468",
+  },
+  {
+    year: 2017,
+    role: null,
+    title: "UQ Early Career Researcher Grant",
+    topic: "Biomass derived binder-free carbon anodes for sodium-ion batteries",
+    amount: null,
+    href: "https://researchers.uq.edu.au/research-project/30317",
+  },
+  {
+    year: 2015,
+    role: null,
+    title: "UQ Fellowship",
+    topic:
+      "Functionalised graphene materials for the development of next generation advanced supercapacitors and lithium-ion battery devices",
+    amount: null,
+    href: "https://researchers.uq.edu.au/research-project/22916",
+  },
+  {
+    year: 2012,
+    role: null,
+    title: "JSPS Fellowship",
+    topic: "Energy conversion and storage devices using graphene-layered hybrid materials",
+    amount: null,
+    href: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-12F02347",
+  },
+  {
+    year: 2012,
+    role: null,
+    title: "Science Fellowship Writing Scheme Award",
+    topic: "University of New South Wales, Australia",
+    amount: null,
+    href: null,
+  },
+  {
+    year: 2011,
+    role: null,
+    title: 'Marie Curie Fellowship "CEA-Eurotalents"',
+    topic: "Commissariat à l'énergie atomique (CEA), Grenoble, France",
+    amount: null,
+    href: null,
+  },
+  {
+    year: 2007,
+    role: null,
+    title: "Brain of Korea (BK21) PhD Fellowship",
+    topic: null,
+    amount: null,
+    href: null,
+  },
+] as const;
+
+export const aboutPageCopy = {
   missionEyebrow: "Who we are",
   missionTitle: "A lab built on rigorous science and real-world impact",
   missionBody:
-    "Nanjundan Lab is part of the Centre for Future Materials at the University of Southern Queensland. We develop advanced materials and electrochemical technologies for clean energy and circular-resource systems — from graphene and hybrid nanomaterials to next-generation batteries, critical mineral recovery, and seawater-integrated hydrogen systems.",
+    "We are a part of the School of Science, Engineering & Digital Technologies, the Institute for Space, Defence & Advanced Technologies and the Centre for Future Materials at UniSQ. We design advanced materials and electrochemical systems for clean energy and the circular economy.",
   missionBodyExtended:
     "Our work combines materials design, process innovation, and industry-linked translation. We mentor the next generation of researchers while partnering with funding bodies, industry, and international collaborators to move ideas from the bench toward deployable outcomes.",
   teamTitle: "Led by experienced researchers, powered by emerging talent",
@@ -543,7 +745,7 @@ export const centreForFutureMaterials = {
   overviewExtended:
     "CFM operates one of Australia's largest dedicated composite materials manufacturing and testing facilities, with industrial-scale equipment for filament winding, robotic braiding, pultrusion, resin infusion, fire testing, and large-scale structural testing. Its industry test service has supported more than 1,000 clients nationally and internationally.",
   labConnection:
-    "Nanjundan Lab contributes to CFM's Clean Energy and Environment research theme from the Springfield Central campus, advancing functional materials, next-generation batteries, critical mineral recovery, and electrochemical systems for sustainable technology.",
+    "Nanjundan Research Group contributes to CFM's Clean Energy and Environment research theme from the Springfield Central campus, advancing functional materials, next-generation batteries, critical mineral recovery, and electrochemical systems for sustainable technology.",
   focusAreas: [
     {
       title: "Space & defence",
@@ -565,10 +767,10 @@ export const centreForFutureMaterials = {
 } as const;
 
 export const researchStats = [
-  { label: "Research funding", value: "$5M+" },
-  { label: "Publications", value: "100+" },
-  { label: "Citations", value: "11,000+" },
-  { label: "Patents", value: "7" },
+  { label: "Research funding", value: "$6.5M+", icon: "funding" },
+  { label: "Publications", value: "100+", icon: "publications" },
+  { label: "Citations", value: "11,000+", icon: "citations" },
+  { label: "Patents", value: "7", icon: "patents" },
 ] as const;
 
 export const activeResearchProjects = [
@@ -594,7 +796,7 @@ export const activeResearchProjects = [
     status: "Active",
     summary:
       "Catalyst behaviour, feedwater quality constraints, and deployment feasibility for seawater-based hydrogen systems in microgrid contexts.",
-    program: "water-safety",
+    program: "defence",
   },
   {
     slug: "hybrid-energy-storage-performance-enhancement",
@@ -606,60 +808,139 @@ export const activeResearchProjects = [
   },
 ] as const;
 
-export const newsPosts = [
+export type NewsPost = {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  body: readonly string[];
+};
+
+export const newsPosts: readonly NewsPost[] = [
   {
-    slug: "welcome-visiting-fellows",
-    title: "Welcome to our 2026 visiting fellows cohort",
-    date: "2026-04-12",
+    slug: "welcome-gabriel-longe",
+    title: "Welcome to Gabriel Longe",
+    date: "2026-11-17",
     excerpt:
-      "Four fellows join us across sensing hardware, Bayesian workflows, and translational statistics.",
+      "Gabriel Longe joins as a Masters student contributing to battery recycling and second-life applications research.",
+    body: [
+      "We are pleased to welcome Gabriel Longe to the Nanjundan Research Group as a Masters student.",
+      "Gabriel is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland, with an undergraduate background in Materials and Metallurgical Engineering. His interests include renewable and sustainable energy, energy efficiency, materials and mechanical systems.",
+      "He has joined the battery recycling and second-life applications project to gain hands-on research experience. Welcome to the group, Gabriel.",
+    ],
   },
   {
-    slug: "aurora-milestone",
-    title: "Aurora Sense reaches milestone shared calibration release",
-    date: "2026-03-02",
+    slug: "welcome-motassim-billah",
+    title: "Welcome to Dr. Motassim Billah",
+    date: "2026-11-16",
     excerpt:
-      "v0.9 calibration server documentation is now public alongside benchmark notebooks.",
+      "Dr. Motassim Billah joins as an Adjunct Research Fellow under Visiting Researchers, bringing expertise in mesoporous ferroelectric materials.",
+    body: [
+      "Please join us in welcoming Dr. Motassim Billah to the Nanjundan Research Group as an Adjunct Research Fellow in Visiting Researchers.",
+      "Dr. Billah’s research includes the synthesis of mesoporous ferroelectric barium titanate and related materials, including powder and thin-film forms, with a focus on energy storage under applied force and energy-harvesting techniques.",
+      "We look forward to the contributions he will make across our materials and energy programmes.",
+    ],
   },
   {
-    slug: "open-office-hours",
-    title: "Monthly open office hours for collaborators",
-    date: "2026-02-18",
+    slug: "arc-future-fellowship-self-healing-sodium-ion",
+    title: "Prof. Ashok Kumar Nanjundan awarded ARC Future Fellowship",
+    date: "2026-09-08",
     excerpt:
-      "Bring dataset sketches or hardware constraints—we host structured feedback sessions every third Tuesday.",
+      "An ARC Future Fellowship will fund new self-healing graphene–polymer electrodes for longer-lasting, solvent-free sodium-ion batteries.",
+    body: [
+      "Prof. Ashok Kumar Nanjundan has been awarded an Australian Research Council Future Fellowship (FT260101468) for Designing Self-Healing Sodium-Ion Battery Electrodes.",
+      "The project will develop new self-healing materials for next-generation sodium-ion batteries. It will combine advanced forms of graphene with flexible polymers to create electrodes that can repair small cracks and damage during use.",
+      "By studying how these materials recover and store energy, the research will deliver longer-lasting, safer and more sustainable batteries made without using toxic solvents. The outcomes will provide design guidelines for low-cost, solvent-free battery materials and support Australia’s transition to clean and reliable energy technologies.",
+    ],
+  },
+  {
+    slug: "welcome-shuimei-chen",
+    title: "Welcome to Dr. Shuimei Chen",
+    date: "2026-08-03",
+    excerpt:
+      "Dr. Shuimei Chen joins the group as a Research Fellow working on electrode materials for rechargeable aluminium-ion batteries.",
+    body: [
+      "We are delighted to welcome Dr. Shuimei Chen to the Nanjundan Research Group as a Research Fellow.",
+      "Shuimei specialises in rechargeable aluminium-ion batteries. She received her Master's degree from China University of Geosciences, Wuhan, in 2019, and completed her PhD at the University of Queensland under the supervision of Dr. Xiaodan Huang, Prof. Chengzhong Yu, and Prof. Ashok Kumar Nanjundan.",
+      "Her research focuses on the design and synthesis of electrode materials for rechargeable aluminium batteries. We look forward to the contributions she will make across our energy-storage programmes.",
+    ],
+  },
+  {
+    slug: "welcome-vedang-sonar",
+    title: "Welcome to Vedang Avinash Sonar",
+    date: "2026-06-29",
+    excerpt:
+      "Vedang Avinash Sonar joins as a PhD scholar working on covalent organic frameworks and sustainable materials for sodium- and potassium-ion batteries.",
+    body: [
+      "Please join us in welcoming Vedang Avinash Sonar, who has joined the Nanjundan Research Group as a PhD scholar.",
+      "Vedang obtained his M.Sc. in General Chemistry from Vellore Institute of Technology (VIT), Tamil Nadu, following a B.Sc. in Chemistry from Sir Parashurambhau College, Pune. He has research experience in India and Australia, including at the National Chemical Laboratory and Queensland University of Technology, and is first author of a peer-reviewed review on covalent organic frameworks for multivalent-ion batteries.",
+      "His PhD will focus on COFs and other functional porous materials for electrochemical energy storage, including sodium-ion and potassium-ion batteries, organic electrode materials, and sustainable materials for next-generation energy storage.",
+    ],
+  },
+  {
+    slug: "welcome-sohil-ganesh-babu",
+    title: "Welcome to Sohil Ganesh Babu",
+    date: "2026-04-06",
+    excerpt:
+      "Sohil Ganesh Babu joins as a PhD scholar developing green solvents to recover critical minerals from battery e-waste.",
+    body: [
+      "We are pleased to welcome Sohil Ganesh Babu to the Nanjundan Research Group as a PhD scholar.",
+      "Sohil’s research focuses on the development of green solvents for critical mineral recovery from e-waste. He brings experience across biotechnology, microbiology, and chemistry, and is interested in combining bioengineering of microorganisms with hydrometallurgical methods.",
+      "His work will support safer recycling of spent batteries and a circular economy for critical materials. Welcome to the group, Sohil.",
+    ],
+  },
+  {
+    slug: "aisrf-critical-minerals-ewaste",
+    title: "Prof. Ashok Kumar Nanjundan awarded Australia–India Strategic Research Fund grant",
+    date: "2026-02-19",
+    excerpt:
+      "A 2026 AISRF award will advance green chemistry for recovering critical minerals from spent batteries, in partnership with IIT Madras and IISER Bhopal.",
+    body: [
+      "Prof. Ashok Kumar Nanjundan has been awarded funding under Round 16 of the Australia–India Strategic Research Fund for green chemistry to recover critical minerals from batteries in e-waste.",
+      "The UniSQ-led project, valued at AU$918,077, will work with colleagues at the Indian Institute of Technology Madras and IISER Bhopal to develop eco-friendly recovery methods using green solvents, ionic liquids, and bioleaching.",
+      "The work addresses a growing sustainability challenge as battery demand rises, supporting circular-economy reuse of materials such as lithium, cobalt, and nickel in both Australia and India.",
+    ],
   },
 ];
 
-export const galleryItems = [
+export type GalleryItem = {
+  id: string;
+  src: string;
+  title: string;
+  caption: string;
+  href?: string;
+};
+
+export const galleryItems: readonly GalleryItem[] = [
   {
-    id: "optics-bench",
-    title: "Optics characterization bench",
-    caption: "Temperature-stabilized breadboard for repeatable spectroscopic sweeps.",
+    id: "campus-group",
+    src: "/gallery/campus-group.jpg",
+    title: "On campus",
+    caption: "Members of the Nanjundan Research Group on the UniSQ campus.",
   },
   {
-    id: "compute-cluster",
-    title: "Lab compute cluster",
-    caption: "Queued workloads for large inverse solves with reproducible environments.",
+    id: "group-lunch",
+    src: "/gallery/group-lunch.jpg",
+    title: "Group lunch",
+    caption: "The group catching up over lunch.",
   },
   {
-    id: "field-kit",
-    title: "Field sensing kit",
-    caption: "Rugged enclosure prototypes tested across seasonal deployments.",
+    id: "research-flagship-tent",
+    src: "/gallery/research-flagship-tent.jpg",
+    title: "Research Flagship stall",
+    caption: "Representing the group at the UniSQ Space, Defence and Advanced Technologies Research Flagship.",
   },
   {
-    id: "student-bench",
-    title: "Student prototyping bay",
-    caption: "Shared instrumentation with mentorship rotations each semester.",
+    id: "research-flagship-stall",
+    src: "/gallery/research-flagship-stall.jpg",
+    title: "Talking with visitors",
+    caption: "Group members sharing research with visitors at the outreach stall.",
   },
   {
-    id: "clean-hood",
-    title: "Sample preparation hood",
-    caption: "Controlled workflows for delicate biological and material specimens.",
-  },
-  {
-    id: "seminar-room",
-    title: "Seminar room",
-    caption: "Hybrid-friendly space for reviews, journal clubs, and partner demos.",
+    id: "group-meeting",
+    src: "/gallery/group-meeting.jpg",
+    title: "Together at UniSQ",
+    caption: "The Nanjundan Research Group together on campus.",
   },
 ];
 
@@ -679,8 +960,21 @@ export function getTeamSectionLabel(group: TeamGroup) {
   return "Current team";
 }
 
+export function getNewsPosts() {
+  return [...newsPosts].sort((a, b) => b.date.localeCompare(a.date));
+}
+
 export function getNewsBySlug(slug: string) {
   return newsPosts.find((p) => p.slug === slug);
+}
+
+const newsDateMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
+
+export function formatNewsDate(isoDate: string) {
+  const [year, month, day] = isoDate.split("-").map((part) => Number.parseInt(part, 10));
+  const monthLabel = newsDateMonths[month - 1];
+  if (!year || !monthLabel || !day) return isoDate;
+  return `${day} ${monthLabel} ${year}`;
 }
 
 export function getProjectBySlug(slug: string) {

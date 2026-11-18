@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Publications",
 };
 
+/** Keep the ORCID-backed list fresh alongside fetch revalidation. */
+export const revalidate = 3600;
+
 const PUBLICATIONS_PER_PAGE = 15;
 
 type PublicationsPageProps = {
@@ -97,7 +100,7 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
       {publications.length === 0 ? (
         <p className="text-center text-slate-600">
           No works could be loaded right now. Try again later, or view the full list on{" "}
-          <a href={principalInvestigator.links.orcid} className="text-blue-700 hover:text-blue-600" target="_blank" rel="noreferrer">
+          <a href={principalInvestigator.links.orcid} className="text-blue-700 hover:text-blue-600" target="_blank" rel="noopener noreferrer">
             ORCID
           </a>
           .
@@ -112,20 +115,20 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                 return (
                   <li
                     key={pub.id}
-                    className="py-6 first:pt-0 last:pb-0 sm:flex sm:items-start sm:gap-6"
+                    className="py-3.5 first:pt-0 last:pb-0 sm:flex sm:items-start sm:gap-5"
                   >
                     <span className="font-mono text-sm text-blue-700">{String(startIndex + index + 1).padStart(2, "0")}</span>
-                    <div className="mt-2 min-w-0 flex-1 sm:mt-0">
+                    <div className="mt-1.5 min-w-0 flex-1 sm:mt-0">
                       <h2 className="text-base font-semibold text-slate-900">
                         {pub.url ? (
-                          <a href={pub.url} target="_blank" rel="noreferrer" className="transition hover:text-blue-700">
+                          <a href={pub.url} target="_blank" rel="noopener noreferrer" className="transition hover:text-blue-700">
                             {pub.title}
                           </a>
                         ) : (
                           pub.title
                         )}
                       </h2>
-                      <p className="mt-2 text-sm text-slate-600">
+                      <p className="mt-1 text-sm text-slate-600">
                         {pub.authors ? (
                           <>
                             {pub.authors}
@@ -141,14 +144,14 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
                         ) : null}
                       </p>
                       {pub.doi ? (
-                        <p className="mt-3 font-mono text-xs text-blue-700">
-                          <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer" className="hover:text-blue-900">
+                        <p className="mt-1.5 font-mono text-xs text-blue-700">
+                          <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-900">
                             {pub.doi}
                           </a>
                         </p>
                       ) : null}
                     </div>
-                    <div className="mt-4 shrink-0 sm:mt-0 sm:pl-2">
+                    <div className="mt-2 shrink-0 sm:mt-0 sm:pl-2">
                       {pub.doi ? (
                         <div
                           className="altmetric-embed"

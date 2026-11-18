@@ -1,52 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#020b1a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
   <defs>
-    <linearGradient id="fav-unisq" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffc052"/>
-      <stop offset="0.45" stop-color="#ffb84d"/>
-      <stop offset="1" stop-color="#e6982a"/>
-    </linearGradient>
-    <linearGradient id="fav-grad" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
+    <linearGradient id="n-grad" x1="12" y1="60" x2="38" y2="20" gradientUnits="userSpaceOnUse">
       <stop stop-color="#22d3ee"/>
-      <stop offset="0.45" stop-color="#38bdf8"/>
+      <stop offset="0.55" stop-color="#38bdf8"/>
       <stop offset="1" stop-color="#3b82f6"/>
     </linearGradient>
-    <linearGradient id="fav-accent" x1="24" y1="18" x2="44" y2="48" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#34d399"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+    <linearGradient id="l-grad" x1="37" y1="21" x2="66" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="0.42" stop-color="#60a5fa"/>
+      <stop offset="0.72" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#e6982a"/>
     </linearGradient>
+    <linearGradient id="accent" x1="16" y1="22" x2="37" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="14" y1="68" x2="66" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffc052"/>
+      <stop offset="0.5" stop-color="#ffb84d"/>
+      <stop offset="1" stop-color="#e6982a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="40" cy="40" r="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#020b1a" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+  <rect width="80" height="80" rx="18" fill="#020b1a"/>
+  <circle cx="40" cy="40" r="34" fill="url(#glow)"/>
   <path
-    d="M32 5 52.2 16.6v23.2L32 51.4 11.8 39.8V16.6L32 5Z"
-    stroke="url(#fav-unisq)"
-    stroke-width="1.75"
+    d="M40 12 62.8 25.2v29.6L40 68 17.2 54.8v-29.6L40 12Z"
+    stroke="url(#gold)"
+    stroke-width="1.25"
+    stroke-linejoin="round"
+    opacity="0.55"
+  />
+  <g
+    opacity="0.2"
+    stroke="#000"
+    stroke-width="7.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    transform="translate(0 1.25)"
+  >
+    <path d="M16 59V21M16 21 37 59"/>
+    <path d="M37 21V59H65"/>
+  </g>
+  <path
+    d="M16 59V21M16 21 37 59"
+    stroke="url(#n-grad)"
+    stroke-width="7.75"
+    stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M32 12.5 44.8 20v15L32 42.5 19.2 35V20L32 12.5Z"
-    stroke="#ffc052"
-    stroke-width="0.9"
-    stroke-linejoin="round"
-    opacity="0.45"
+    d="M17.5 23 35.2 55.5"
+    stroke="url(#accent)"
+    stroke-width="2.25"
+    stroke-linecap="round"
   />
-  <g transform="translate(0 -2)">
-    <ellipse cx="32" cy="30" rx="17" ry="7.5" stroke="#38bdf8" stroke-width="0.85" opacity="0.45" transform="rotate(-28 32 30)"/>
-    <ellipse cx="32" cy="30" rx="17" ry="7.5" stroke="#22d3ee" stroke-width="0.85" opacity="0.45" transform="rotate(28 32 30)"/>
-  </g>
-  <g transform="translate(3.5 -6)">
-    <path
-      d="M20.5 46.5V21.5M20.5 21.5 31 34.5 26.5 34.5 36.5 46.5M36.5 46.5V21.5"
-      stroke="url(#fav-grad)"
-      stroke-width="3.25"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M22 23.5 29.5 33.5 25.5 33.5 34.5 44"
-      stroke="url(#fav-accent)"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </g>
+  <path
+    d="M37 21V59H65"
+    stroke="url(#l-grad)"
+    stroke-width="7.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>

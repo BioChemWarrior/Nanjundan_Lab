@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nanjundan Lab",
-    template: "%s | Nanjundan Lab",
+    default: "Nanjundan Research Group",
+    template: "%s | Nanjundan Research Group",
   },
   description:
     "Interdisciplinary research laboratory advancing materials chemistry, clean energy materials, and energy storage.",

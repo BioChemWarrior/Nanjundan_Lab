@@ -15,7 +15,7 @@ export default function AlumniPage() {
 
   return (
     <>
-      <TeamHeroStrip title="Alumni" subtitle="Former researchers and students of Nanjundan Lab." />
+      <TeamHeroStrip title="Alumni" subtitle="Former researchers and students of Nanjundan Research Group." />
       <PageBody>
         <PageBodyInner>
           <TeamMemberGrid

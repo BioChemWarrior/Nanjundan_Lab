@@ -36,6 +36,34 @@ html {
   .border-glow-unisq {
     box-shadow: 0 0 0 1px rgba(255, 184, 77, 0.12), var(--glow-unisq-soft);
   }
+
+  /* Soft wash on all screens; side pattern only where margins exist */
+  .page-body-atmosphere {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255, 184, 77, 0.07), transparent 55%),
+      radial-gradient(ellipse 55% 45% at 50% 100%, rgba(15, 55, 120, 0.04), transparent 62%),
+      linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+  }
+
+  @media (min-width: 768px) {
+    .page-body-atmosphere {
+      background:
+        radial-gradient(ellipse 42% 70% at 0% 18%, rgba(255, 184, 77, 0.1), transparent 58%),
+        radial-gradient(ellipse 42% 70% at 100% 28%, rgba(255, 184, 77, 0.08), transparent 58%),
+        radial-gradient(ellipse 55% 45% at 50% 100%, rgba(15, 55, 120, 0.045), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #ffffff 100%);
+    }
+
+    .page-body-atmosphere::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image: radial-gradient(rgba(15, 55, 120, 0.045) 0.7px, transparent 0.7px);
+      background-size: 18px 18px;
+      mask-image: linear-gradient(90deg, black 0%, transparent 18%, transparent 82%, black 100%);
+    }
+  }
 }
 
 body {
@@ -110,7 +138,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-parallax-content [style*="transform"],
+  .home-parallax-root [style*="transform"],
   .hero-parallax-root [style*="transform"] {
     transform: none !important;
   }
@@ -143,6 +171,30 @@ body {
   }
 }
 
+/* Fixed header mark — subtle pulsing glow (SiteLogoRail only). */
+.site-logo-mark-glow {
+  animation: siteLogoMarkGlow 5s ease-in-out infinite;
+  will-change: filter;
+}
+
+@keyframes siteLogoMarkGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.35)) drop-shadow(0 0 10px rgba(255, 184, 77, 0.18));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.7)) drop-shadow(0 0 22px rgba(255, 184, 77, 0.42))
+      brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-logo-mark-glow {
+    animation: none;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+  }
+}
+
 /* Home hero atmosphere — layered over the interactive particle canvas. */
 .home-hero-grid {
   background-image:
@@ -161,11 +213,11 @@ body {
   0%,
   100% {
     opacity: 0.55;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
   50% {
     opacity: 0.12;
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: scale(1.05);
   }
 }
 
@@ -173,5 +225,34 @@ body {
   .home-hero-pulse-ring {
     animation: none;
     opacity: 0.25;
+  }
+}
+
+/* Homepage news ticker — seamless horizontal roll. */
+@keyframes news-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.news-marquee-track {
+  animation: news-marquee 36s linear infinite;
+  will-change: transform;
+}
+
+.news-ticker:hover .news-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-marquee-track {
+    display: none;
+  }
+
+  .news-ticker-static {
+    display: flex;
   }
 }

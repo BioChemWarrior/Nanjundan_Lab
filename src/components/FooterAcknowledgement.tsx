@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 const acknowledgementText =
-  "The Nanjundan Lab acknowledges the Traditional Custodians of Country throughout Australia and their connections to land, sea, and community. We pay our respect to their Elders past and present and extend that respect to all Aboriginal and Torres Strait Islander peoples today.";
+  "The Nanjundan Research Group acknowledges the Traditional Custodians of Country throughout Australia and their connections to land, sea, and community. We pay our respect to their Elders past and present and extend that respect to all Aboriginal and Torres Strait Islander peoples today.";
 
 export function FooterAcknowledgement() {
   const pathname = usePathname();
@@ -24,7 +24,7 @@ export function FooterAcknowledgement() {
         <a
           href="https://www.rawpixel.com/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="underline underline-offset-2 transition hover:text-white"
         >
           rawpixel.com

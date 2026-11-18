@@ -2,7 +2,7 @@
 export const labTagline = "Graphene Nanomaterials • Next Generation Batteries • Circular Economy Energy Materials";
 
 export const site = {
-  name: "Nanjundan Lab",
+  name: "Nanjundan Research Group",
   tagline: labTagline,
   institution: "University of Southern Queensland",
   email: "ashok.nanjundan@unisq.edu.au",
@@ -11,7 +11,7 @@ export const site = {
 };
 
 export const labBrand = {
-  title: "Nanjundan Lab",
+  title: "Nanjundan Research Group",
   subtitle: labTagline,
 } as const;
 
@@ -139,7 +139,7 @@ export const teamMembers = [
     name: "Sandeep Kumar",
     role: "PhD Scholar",
     focus: "Laboratory research",
-    bio: "PhD Scholar at Nanjundan Lab.",
+    bio: "PhD Scholar at Nanjundan Research Group.",
     email: "sandeep.kumar@unisq.edu.au",
   },
   {
@@ -147,7 +147,7 @@ export const teamMembers = [
     name: "Ancy Joseph",
     role: "PhD Scholar",
     focus: "Laboratory research",
-    bio: "Team member at Nanjundan Lab.",
+    bio: "Team member at Nanjundan Research Group.",
     email: "ancy.joseph@unisq.edu.au",
   },
 ];

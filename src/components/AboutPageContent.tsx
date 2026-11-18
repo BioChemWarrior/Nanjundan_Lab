@@ -1,9 +1,7 @@
 import Link from "next/link";
 import {
   aboutPageCopy,
-  centreForFutureMaterials,
   getTeamMembersByGroup,
-  labTagline,
   principalInvestigator,
   principalInvestigatorId,
   teamNavDropdown,
@@ -31,14 +29,13 @@ export function AboutPageContent() {
 
   return (
     <div className="w-full space-y-12 text-center text-base leading-relaxed text-slate-600 sm:space-y-14">
-      <section className="mx-auto max-w-5xl space-y-5">
+      <section className="mx-auto max-w-6xl space-y-5">
         <p className="eyebrow-glow-light">{aboutPageCopy.missionEyebrow}</p>
         <h2 className="text-pretty text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
           {aboutPageCopy.missionTitle}
         </h2>
         <p className="text-pretty sm:text-lg">{aboutPageCopy.missionBody}</p>
         <p className="text-pretty">{aboutPageCopy.missionBodyExtended}</p>
-        <p className="text-sm font-medium tracking-wide text-slate-500">{labTagline}</p>
       </section>
 
       <section className="grid items-center gap-10 border-y border-slate-200 py-10 sm:gap-12 sm:py-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 xl:gap-20">
@@ -72,43 +69,6 @@ export function AboutPageContent() {
           >
             Read full profile →
           </Link>
-        </div>
-      </section>
-
-      <section className="space-y-8 rounded-2xl border border-unisq-200/30 border-glow-unisq bg-slate-50 px-6 py-8 text-left sm:px-8 sm:py-10">
-        <div className="mx-auto max-w-4xl space-y-4 text-center lg:max-w-none">
-          <p className="eyebrow-glow-light">Affiliation</p>
-          <h3 className="text-pretty text-xl font-semibold text-slate-900 sm:text-2xl">{centreForFutureMaterials.name}</h3>
-          <p className="text-sm font-medium text-slate-500">{centreForFutureMaterials.institute} · UniSQ</p>
-          <p className="text-pretty sm:text-lg">{centreForFutureMaterials.tagline}</p>
-        </div>
-
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          <div className="space-y-4 text-left">
-            <p className="text-pretty">{centreForFutureMaterials.overview}</p>
-            <p className="text-pretty">{centreForFutureMaterials.overviewExtended}</p>
-            <p className="text-pretty text-sm font-medium text-unisq-800">{centreForFutureMaterials.labConnection}</p>
-            <a
-              href={centreForFutureMaterials.url}
-              target="_blank"
-              rel="noreferrer"
-              className="link-glow inline-flex text-sm"
-            >
-              Visit the Centre for Future Materials →
-            </a>
-          </div>
-
-          <div className="space-y-4 text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Research themes</p>
-            <ul className="space-y-4">
-              {centreForFutureMaterials.focusAreas.map((area) => (
-                <li key={area.title} className="rounded-xl border border-slate-200 bg-white px-4 py-4 sm:px-5">
-                  <p className="font-semibold text-slate-900">{area.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{area.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 

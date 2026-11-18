@@ -15,7 +15,7 @@ export default function AboutPage() {
       <SectionHeading
         eyebrow="About"
         title="Materials innovation for clean energy and circular resources"
-        description="Nanjundan Lab advances materials and electrochemical technologies for energy storage, clean-energy systems, and circular resource recovery as part of the Centre for Future Materials at UniSQ."
+        description="Nanjundan Research Group advances materials and electrochemical technologies for energy storage, clean-energy systems, and circular resource recovery as part of the Centre for Future Materials at UniSQ."
       />
       <div className="space-y-6 text-base leading-relaxed text-slate-400">
         <p>

@@ -18,13 +18,14 @@ export function PageBody({ children, className, as: Tag = "div" }: PageBodyProps
   return (
     <Tag
       className={[
-        "flex flex-1 flex-col bg-white text-slate-900 shadow-[inset_0_2px_0_0_rgba(255,184,77,0.2)] px-4 py-10 sm:px-6 sm:py-12 lg:px-8",
+        "relative isolate flex flex-1 flex-col overflow-hidden bg-white text-slate-900 shadow-[inset_0_2px_0_0_rgba(255,184,77,0.2)]",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
     >
-      {children}
+      <div aria-hidden className="page-body-atmosphere pointer-events-none absolute inset-0" />
+      <div className="relative z-10 flex min-w-0 flex-1 flex-col px-4 py-8 sm:px-6 sm:py-12 lg:px-8">{children}</div>
     </Tag>
   );
 }

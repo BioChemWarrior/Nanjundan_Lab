@@ -63,7 +63,7 @@ export function JournalCoverCarousel({ covers }: Props) {
           key={`${entry.journal}-${index}`}
           href={entry.coverPageUrl}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className={slideClass}
           aria-label={`${entry.journal} cover page`}
         >
