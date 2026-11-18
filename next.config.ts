@@ -20,7 +20,8 @@ const ContentSecurityPolicy = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://pub.orcid.org https://api.altmetric.com https://embed.altmetric.com https://badges.altmetric.com https://d1uo4w7k31k5mn.cloudfront.net",
-  "frame-src 'self' https://embed.altmetric.com https://www.altmetric.com https://www.youtube.com https://www.youtube-nocookie.com",
+  // Google Maps embed on Join Us (maps.google.com redirects into www.google.com/maps).
+  "frame-src 'self' https://embed.altmetric.com https://www.altmetric.com https://www.youtube.com https://www.youtube-nocookie.com https://maps.google.com https://www.google.com",
   "media-src 'self' blob:",
   "worker-src 'self' blob:",
   "upgrade-insecure-requests",
