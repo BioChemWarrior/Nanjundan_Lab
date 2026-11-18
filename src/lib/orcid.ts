@@ -159,7 +159,8 @@ export async function fetchOrcidPublications(orcidId: string): Promise<OrcidPubl
 
   const res = await fetch(url, {
     headers: { Accept: "application/json" },
-    next: { revalidate: 86_400 },
+    // Refresh ORCID works about hourly so new deposits show up without a redeploy.
+    next: { revalidate: 3_600 },
   });
 
   if (!res.ok) {

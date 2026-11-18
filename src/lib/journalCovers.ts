@@ -35,6 +35,11 @@ const TOP_JOURNAL_COVERS: JournalCover[] = [
     coverPageUrl: "https://onlinelibrary.wiley.com/journal/2365709x",
     coverImageUrl: "/journal-covers/advanced-materials-technologies.png",
   },
+  {
+    journal: "Small",
+    coverPageUrl: "https://onlinelibrary.wiley.com/journal/16136829",
+    coverImageUrl: "/journal-covers/small-cathode.png",
+  },
 ];
 
 function normalizeVenue(venue: string): string {

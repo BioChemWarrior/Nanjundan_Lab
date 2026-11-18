@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Publications",
 };
 
+/** Keep the ORCID-backed list fresh alongside fetch revalidation. */
+export const revalidate = 3600;
+
 const PUBLICATIONS_PER_PAGE = 15;
 
 type PublicationsPageProps = {

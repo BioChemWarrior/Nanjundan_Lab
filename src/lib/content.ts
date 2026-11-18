@@ -251,6 +251,27 @@ const currentTeamMembers = [
     email: "Jiahu.Zhang@unisq.edu.au",
     joined: "January 2026",
   },
+  {
+    id: "gabriel-longe",
+    group: "current" as const,
+    name: "Gabriel Longe",
+    role: "Masters Student",
+    focus: "Renewable & sustainable energy · energy efficiency · materials & mechanical systems · battery recycling",
+    bio: "Gabriel Longe is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland. He has an undergraduate background in Materials and Metallurgical Engineering. His interests are renewable and sustainable energy, energy efficiency, materials and mechanical systems. He has joined the battery recycling and second-life applications project to gain hands-on research experience.",
+    photo: "/team/gabriel-longe.jpg",
+    email: "",
+    joined: "November 2026",
+  },
+  {
+    id: "motassim-billah",
+    group: "current" as const,
+    name: "Dr. Motassim Billah",
+    role: "Adjunct Research Fellow",
+    focus: "Mesoporous BaTiO₃ · ferroelectric materials · energy storage under force · energy harvesting",
+    bio: "Dr. Motassim Billah worked on the synthesis of mesoporous ferroelectric barium titanate (BaTiO₃, pore size between 10 nm–35 nm) and its variations [Ba₁₋ₓSrₓTiO₃ where x≤0.05; Ba₁₋ₓCaₓ(Ti₁₋ᵧZrᵧ)O₃ where x≤0.15; y≤0.10]. Materials can be prepared as powder or as thin films with layer thickness between 200 nm–5 µm. His typical interest is measuring how much energy these engineered materials can store under a known applied force. From initial theoretical understanding (mostly in-practice work on lead zirconate titanate), it remains unclear why the morphotropic phase boundary of non-Pb systems is inferior to that of Pb-based systems. He completed higher studies (2003–2006) in Design Science at the University of Sydney, including involvement in bioscience instrumentation design and interfacing for R&D. He worked (2011–2013) as a full-time Technical Officer at the University of Technology Sydney (UTS), Faculty of Applied Physics and Advanced Materials, providing research and teaching support for Measurement and Analysis of Physical Process and Applied Electronics & Interfacing. He was a visiting researcher (2014–2016) at the Institute of Superconductor and Electronic Materials (ISEM), University of Wollongong, with a key contribution investigating energy-harvesting techniques and their application. He was also a visiting researcher (3 months, 2016) at the National Institute of Material Science (NIMS), Japan, with a key focus on learning techniques for mesoporous materials. He is currently awarded a scholarship for a Doctor of Philosophy at the AIBN, University of Queensland.",
+    photo: "/team/motassim-billah.jpg",
+    email: "",
+  },
 ] as const;
 
 /** Adjunct collaborators affiliated with the lab. */
@@ -289,7 +310,7 @@ export const adjunctMembers: readonly AdjunctTeamMember[] = [
     id: "prashanth-w-menezes",
     group: "adjunct",
     name: "Dr. Prashanth W. Menezes",
-    role: "Head of Department\nMaterials Chemistry for catalysis\nHelmholtz-Zentrum Berlin\nAdjunct Associate Professor - UniSQ",
+    role: "Head of Department\nMaterials Chemistry for catalysis\nHelmholtz-Zentrum Berlin\nAdjunct Professor - UniSQ",
     focus: "Intermetallic catalysis · electrocatalysis · green hydrogen",
     bio: "A catalysis and materials chemist advancing intermetallic electrocatalysts and sustainable energy conversion for green hydrogen production.",
     careerSummary:
@@ -796,6 +817,30 @@ export type NewsPost = {
 };
 
 export const newsPosts: readonly NewsPost[] = [
+  {
+    slug: "welcome-gabriel-longe",
+    title: "Welcome to Gabriel Longe",
+    date: "2026-11-17",
+    excerpt:
+      "Gabriel Longe joins as a Masters student contributing to battery recycling and second-life applications research.",
+    body: [
+      "We are pleased to welcome Gabriel Longe to the Nanjundan Research Group as a Masters student.",
+      "Gabriel is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland, with an undergraduate background in Materials and Metallurgical Engineering. His interests include renewable and sustainable energy, energy efficiency, materials and mechanical systems.",
+      "He has joined the battery recycling and second-life applications project to gain hands-on research experience. Welcome to the group, Gabriel.",
+    ],
+  },
+  {
+    slug: "welcome-motassim-billah",
+    title: "Welcome to Dr. Motassim Billah",
+    date: "2026-11-16",
+    excerpt:
+      "Dr. Motassim Billah joins as an Adjunct Research Fellow under Visiting Researchers, bringing expertise in mesoporous ferroelectric materials.",
+    body: [
+      "Please join us in welcoming Dr. Motassim Billah to the Nanjundan Research Group as an Adjunct Research Fellow in Visiting Researchers.",
+      "Dr. Billah’s research includes the synthesis of mesoporous ferroelectric barium titanate and related materials, including powder and thin-film forms, with a focus on energy storage under applied force and energy-harvesting techniques.",
+      "We look forward to the contributions he will make across our materials and energy programmes.",
+    ],
+  },
   {
     slug: "arc-future-fellowship-self-healing-sodium-ion",
     title: "Prof. Ashok Kumar Nanjundan awarded ARC Future Fellowship",
