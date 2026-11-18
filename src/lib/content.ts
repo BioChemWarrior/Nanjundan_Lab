@@ -251,6 +251,16 @@ const currentTeamMembers = [
     email: "Jiahu.Zhang@unisq.edu.au",
     joined: "January 2026",
   },
+  {
+    id: "gabriel-longe",
+    group: "current" as const,
+    name: "Gabriel Longe",
+    role: "Masters Student",
+    focus: "Renewable & sustainable energy · energy efficiency · materials & mechanical systems · battery recycling",
+    bio: "Gabriel Longe is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland. He has an undergraduate background in Materials and Metallurgical Engineering. His interests are renewable and sustainable energy, energy efficiency, materials and mechanical systems. He has joined the battery recycling and second-life applications project to gain hands-on research experience.",
+    photo: "/team/gabriel-longe.jpg",
+    email: "",
+  },
 ] as const;
 
 /** Adjunct collaborators affiliated with the lab. */
