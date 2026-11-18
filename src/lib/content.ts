@@ -818,6 +818,30 @@ export type NewsPost = {
 
 export const newsPosts: readonly NewsPost[] = [
   {
+    slug: "welcome-gabriel-longe",
+    title: "Welcome to Gabriel Longe",
+    date: "2026-11-17",
+    excerpt:
+      "Gabriel Longe joins as a Masters student contributing to battery recycling and second-life applications research.",
+    body: [
+      "We are pleased to welcome Gabriel Longe to the Nanjundan Research Group as a Masters student.",
+      "Gabriel is a Master of Professional Engineering (Mechanical) student at the University of Southern Queensland, with an undergraduate background in Materials and Metallurgical Engineering. His interests include renewable and sustainable energy, energy efficiency, materials and mechanical systems.",
+      "He has joined the battery recycling and second-life applications project to gain hands-on research experience. Welcome to the group, Gabriel.",
+    ],
+  },
+  {
+    slug: "welcome-motassim-billah",
+    title: "Welcome to Dr. Motassim Billah",
+    date: "2026-11-16",
+    excerpt:
+      "Dr. Motassim Billah joins as an Adjunct Research Fellow under Visiting Researchers, bringing expertise in mesoporous ferroelectric materials.",
+    body: [
+      "Please join us in welcoming Dr. Motassim Billah to the Nanjundan Research Group as an Adjunct Research Fellow in Visiting Researchers.",
+      "Dr. Billah’s research includes the synthesis of mesoporous ferroelectric barium titanate and related materials, including powder and thin-film forms, with a focus on energy storage under applied force and energy-harvesting techniques.",
+      "We look forward to the contributions he will make across our materials and energy programmes.",
+    ],
+  },
+  {
     slug: "arc-future-fellowship-self-healing-sodium-ion",
     title: "Prof. Ashok Kumar Nanjundan awarded ARC Future Fellowship",
     date: "2026-09-08",
