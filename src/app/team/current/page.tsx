@@ -18,12 +18,20 @@ function isResearchFellow(role: string) {
   return /research fellow/i.test(role) && !isVisitingResearcher(role);
 }
 
+function isMasterStudent(role: string) {
+  return /masters?\s+student/i.test(role);
+}
+
 export default function CurrentTeamPage() {
   const members = getTeamMembersByGroup("current");
   const researchFellows = members.filter((member) => isResearchFellow(member.role));
   const phdScholars = members.filter(
-    (member) => !isResearchFellow(member.role) && !isVisitingResearcher(member.role),
+    (member) =>
+      !isResearchFellow(member.role) &&
+      !isVisitingResearcher(member.role) &&
+      !isMasterStudent(member.role),
   );
+  const masterStudents = members.filter((member) => isMasterStudent(member.role));
   const visitingResearchers = members.filter((member) => isVisitingResearcher(member.role));
 
   return (
@@ -44,6 +52,14 @@ export default function CurrentTeamPage() {
               <h2 className="text-lg font-semibold text-slate-900">PhD Scholars</h2>
               <div className="mt-6">
                 <TeamMemberGrid members={phdScholars} />
+              </div>
+            </section>
+          ) : null}
+          {masterStudents.length > 0 ? (
+            <section>
+              <h2 className="text-lg font-semibold text-slate-900">Master Students</h2>
+              <div className="mt-6">
+                <TeamMemberGrid members={masterStudents} />
               </div>
             </section>
           ) : null}
